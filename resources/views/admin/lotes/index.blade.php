@@ -2,7 +2,7 @@
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-@include('admin.empreendimentos.page-header')
+@include('admin.lotes.page-header')
 
  <!-- Main content -->
  <section class="content">
@@ -13,11 +13,11 @@
          <!-- general form elements disabled -->
          <div class="card card-primary">
            <div class="card-header">
-             <h3 class="card-title">EMPREENDIMENTOS</h3>
+             <h3 class="card-title">LOTES</h3>
            </div>
            <!-- /.card-header -->
            <div class="card-body p-0">
-              @include('admin.empreendimentos.list')
+              @include('admin.lotes.list')
            </div>
            <!-- /.card-body -->
          </div>
@@ -31,4 +31,11 @@
  <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+@endsection
+
+@section('javascript')
+
+<!-- select 2 -->
+<script src="{{ asset('/') }}"></script>
+
 @endsection

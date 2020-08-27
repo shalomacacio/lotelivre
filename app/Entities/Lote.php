@@ -20,6 +20,30 @@ class Lote extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = [
+      'empreendimento_id',
+      'quadra',
+      'lote',
+      'construção',
+      'vendido',
+      'valor',
+      'rgi_individual',
+      'area',
+      'frente',
+      'fundo',
+      'esquerda',
+      'direita',
+      'frente_com',
+      'fundo_com',
+      'esquerda_com',
+      'direitra_com',
+      'descricao',
+      'obs'
+    ];
+
+    public function empreendimento()
+    {
+        return $this->belongsTo('App\Entities\Empreendimento');
+    }
 
 }

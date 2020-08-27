@@ -129,7 +129,7 @@ class EmpreendimentosController extends Controller
             ]);
         }
 
-        return view('empreendimentos.show', compact('empreendimento'));
+        return view('admin.empreendimentos.show', compact('empreendimento'));
     }
 
     /**
@@ -143,7 +143,7 @@ class EmpreendimentosController extends Controller
     {
         $empreendimento = $this->repository->find($id);
 
-        return view('empreendimentos.edit', compact('empreendimento'));
+        return view('admin.empreendimentos.edit', compact('empreendimento'));
     }
 
     /**

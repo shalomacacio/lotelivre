@@ -11,6 +11,7 @@ use App\Http\Requests\LoteCreateRequest;
 use App\Http\Requests\LoteUpdateRequest;
 use App\Repositories\LoteRepository;
 use App\Validators\LoteValidator;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class LotesController.
@@ -58,7 +59,18 @@ class LotesController extends Controller
             ]);
         }
 
-        return view('lotes.index', compact('lotes'));
+        return view('admin.lotes.index', compact('lotes'));
+    }
+
+         /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $empreendimentos = DB::table('empreendimentos')->get();
+        return view('admin.lotes.create', compact('empreendimentos'));
     }
 
     /**
@@ -119,7 +131,7 @@ class LotesController extends Controller
             ]);
         }
 
-        return view('lotes.show', compact('lote'));
+        return view('admin.lotes.show', compact('lote'));
     }
 
     /**
@@ -133,7 +145,7 @@ class LotesController extends Controller
     {
         $lote = $this->repository->find($id);
 
-        return view('lotes.edit', compact('lote'));
+        return view('admin.lotes.edit', compact('lote'));
     }
 
     /**

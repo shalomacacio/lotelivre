@@ -39,11 +39,9 @@ class HomeController extends Controller
             }else{
                 $user = User::where('email', $request->email)->first();
                 if(!$user){
-                  return dd('erro', $request);
                     throw new Exception("Email inválido");
                 }
                 if($user->password != $request->get('password')){
-                  return dd('erro senha', $request);
                     throw new Exception("Senha inválida");
                 }
 

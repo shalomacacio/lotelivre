@@ -22,7 +22,6 @@ Route::post('/auth', 'HomeController@auth')->name('auth');
 
 Route::group([ 'prefix' => 'admin' ,'middleware' => ['auth']], function () {
     Route::get('/logout', 'HomeController@logout')->name('login');
-
     Route::resource('empreendimentos', 'EmpreendimentosController');
-
+    Route::resource('lotes', 'LotesController');
 });

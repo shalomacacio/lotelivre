@@ -2,7 +2,7 @@
  @section('content')
  <!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
- @include('admin.empreendimentos.page-header')
+ @include('admin.lotes.page-header')
  {{-- @include('admin.layouts.admin-partials.alerts') --}}
   <!-- Main content -->
   <section class="content">
@@ -13,13 +13,13 @@
           <!-- general form elements disabled -->
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Novo Empreendimento</h3>
+              <h3 class="card-title">Novo Lote</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <form role="form" action="{{ route('empreendimentos.store') }}" method="POST">
+              <form role="form" action="{{ route('lotes.store') }}" method="POST">
                 @csrf
-                @include('admin.empreendimentos.form')
+                @include('admin.lotes.form')
                 <div class="card-footer">
                   <button type="submit" class="btn btn-info">Salvar</button>
                   <button type="submit" class="btn btn-default float-right">Cancelar</button>

@@ -3,7 +3,7 @@
  <!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
  @include('admin.empreendimentos.page-header')
- {{-- @include('admin.layouts.admin-partials.alerts') --}}
+
   <!-- Main content -->
   <section class="content">
     <div class="container-fluid">
@@ -17,7 +17,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <form role="form" action="{{ route('empreendimentos.store') }}" method="POST">
+              <form role="form" action="{{ route('empreendimentos.update', $empreendimento->id) }}" method="POST">
                 @csrf
                 @include('admin.empreendimentos.form')
                 <div class="card-footer">
