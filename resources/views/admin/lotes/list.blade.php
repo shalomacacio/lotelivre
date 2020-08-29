@@ -2,9 +2,11 @@
   <thead>
     <tr>
       <th style="width: 10px">#</th>
-      <th>EMPREENDIMENTOS</th>
-      <th>CNPJ</th>
-      <th>MATRÍCULA</th>
+      <th>EMPREENDIMENTO</th>
+      <th>VALOR R$</th>
+      <th>QUADRA</th>
+      <th>LOTE</th>
+      <th>DISPONÍVEL</th>
       <th>AÇÕES</th>
     </tr>
   </thead>
@@ -12,7 +14,11 @@
     @foreach ($lotes as $lote)
     <tr>
       <td>{{ $lote->id }}</td>
-
+      <td>{{ $lote->empreendimento->nome_fantasia }}</td>
+      <td>R$ {{ $lote->valor }}</td>
+      <td>{{ $lote->quadra }}</td>
+      <td>{{ $lote->lote }}</td>
+      <td>@if($lote->vendido == 0) N @else S @endif</td>
       <td class="text-right py-0 align-middle">
         <div class="btn-group btn-group-sm">
           <a href="{{ route('lotes.edit', $lote->id) }}" class="btn btn-info"><i class="fas fa-edit"></i></a>
