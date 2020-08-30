@@ -18,19 +18,11 @@
   @include('layouts.site-partials.styles')
   @yield('css')
 </head>
-
-<body class="js">
-  @include('layouts.site-partials.header')
-  @include('layouts.site-partials.banner-principal-fixo')
-  @include('layouts.site-partials.banner-videos')
-  @include('layouts.site-partials.conteudo')
-  @include('layouts.site-partials.banner-medio')
-  @include('layouts.site-partials.lotes-populares')
-  @include('layouts.site-partials.banner-pequeno')
-  @include('layouts.site-partials.banner-grande')
-  @include('layouts.site-partials.footer')
-  @include('layouts.site-partials.scripts')
-  @yield('javascript')
-</body>
-
+  <body class="js">
+    @include('layouts.site-partials.header')
+    @yield('content')
+    @include('layouts.site-partials.footer')
+    @include('layouts.site-partials.scripts')
+    @yield('javascript')
+  </body>
 </html>

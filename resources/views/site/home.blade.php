@@ -1,1 +1,12 @@
 @extends('layouts.site')
+@section('content')
+  @include('layouts.site-partials.banner-principal-rotativo')
+  @include('layouts.site-partials.servicos')
+  @include('layouts.site-partials.banner-videos')
+  @include('layouts.site-partials.conteudo')
+  @include('layouts.site-partials.banner-medio')
+  @include('layouts.site-partials.lotes-populares')
+  @include('layouts.site-partials.banner-pequeno')
+  @include('layouts.site-partials.banner-grande')
+  @include('layouts.site-partials.inscrevase')
+@endsection
