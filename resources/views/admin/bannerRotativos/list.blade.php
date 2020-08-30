@@ -1,0 +1,34 @@
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th style="width: 10px">#</th>
+      <th>ATIVO</th>
+      <th>IMG</th>
+      <th>TITULO </th>
+      <th>TITULO ATIVO</th>
+      <th>SUBTITULO</th>
+      <th>SUB TIT ATIVO</th>
+      <th>AÇÕES</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach ($bannerRotativos as $banner)
+    <tr>
+      <td>{{ $banner->id }}</td>
+      <td>{{ $banner->ativo }}</td>
+      <td>{{ $banner->img }}</td>
+      <td>{{ $banner->titulo }}</td>
+      <td>{{ $banner->titulo_ativo }}</td>
+      <td>{{ $banner->subtitulo }}</td>
+      <td>{{ $banner->subtitulo_ativo}}</td>
+      <td>@if($lote->vendido == 0) N @else S @endif</td>
+      <td class="text-right py-0 align-middle">
+        <div class="btn-group btn-group-sm">
+          <a href="{{ route('bannerRotativos.edit', $banner->id) }}" class="btn btn-info"><i class="fas fa-edit"></i></a>
+          <a href="{{ route('bannerRotativos.destroy', $banner->id) }}" class="btn btn-danger" onclick="return confirm('Confirma exclusão ?')" ><i class="fas fa-trash"></i></a>
+        </div>
+      </td>
+    </tr>
+    @endforeach
+  </tbody>
+</table>

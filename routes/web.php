@@ -11,17 +11,19 @@
 |
 */
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
-    return view('site.home');
+    return view('site.homes.index');
 });
 
-Route::get('/login', 'HomeController@login')->name('login');
-Route::post('/auth', 'HomeController@auth')->name('auth');
+Route::get('/login', 'AuthController@login')->name('login');
+Route::post('/auth', 'AuthController@auth')->name('auth');
 
 Route::group([ 'prefix' => 'admin' ,'middleware' => ['auth']], function () {
-    Route::get('/logout', 'HomeController@logout')->name('login');
+    Route::get('/logout', 'AuthController@logout')->name('login');
     Route::resource('empreendimentos', 'EmpreendimentosController');
     Route::resource('lotes', 'LotesController');
+    Route::resource('banner-rotativos', 'BannerRotativosController');
+
 });

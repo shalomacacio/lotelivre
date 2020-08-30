@@ -31,25 +31,46 @@
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-home"></i>
-              <p>Home <i class="fa fa-angle-left right"></i></p>
+              <p>HOME <i class="fa fa-angle-left right"></i></p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Topo</p>
+                  <p>TOPO</p>
                 </a>
               </li>
+              {{-- banner-principal  --}}
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-circle"></i>
+                  <p>
+                    BANNERS
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Banner Fixo</p>
+                    </a>
+                  </li>
+                  <li class="nav-item has-treeview">
+                    <a href="{{route('banner-rotativos.index') }}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>
+                        Banner Rotativo
+                      </p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              {{-- fim banner-prinicipal  --}}
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Banner Principal</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Banner Vídeos</p>
+                  <p></p>
                 </a>
               </li>
               <li class="nav-item">
@@ -71,7 +92,7 @@
             <li class="nav-item has-treeview ">
               <a href="#" class="nav-link ">
                 <i class="nav-icon fas fa-save"></i>
-                <p>CADASTROS</p>
+                <p>ADMINISTRATIVO</p>
               </a>
             </li>
             <li class="nav-item has-treeview">

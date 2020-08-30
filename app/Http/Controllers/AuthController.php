@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Entities\User;
 use Exception;
 
-class HomeController extends Controller
+class AuthController extends Controller
 {
     /**Diret to login page */
     public function login(){
@@ -46,7 +46,7 @@ class HomeController extends Controller
                 }
 
                 Auth::login($user);
-                return redirect()->route('admin.home');
+                return view('welcome');
 
             }
         } catch (Exception $e) {
