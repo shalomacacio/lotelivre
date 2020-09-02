@@ -73,10 +73,16 @@ class BannerRotativosController extends Controller
     public function store(BannerRotativoCreateRequest $request)
     {
         try {
-
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
+            $data = $request->all();
 
-            $bannerRotativo = $this->repository->create($request->all());
+            if( $request->hasFile('img') && $request->img->isValid()){
+              $imagePath = $request->img->store('site/img/banners');
+              $data['img'] = $imagePath;
+            }
+
+            // $bannerRotativo = $this->repository->create($request->all());
+            $bannerRotativo = $this->repository->create($data);
 
             $response = [
                 'message' => 'BannerRotativo created.',

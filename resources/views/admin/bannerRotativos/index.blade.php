@@ -17,7 +17,7 @@
            </div>
            <!-- /.card-header -->
            <div class="card-body">
-             <form role="form" action="{{ route('banner-rotativos.store') }}" method="POST">
+             <form role="form" action="{{ route('banner-rotativos.store') }}" method="POST" enctype="multipart/form-data" >
                @csrf
                @include('admin.bannerRotativos.form')
                <div class="card-footer">
@@ -29,6 +29,7 @@
            <!-- /.card-body -->
          </div>
          <!-- /.card -->
+         @include('admin.bannerRotativos.list')
        </div>
        <!--/.col (right) -->
      </div>

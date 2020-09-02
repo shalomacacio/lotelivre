@@ -13,13 +13,13 @@
           <!-- general form elements disabled -->
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Novo Empreendimento</h3>
+              <h3 class="card-title">Editar Banner</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <form role="form" action="{{ route('empreendimentos.update', $empreendimento->id) }}" method="POST">
+              <form role="form" action="{{ route('banner-rotativos.update', $bannerRotativo->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                @include('admin.empreendimentos.form')
+                @include('admin.bannerRotativos.form')
                 <div class="card-footer">
                   <button type="submit" class="btn btn-info">Salvar</button>
                   <button type="submit" class="btn btn-default float-right">Cancelar</button>

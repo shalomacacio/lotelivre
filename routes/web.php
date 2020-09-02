@@ -13,12 +13,11 @@
 
 use App\Http\Controllers\AuthController;
 
-Route::get('/', function () {
-    return view('site.homes.index');
-});
+Route::get('/', 'HomeController@home')->name('home');
 
 Route::get('/login', 'AuthController@login')->name('login');
 Route::post('/auth', 'AuthController@auth')->name('auth');
+
 
 Route::group([ 'prefix' => 'admin' ,'middleware' => ['auth']], function () {
     Route::get('/logout', 'AuthController@logout')->name('login');
