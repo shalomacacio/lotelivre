@@ -24,5 +24,6 @@ Route::group([ 'prefix' => 'admin' ,'middleware' => ['auth']], function () {
     Route::resource('empreendimentos', 'EmpreendimentosController');
     Route::resource('lotes', 'LotesController');
     Route::resource('banner-rotativos', 'BannerRotativosController');
+    Route::resource('banner-videos', 'BannerVideosController');
 
 });

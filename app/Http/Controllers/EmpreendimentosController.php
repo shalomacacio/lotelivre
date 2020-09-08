@@ -68,7 +68,7 @@ class EmpreendimentosController extends Controller
      */
     public function create()
     {
-        return view('admin.empreendimentos.create');
+      return view('admin.empreendimentos.create');
     }
 
     /**

@@ -55,4 +55,31 @@
       @isset( $empreendimento->dt_aprovacao ) value="{{ $empreendimento->dt_aprovacao }}" @endisset>
     </div>
   </div>
+
+  <div class="col-sm-4">
+    <!-- text input -->
+    <div class="form-group">
+      <label>BANNER G (1900x700px)</label>
+      <input type="file" name="banner_g" class="form-control" placeholder="199x700px"
+        @isset( $bannerRotativo->banner_g) value="{{ $bannerRotativo->banner_g }}" @endisset>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <!-- text input -->
+    <div class="form-group">
+      <label>BANNER M (1900x700px)</label>
+      <input type="file" name="banner_g" class="form-control" placeholder="199x700px"
+        @isset( $bannerRotativo->banner_m) value="{{ $bannerRotativo->banner_m }}" @endisset>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <!-- text input -->
+    <div class="form-group">
+      <label>BANNER P (1900x700px)</label>
+      <input type="file" name="banner_p" class="form-control" placeholder="199x700px"
+        @isset( $bannerRotativo->banner_p) value="{{ $bannerRotativo->banner_p }}" @endisset>
+    </div>
+  </div>
 </div>

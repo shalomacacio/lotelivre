@@ -19,6 +19,7 @@
             <div class="card-body">
               <form role="form" action="{{ route('banner-rotativos.update', $bannerRotativo->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
                 @include('admin.bannerRotativos.form')
                 <div class="card-footer">
                   <button type="submit" class="btn btn-info">Salvar</button>

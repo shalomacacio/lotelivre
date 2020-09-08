@@ -11,6 +11,7 @@ use App\Http\Requests\BannerRotativoCreateRequest;
 use App\Http\Requests\BannerRotativoUpdateRequest;
 use App\Repositories\BannerRotativoRepository;
 use App\Validators\BannerRotativoValidator;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class BannerRotativosController.
@@ -138,7 +139,6 @@ class BannerRotativosController extends Controller
     public function edit($id)
     {
         $bannerRotativo = $this->repository->find($id);
-
         return view('admin.bannerRotativos.edit', compact('bannerRotativo'));
     }
 
@@ -158,7 +158,19 @@ class BannerRotativosController extends Controller
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
 
-            $bannerRotativo = $this->repository->update($request->all(), $id);
+            $data = $request->all();
+            $bannerRotativo = $this->repository->find($id);
+
+            if( $request->hasFile('img') && $request->img->isValid()){
+              if($bannerRotativo->img && Storage::exists($bannerRotativo->img)){
+                Storage::delete($bannerRotativo->img);
+              }
+
+              $imagePath = $request->img->store('site/img/banners');
+              $data['img'] = $imagePath;
+            }
+
+            $bannerRotativo = $this->repository->update($data, $id);
 
             $response = [
                 'message' => 'BannerRotativo updated.',
@@ -195,6 +207,12 @@ class BannerRotativosController extends Controller
      */
     public function destroy($id)
     {
+
+        $bannerRotativo = $this->repository->find($id);
+
+        if( $bannerRotativo->img && Storage::exists($bannerRotativo->img)){
+          Storage::delete($bannerRotativo->img);
+        }
         $deleted = $this->repository->delete($id);
 
         if (request()->wantsJson()) {

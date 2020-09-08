@@ -22,13 +22,9 @@ class BannerRotativo extends Model implements Transformable
      */
     protected $fillable = [
       'img',
-      'alt',
       'ativo',
       'titulo',
-      'titulo_ativo',
       'subtitulo',
-      'subtitulo_ativo',
-
     ];
 
 }

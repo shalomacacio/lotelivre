@@ -23,8 +23,12 @@
       <td>{{ $banner->subtitulo_ativo}}</td>
       <td class="text-right py-0 align-middle">
         <div class="btn-group btn-group-sm">
-          <a href="{{ route('banner-rotativos.edit', $banner->id) }}" class="btn btn-info"><i class="fas fa-edit"></i></a>
-          <a href="{{ route('banner-rotativos.destroy', $banner->id) }}" class="btn btn-danger" onclick="return confirm('Confirma exclusão ?')" ><i class="fas fa-trash"></i></a>
+          <form action="{{ route('banner-rotativos.destroy', $banner->id) }}" method="POST">
+              @csrf
+              @method('DELETE')
+            <a href="{{ route('banner-rotativos.edit', $banner->id) }}" class="btn btn-info"><i class="fas fa-edit"></i></a>
+            <button  class="btn btn-danger" onclick="return confirm('Confirma exclusão ?')" ><i class="fas fa-trash"></i></button>
+          </form>
         </div>
       </td>
     </tr>

@@ -18,12 +18,9 @@ class CreateBannerRotativosTable extends Migration
 		Schema::create('banner_rotativos', function(Blueprint $table) {
             $table->increments('id');
             $table->string('img');
-            $table->string('alt')->nullable();
             $table->tinyInteger('ativo')->default(0);
             $table->string('titulo')->nullable();
-            $table->tinyInteger('titulo_ativo')->default(0);
             $table->string('subtitulo')->nullable();
-            $table->tinyInteger('subtitulo_ativo')->default(0);
             $table->timestamps();
 		});
 	}

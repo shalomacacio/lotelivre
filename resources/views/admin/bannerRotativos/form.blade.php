@@ -2,14 +2,12 @@
 
 <div class="row">
 
-  <div class="col-sm-3">
+  <div class="col-sm-4">
+    <!-- text input -->
     <div class="form-group">
-      <label for="customFile">Imagem 1900x700</label>
-      <div class="custom-file">
-        <input type="file" class="custom-file-input" name="img" id="img"
+      <label>IMAGEM: (1900x700px)</label>
+      <input type="file" name="img" class="form-control" placeholder="199x700px"
         @isset( $bannerRotativo->img) value="{{ $bannerRotativo->img }}" @endisset>
-        <label class="custom-file-label" for="img">1900x700.png</label>
-      </div>
     </div>
   </div>
 
@@ -31,14 +29,12 @@
     </div>
   </div>
 
-</div>
-<div class="row">
-
-  <div class="col-sm-3">
+  <div class="col-sm-2">
     <div class="form-group">
       <div class="form-check">
+        <label>ATIVAR / DESATIVAR:</label>
         <input class="form-check-input" type="checkbox" name="titulo_ativo" value="0">
-        <label class="form-check-label">Titulo Ativo</label>
+        <label class="form-check-label"> </label>
       </div>
     </div>
   </div>
