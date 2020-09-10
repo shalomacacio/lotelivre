@@ -7,7 +7,7 @@
       <div class="col-lg-4 col-md-6 col-12">
         <div class="single-banner">
             <div class="embed-responsive embed-responsive-16by9">
-              <iframe class="embed-responsive-item" src="{{ $video->url }}" allowfullscreen></iframe>
+              <iframe class="embed-responsive-item" src="{{ $video->url_video }}" allowfullscreen></iframe>
            </div>
         </div>
       </div>

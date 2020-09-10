@@ -17,24 +17,20 @@ class CreateEmpreendimentosTable extends Migration
 	{
 		Schema::create('empreendimentos', function(Blueprint $table) {
       $table->increments('id');
-      $table->string('nome_fantasia');
-      $table->string('razao_social')->nullable();
+      $table->string('nome');
       $table->string('cnpj')->nullable();
       $table->string('matricula')->nullable();
-      $table->string('cartorio')->nullable();
       $table->date('dt_aprovacao');
 
-      $table->tinyInteger('ativo')->defalt(0);
-      $table->string('banner_g')->nullable();
-      $table->string('banner_m')->nullable();
-      $table->string('banner_p')->nullable();
-      $table->string('banner_p_span')->nullable();
-      $table->tinyInteger('banner_p_destaque')->defalt(0);
+      $table->integer('estado_id');
+      $table->integer('cidade_id');
+
+      $table->string('img')->nullable();
       $table->string('url_video')->nullable();
       $table->tinyInteger('url_video_destaque')->defalt(0);
       $table->text('texto_descritivo')->nullable();
       $table->text('texto_destaque')->nullable();
-      $table->text('especificacoes')->nullable();
+
 
 
 

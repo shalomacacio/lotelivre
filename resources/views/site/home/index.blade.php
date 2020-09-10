@@ -4,9 +4,9 @@
   @include('layouts.site-partials.servicos')
   @include('layouts.site-partials.banner-videos')
   @include('layouts.site-partials.lotes-destaque')
-  @include('layouts.site-partials.conteudo')
-  @include('layouts.site-partials.banner-medio')
+  {{-- @include('layouts.site-partials.conteudo') --}}
+  @include('layouts.site-partials.banner-promocional')
   @include('layouts.site-partials.banner-pequeno')
-  @include('layouts.site-partials.banner-grande')
+  {{-- @include('layouts.site-partials.banner-grande') --}}
   @include('layouts.site-partials.inscrevase')
 @endsection

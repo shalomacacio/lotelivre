@@ -21,13 +21,32 @@ class Empreendimento extends Model implements Transformable
      * @var array
      */
     protected $fillable = [
-      'nome_fantasia',
-      'razao_social',
+      'img',
+      'nome',
       'cnpj',
       'matricula',
-      'cartorio',
-      'dt_aprovacao'
+      'dt_aprovacao',
+      'estado_id',
+      'cidade_id',
+      'url_video',
+      'url_video_destaque',
+      'texto_destaque',
+      'texto_descritivo',
 
     ];
+
+    protected $casts = [
+      'url_video_destaque' => 'boolean',
+    ];
+
+    public function lotes(){
+      return $this->hasMany('\App\Entities\Lote');
+    }
+
+    public function destaque(){
+      return $this->hasOne('\App\Entities\EmpreendimentoDestaque');
+    }
+
+
 
 }

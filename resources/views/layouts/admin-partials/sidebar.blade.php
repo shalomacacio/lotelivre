@@ -51,9 +51,9 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{route('banner-promocionals.index') }}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>Banner Fixo</p>
+                      <p>Banner Promocional</p>
                     </a>
                   </li>
                   <li class="nav-item has-treeview">

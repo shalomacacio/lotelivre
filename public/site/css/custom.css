@@ -407,7 +407,7 @@ Version:1.0
 	display: inline-block;
 	margin-right: 4px;
 	font-size: 15px;
-	color: #679429;
+	color: #fcda24;
 	position: relative;
 	top: 1px;
 }
@@ -416,7 +416,7 @@ Version:1.0
 	border:none;
 }
 .header.shop .list-main li a{
-	color:#333;
+	color:#fff;
 }
 .header.shop .list-main li a:hover{
 	color:#679429;
@@ -746,7 +746,7 @@ Version:1.0
 	border:none;
 }
 .header.shop .header-inner {
-	background: #ececec;
+	background: #ffffff;
 }
 .header.shop.v3 .header-inner {
 	background: transparent;
@@ -1159,7 +1159,7 @@ Version:1.0
 	visibility:visible;
 }
 .header.sticky .header-inner .nav li a {
-	color: #333;
+	color: #f8f2f2;
 }
 .header.sticky.v3 .header-inner .nav li a {
 	color: #fff;
@@ -1186,7 +1186,7 @@ Version:1.0
 	position:fixed;
 	top:0;
 	left:0;
-	background:#fff;
+	background:#481639;
 	animation: fadeInDown 1s both 0.2s;
 	-webkit-box-shadow:0px 0px 10px rgba(0, 0, 0, 0.3);
 	-moz-box-shadow:0px 0px 10px rgba(0, 0, 0, 0.3);
@@ -1215,7 +1215,6 @@ Version:1.0
 }
 .hero-slider .single-slider {
 	height: auto;
-	background-image: url('https://via.placeholder.com/1900x700');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -1636,11 +1635,11 @@ Version:1.0
 	padding: .375rem .75rem;
 	font-size: 13px;
 	border-radius: .25rem;
-	background: #333;
+	background: #6c1f55;
 	color: #fff !important;
 	padding: 10px 27px;
-	border-radius: 30px;
-	margin-top: 25px;
+	border-radius: 10px;
+	margin-top: 150px;
 	text-transform: uppercase;
 }
 .midium-banner .single-banner a:hover{
@@ -3738,8 +3737,8 @@ Version:1.0
 	background: #fff;
 }
 .shop-services.home{
-	padding:60px 0;
-	background:#ebebeb;
+	padding:20px 0;
+	background:#481639;
 }
 .shop-services .single-service {
 	position: relative;
@@ -3750,7 +3749,7 @@ Version:1.0
 	width: 50px;
 	line-height: 50px;
 	text-align: center;
-	color: #333;
+	color: #fcda24;
 	background: transparent;
 	border-radius: 100%;
 	display: block;
@@ -3764,10 +3763,10 @@ Version:1.0
 	font-weight: 600;
 	text-transform: uppercase;
 	line-height: 22px;
-	color: #333;
+	color: #fcda24;
 }
 .shop-services .single-service p {
-	color: #898989;
+	color: #ececec;
 	line-height: 28px;
 	font-size:14px;
 }
@@ -4349,7 +4348,7 @@ Version:1.0
 /* Blog Single CSS */
 .blog-single{
 	background:#fff;
-	padding:70px 0 100px;
+	padding:10px 0 100px;
 }
 .blog-single .blog-single-main {
 	margin-top: 30px;
@@ -4944,3 +4943,14 @@ Version:1.0
 /*=============================
 	End Footer CSS
 ===============================*/
+
+.section-title h2 {
+  font-size: 30px;
+  margin-bottom: 0;
+  text-transform: capitalize;
+  position: relative;
+  color: #481639;
+  font-weight: 700;
+  margin-bottom: 10px;
+  padding-bottom: 15px;
+}

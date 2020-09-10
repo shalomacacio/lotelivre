@@ -9,23 +9,23 @@
 						<!-- Single Widget -->
 						<div class="single-footer about">
 							<div class="logo">
-								<a href="index.html"><img src="images/logo2.png" alt="#"></a>
+								<a href="index.html"><img src="{{asset('site/images/logo2.png')}}" alt="#"></a>
 							</div>
 							<p class="text">Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue,  magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
-							<p class="call">Got Question? Call us 24/7<span><a href="tel:123456789">+0123 456 789</a></span></p>
+							<p class="call">Duvidas ? ligue <span><a href="tel:123456789">+0123 456 789</a></span></p>
 						</div>
 						<!-- End Single Widget -->
 					</div>
 					<div class="col-lg-2 col-md-6 col-12">
 						<!-- Single Widget -->
 						<div class="single-footer links">
-							<h4>Information</h4>
+							<h4>Informações</h4>
 							<ul>
-								<li><a href="#">About Us</a></li>
+								<li><a href="#">Sobre Nós</a></li>
 								<li><a href="#">Faq</a></li>
-								<li><a href="#">Terms & Conditions</a></li>
-								<li><a href="#">Contact Us</a></li>
-								<li><a href="#">Help</a></li>
+								<li><a href="#">Termos & Condições</a></li>
+								<li><a href="{{route('site.contato')}}">Contato</a></li>
+								<li><a href="#">Ajuda</a></li>
 							</ul>
 						</div>
 						<!-- End Single Widget -->
@@ -33,7 +33,7 @@
 					<div class="col-lg-2 col-md-6 col-12">
 						<!-- Single Widget -->
 						<div class="single-footer links">
-							<h4>Customer Service</h4>
+							<h4>Serviços </h4>
 							<ul>
 								<li><a href="#">Payment Methods</a></li>
 								<li><a href="#">Money-back</a></li>
@@ -47,16 +47,8 @@
 					<div class="col-lg-3 col-md-6 col-12">
 						<!-- Single Widget -->
 						<div class="single-footer social">
-							<h4>Get In Tuch</h4>
+							<h4>Siga-nos</h4>
 							<!-- Single Widget -->
-							<div class="contact">
-								<ul>
-									<li>NO. 342 - London Oxford Street.</li>
-									<li>012 United Kingdom.</li>
-									<li>info@eshop.com</li>
-									<li>+032 3456 7890</li>
-								</ul>
-							</div>
 							<!-- End Single Widget -->
 							<ul>
 								<li><a href="#"><i class="ti-facebook"></i></a></li>
@@ -82,7 +74,7 @@
 						</div>
 						<div class="col-lg-6 col-12">
 							<div class="right">
-								<img src="images/payments.png" alt="#">
+								{{-- <img src="{{asset('site/images/payment-method.png')}}" alt="#"> --}}
 							</div>
 						</div>
 					</div>

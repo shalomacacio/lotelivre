@@ -19,8 +19,7 @@ class EmpreendimentoValidator extends LaravelValidator
      */
     protected $rules = [
         ValidatorInterface::RULE_CREATE => [
-          'nome_fantasia' => 'required',
-          'razao_social'  => 'required',
+          'nome' => 'required',
         ],
         ValidatorInterface::RULE_UPDATE => [],
     ];

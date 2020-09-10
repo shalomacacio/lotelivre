@@ -7,11 +7,11 @@
 					<div class="col-lg-8 offset-lg-2 col-12">
 						<!-- Start Newsletter Inner -->
 						<div class="inner">
-							<h4>Newsletter</h4>
-							<p> Subscribe to our newsletter and get <span>10%</span> off your first purchase</p>
+							<h4>Novidades </h4>
+							<p> Inscreva-se <span>aqui</span> para receceber dicas e novidades </p>
 							<form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
-								<input name="EMAIL" placeholder="Your email address" required="" type="email">
-								<button class="btn">Subscribe</button>
+								<input name="EMAIL" placeholder="Seu email" required="" type="email">
+								<button class="btn">Enviar</button>
 							</form>
 						</div>
 						<!-- End Newsletter Inner -->

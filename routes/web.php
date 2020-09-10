@@ -13,7 +13,15 @@
 
 use App\Http\Controllers\AuthController;
 
-Route::get('/', 'HomeController@home')->name('home');
+Route::get('/', 'HomeController@home')->name('site.home');
+Route::get('/contato', 'HomeController@contato')->name('site.contato');
+Route::get('/empreendimentos', 'HomeController@empreendimentos')->name('site.empreendimentos');
+Route::get('/empreendimentos/{id}', 'HomeController@empreendimentoShow')->name('site.empreendimento.show');
+
+
+
+
+
 
 Route::get('/login', 'AuthController@login')->name('login');
 Route::post('/auth', 'AuthController@auth')->name('auth');
@@ -24,6 +32,7 @@ Route::group([ 'prefix' => 'admin' ,'middleware' => ['auth']], function () {
     Route::resource('empreendimentos', 'EmpreendimentosController');
     Route::resource('lotes', 'LotesController');
     Route::resource('banner-rotativos', 'BannerRotativosController');
-    Route::resource('banner-videos', 'BannerVideosController');
+    Route::resource('banner-promocionals', 'BannerPromocionalsController');
+    Route::resource('empreendimento-destaques', 'EmpreendimentoDestaquesController');
 
 });

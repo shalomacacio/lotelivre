@@ -17,7 +17,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <form role="form" action="{{ route('empreendimentos.store') }}" method="POST">
+              <form role="form" action="{{ route('empreendimentos.store') }}" method="POST"  enctype="multipart/form-data" >
                 @csrf
                 @include('admin.empreendimentos.form')
                 <div class="card-footer">
@@ -39,3 +39,14 @@
 </div>
 <!-- /.content-wrapper -->
 @endsection
+
+@section('javascript')
+<!-- File Input -->
+<script src="{{ asset('/site/plugins/bs-custom-file-input/bs-custom-file-input.js') }}"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    bsCustomFileInput.init();
+  });
+</script>
+@endsection
+
