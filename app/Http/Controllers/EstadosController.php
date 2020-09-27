@@ -2,41 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use App\Entities\Empreendimento;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
-use App\Http\Requests\EmpreendimentoDestaqueCreateRequest;
-use App\Http\Requests\EmpreendimentoDestaqueUpdateRequest;
-use App\Repositories\EmpreendimentoDestaqueRepository;
-use App\Validators\EmpreendimentoDestaqueValidator;
+use App\Http\Requests\EstadoCreateRequest;
+use App\Http\Requests\EstadoUpdateRequest;
+use App\Repositories\EstadoRepository;
+use App\Validators\EstadoValidator;
 
 /**
- * Class EmpreendimentoDestaquesController.
+ * Class EstadosController.
  *
  * @package namespace App\Http\Controllers;
  */
-class EmpreendimentoDestaquesController extends Controller
+class EstadosController extends Controller
 {
     /**
-     * @var EmpreendimentoDestaqueRepository
+     * @var EstadoRepository
      */
     protected $repository;
 
     /**
-     * @var EmpreendimentoDestaqueValidator
+     * @var EstadoValidator
      */
     protected $validator;
 
     /**
-     * EmpreendimentoDestaquesController constructor.
+     * EstadosController constructor.
      *
-     * @param EmpreendimentoDestaqueRepository $repository
-     * @param EmpreendimentoDestaqueValidator $validator
+     * @param EstadoRepository $repository
+     * @param EstadoValidator $validator
      */
-    public function __construct(EmpreendimentoDestaqueRepository $repository, EmpreendimentoDestaqueValidator $validator)
+    public function __construct(EstadoRepository $repository, EstadoValidator $validator)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
@@ -50,47 +49,40 @@ class EmpreendimentoDestaquesController extends Controller
     public function index()
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $empreendimentos = Empreendimento::all();
-        $empreendimentoDestaques = $this->repository->all();
+        $estados = $this->repository->all();
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $empreendimentoDestaques,
+                'data' => $estados,
             ]);
         }
 
-        return view('admin.empreendimentoDestaques.index', compact('empreendimentoDestaques', 'empreendimentos'));
+        return view('estados.index', compact('estados'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  EmpreendimentoDestaqueCreateRequest $request
+     * @param  EstadoCreateRequest $request
      *
      * @return \Illuminate\Http\Response
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function store(EmpreendimentoDestaqueCreateRequest $request)
+    public function store(EstadoCreateRequest $request)
     {
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
 
-            $data = $request->all();
-
-            if( $request->hasFile('img') && $request->img->isValid()){
-              $imagePath = $request->img->store('site/img/banners/destaque');
-              $data['img'] = $imagePath;
-            }
-
-            $empreendimentoDestaque = $this->repository->create($data);
+            $estado = $this->repository->create($request->all());
 
             $response = [
-                'message' => 'EmpreendimentoDestaque created.',
-                'data'    => $empreendimentoDestaque->toArray(),
+                'message' => 'Estado created.',
+                'data'    => $estado->toArray(),
             ];
+
             if ($request->wantsJson()) {
 
                 return response()->json($response);
@@ -118,16 +110,16 @@ class EmpreendimentoDestaquesController extends Controller
      */
     public function show($id)
     {
-        $empreendimentoDestaque = $this->repository->find($id);
+        $estado = $this->repository->find($id);
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $empreendimentoDestaque,
+                'data' => $estado,
             ]);
         }
 
-        return view('admin.empreendimentoDestaques.show', compact('empreendimentoDestaque'));
+        return view('estados.show', compact('estado'));
     }
 
     /**
@@ -139,32 +131,32 @@ class EmpreendimentoDestaquesController extends Controller
      */
     public function edit($id)
     {
-        $empreendimentoDestaque = $this->repository->find($id);
+        $estado = $this->repository->find($id);
 
-        return view('admin.empreendimentoDestaques.edit', compact('empreendimentoDestaque'));
+        return view('estados.edit', compact('estado'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  EmpreendimentoDestaqueUpdateRequest $request
+     * @param  EstadoUpdateRequest $request
      * @param  string            $id
      *
      * @return Response
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function update(EmpreendimentoDestaqueUpdateRequest $request, $id)
+    public function update(EstadoUpdateRequest $request, $id)
     {
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
 
-            $empreendimentoDestaque = $this->repository->update($request->all(), $id);
+            $estado = $this->repository->update($request->all(), $id);
 
             $response = [
-                'message' => 'EmpreendimentoDestaque updated.',
-                'data'    => $empreendimentoDestaque->toArray(),
+                'message' => 'Estado updated.',
+                'data'    => $estado->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -202,11 +194,11 @@ class EmpreendimentoDestaquesController extends Controller
         if (request()->wantsJson()) {
 
             return response()->json([
-                'message' => 'EmpreendimentoDestaque deleted.',
+                'message' => 'Estado deleted.',
                 'deleted' => $deleted,
             ]);
         }
 
-        return redirect()->back()->with('message', 'EmpreendimentoDestaque deleted.');
+        return redirect()->back()->with('message', 'Estado deleted.');
     }
 }

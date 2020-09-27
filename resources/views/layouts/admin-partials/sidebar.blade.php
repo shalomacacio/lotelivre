@@ -1,143 +1,134 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="#" class="brand-link">
-      <img src="{{ asset('vendor/adminlte/dist/img/logo.png') }}" alt="logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Lote Livre</span>
-    </a>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="{{ asset('vendor/adminlte/dist/img/profile.png')}}" class="img-circle elevation-2" alt="User Image">
+  <!-- Brand Logo -->
+  <a href="#" class="brand-link">
+    <img src="{{ asset('vendor/adminlte/dist/img/logo.png') }}" alt="logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <span class="brand-text font-weight-light">Lote Livre</span>
+  </a>
 
-        </div>
-        <div class="info">
-          <a href="#" class="d-block"> Usuário  </a>
-        </div>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Sidebar user panel (optional) -->
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="image">
+        <img src="{{ asset('vendor/adminlte/dist/img/profile.png') }}"  class="img-circle elevation-2" alt="User Image">
       </div>
+      <div class="info">
+        <a href="#" class="d-block"> Usuário  </a>
+      </div>
+    </div>
 
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <li class="nav-item has-treeview ">
-            <a href="#" class="nav-link ">
-              <i class="nav-icon fas fa-images"></i>
-              <p>SITE</p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-home"></i>
-              <p>HOME <i class="fa fa-angle-left right"></i></p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>TOPO</p>
-                </a>
-              </li>
-              {{-- banner-principal  --}}
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-circle"></i>
-                  <p>
-                    BANNERS
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="{{route('banner-promocionals.index') }}" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Banner Promocional</p>
-                    </a>
-                  </li>
-                  <li class="nav-item has-treeview">
-                    <a href="{{route('banner-rotativos.index') }}" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>
-                        Banner Rotativo
-                      </p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              {{-- fim banner-prinicipal  --}}
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p></p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Lotes Destaque</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Rodapé</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <li class="nav-item has-treeview ">
-              <a href="#" class="nav-link ">
-                <i class="nav-icon fas fa-save"></i>
-                <p>ADMINISTRATIVO</p>
-              </a>
-            </li>
-            <li class="nav-item has-treeview">
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <li class="nav-item has-treeview">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-images"></i>
+            <p>SITE <i class="fa fa-angle-left right"></i></p>
+          </a>
+          <ul class="nav nav-treeview">
+            {{-- <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-hotel"></i>
-                <p>Empreendimento <i class="fa fa-angle-left right"></i></p>
+                <i class="fa fa-circle-o nav-icon"></i>
+                <p>AGENDA</p>
+              </a>
+            </li> --}}
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link"><i class="nav-icon fas fa-home"></i>
+                  <p>HOME<i class="right fas fa-angle-left"></i></p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="{{route('empreendimentos.create') }}" class="nav-link">
-                    <i class="fa fa-circle-o nav-icon"></i>
-                    <p>Novo</p>
+                <a href="" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p> Topo  </p>
                   </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('empreendimentos.index') }}" class="nav-link">
-                      <i class="fa fa-circle-o nav-icon"></i>
-                      <p>Lista</p>
+                <a href="{{route('banner-rotativos.index') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p> Banner Rotativo  </p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p> Videos  </p>
                     </a>
-                  </li>
+                </li>
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p> Overlay  </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p> Banner Promicional   </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p> Banner Sucesso   </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p> Rodapé   </p>
+                    </a>
+                </li>
               </ul>
             </li>
             <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-map-marked-alt"></i>
-                  <p>Lote <i class="fa fa-angle-left right"></i></p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="{{route('lotes.create') }}" class="nav-link">
-                      <i class="fa fa-circle-o nav-icon"></i>
-                      <p>Novo</p>
-                    </a>
-                  </li>
-                    <li class="nav-item">
-                      <a href="{{route('lotes.index') }}" class="nav-link">
-                        <i class="fa fa-circle-o nav-icon"></i>
-                        <p>Lista</p>
-                      </a>
-                    </li>
-                </ul>
+              <a href="#" class="nav-link"><i class="nav-icon fas fa-circle"></i>
+                  <p>BLOG<i class="right fas fa-angle-left"></i></p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Novo Blog</p>
+                  </a>
+                </li>
+              </ul>
             </li>
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
+          </ul>
+        </li>
+        <li class="nav-item has-treeview">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-chart-line"></i>
+            <p>ADMIN <i class="fa fa-angle-left right"></i></p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fa fa-circle-o nav-icon"></i>
+                <p>Lotes</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fa fa-circle-o nav-icon"></i>
+                <p>Usuários</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{route('empreendimentos.create') }}" class="nav-link">
+                <i class="fa fa-circle-o nav-icon"></i>
+                <p>Empreendimentos</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>

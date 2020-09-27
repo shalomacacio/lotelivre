@@ -1,0 +1,75 @@
+@include('admin.empreendimentos.alerts')
+
+<div class="row">
+
+  <div class="col-sm-12">
+    <div class="form-group">
+      <label>Emprendimento:</label>
+      <select class="form-control" name="empreendimento_id" style="width: 100%;">
+        <option value="" selected >-- SELECIONE -- </option>
+          <option value="1">Rota do Sol</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="col-sm-12">
+    <div class="form-group">
+      <label for="exampleInputFile">Banner Principal </label>
+      <div class="input-group">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input"  name="imgs[]">
+          <label class="custom-file-label" for="exampleInputFile">Imagem</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12">
+    <div class="form-group">
+      <label for="exampleInputFile">Imagem 1 </label>
+      <div class="input-group">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input"  name="imgs[]">
+          <label class="custom-file-label" for="exampleInputFile">Imagem</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12">
+    <div class="form-group">
+      <label for="exampleInputFile">Imagem 2 </label>
+      <div class="input-group">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input"  name="imgs[]">
+          <label class="custom-file-label" for="exampleInputFile">Imagem</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12">
+    <div class="form-group">
+      <label for="exampleInputFile">Imagem 3 </label>
+      <div class="input-group">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input"  name="imgs[]">
+          <label class="custom-file-label" for="exampleInputFile">Imagem</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12">
+    <div class="form-group">
+      <label for="exampleInputFile">Imagem 4 </label>
+      <div class="input-group">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input"  name="imgs[]">
+          <label class="custom-file-label" for="exampleInputFile">Imagem</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

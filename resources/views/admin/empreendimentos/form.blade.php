@@ -40,8 +40,8 @@
     <!-- text input -->
     <div class="form-group">
       <label>DATA APROVAÇÃO:</label>
-      <input type="date" name="dt_aprovacao" class="form-control" placeholder="Enter ..."
-      @isset( $empreendimento->dt_aprovacao ) value="{{ $empreendimento->dt_aprovacao }}" @endisset>
+      <input type="date" name="dt_lancamento" class="form-control" placeholder="Enter ..."
+      @isset( $empreendimento->dt_lancamento ) value="{{ $empreendimento->dt_lancamento }}" @endisset>
     </div>
   </div>
 

@@ -21,6 +21,8 @@ class CreateBannerRotativosTable extends Migration
             $table->tinyInteger('ativo')->default(0);
             $table->string('titulo')->nullable();
             $table->string('subtitulo')->nullable();
+            $table->string('font_collor')->nullable();
+            $table->string('position')->nullable();
             $table->timestamps();
 		});
 	}

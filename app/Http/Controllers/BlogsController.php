@@ -2,41 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use App\Entities\Empreendimento;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
-use App\Http\Requests\EmpreendimentoDestaqueCreateRequest;
-use App\Http\Requests\EmpreendimentoDestaqueUpdateRequest;
-use App\Repositories\EmpreendimentoDestaqueRepository;
-use App\Validators\EmpreendimentoDestaqueValidator;
+use App\Http\Requests\BlogCreateRequest;
+use App\Http\Requests\BlogUpdateRequest;
+use App\Repositories\BlogRepository;
+use App\Validators\BlogValidator;
 
 /**
- * Class EmpreendimentoDestaquesController.
+ * Class BlogsController.
  *
  * @package namespace App\Http\Controllers;
  */
-class EmpreendimentoDestaquesController extends Controller
+class BlogsController extends Controller
 {
     /**
-     * @var EmpreendimentoDestaqueRepository
+     * @var BlogRepository
      */
     protected $repository;
 
     /**
-     * @var EmpreendimentoDestaqueValidator
+     * @var BlogValidator
      */
     protected $validator;
 
     /**
-     * EmpreendimentoDestaquesController constructor.
+     * BlogsController constructor.
      *
-     * @param EmpreendimentoDestaqueRepository $repository
-     * @param EmpreendimentoDestaqueValidator $validator
+     * @param BlogRepository $repository
+     * @param BlogValidator $validator
      */
-    public function __construct(EmpreendimentoDestaqueRepository $repository, EmpreendimentoDestaqueValidator $validator)
+    public function __construct(BlogRepository $repository, BlogValidator $validator)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
@@ -50,47 +49,40 @@ class EmpreendimentoDestaquesController extends Controller
     public function index()
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $empreendimentos = Empreendimento::all();
-        $empreendimentoDestaques = $this->repository->all();
+        $blogs = $this->repository->all();
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $empreendimentoDestaques,
+                'data' => $blogs,
             ]);
         }
 
-        return view('admin.empreendimentoDestaques.index', compact('empreendimentoDestaques', 'empreendimentos'));
+        return view('blogs.index', compact('blogs'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  EmpreendimentoDestaqueCreateRequest $request
+     * @param  BlogCreateRequest $request
      *
      * @return \Illuminate\Http\Response
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function store(EmpreendimentoDestaqueCreateRequest $request)
+    public function store(BlogCreateRequest $request)
     {
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
 
-            $data = $request->all();
-
-            if( $request->hasFile('img') && $request->img->isValid()){
-              $imagePath = $request->img->store('site/img/banners/destaque');
-              $data['img'] = $imagePath;
-            }
-
-            $empreendimentoDestaque = $this->repository->create($data);
+            $blog = $this->repository->create($request->all());
 
             $response = [
-                'message' => 'EmpreendimentoDestaque created.',
-                'data'    => $empreendimentoDestaque->toArray(),
+                'message' => 'Blog created.',
+                'data'    => $blog->toArray(),
             ];
+
             if ($request->wantsJson()) {
 
                 return response()->json($response);
@@ -118,16 +110,16 @@ class EmpreendimentoDestaquesController extends Controller
      */
     public function show($id)
     {
-        $empreendimentoDestaque = $this->repository->find($id);
+        $blog = $this->repository->find($id);
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $empreendimentoDestaque,
+                'data' => $blog,
             ]);
         }
 
-        return view('admin.empreendimentoDestaques.show', compact('empreendimentoDestaque'));
+        return view('blogs.show', compact('blog'));
     }
 
     /**
@@ -139,32 +131,32 @@ class EmpreendimentoDestaquesController extends Controller
      */
     public function edit($id)
     {
-        $empreendimentoDestaque = $this->repository->find($id);
+        $blog = $this->repository->find($id);
 
-        return view('admin.empreendimentoDestaques.edit', compact('empreendimentoDestaque'));
+        return view('blogs.edit', compact('blog'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  EmpreendimentoDestaqueUpdateRequest $request
+     * @param  BlogUpdateRequest $request
      * @param  string            $id
      *
      * @return Response
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function update(EmpreendimentoDestaqueUpdateRequest $request, $id)
+    public function update(BlogUpdateRequest $request, $id)
     {
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
 
-            $empreendimentoDestaque = $this->repository->update($request->all(), $id);
+            $blog = $this->repository->update($request->all(), $id);
 
             $response = [
-                'message' => 'EmpreendimentoDestaque updated.',
-                'data'    => $empreendimentoDestaque->toArray(),
+                'message' => 'Blog updated.',
+                'data'    => $blog->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -202,11 +194,11 @@ class EmpreendimentoDestaquesController extends Controller
         if (request()->wantsJson()) {
 
             return response()->json([
-                'message' => 'EmpreendimentoDestaque deleted.',
+                'message' => 'Blog deleted.',
                 'deleted' => $deleted,
             ]);
         }
 
-        return redirect()->back()->with('message', 'EmpreendimentoDestaque deleted.');
+        return redirect()->back()->with('message', 'Blog deleted.');
     }
 }

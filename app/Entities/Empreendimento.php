@@ -25,7 +25,7 @@ class Empreendimento extends Model implements Transformable
       'nome',
       'cnpj',
       'matricula',
-      'dt_aprovacao',
+      'dt_lancamento',
       'estado_id',
       'cidade_id',
       'url_video',

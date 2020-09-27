@@ -26,13 +26,12 @@ Route::get('/empreendimentos/{id}', 'HomeController@empreendimentoShow')->name('
 Route::get('/login', 'AuthController@login')->name('login');
 Route::post('/auth', 'AuthController@auth')->name('auth');
 
-
 Route::group([ 'prefix' => 'admin' ,'middleware' => ['auth']], function () {
+    Route::resource('lotes', 'LotesController');
     Route::get('/logout', 'AuthController@logout')->name('login');
     Route::resource('empreendimentos', 'EmpreendimentosController');
-    Route::resource('lotes', 'LotesController');
     Route::resource('banner-rotativos', 'BannerRotativosController');
     Route::resource('banner-promocionals', 'BannerPromocionalsController');
+    Route::resource('empreendimento-images', 'EmpreendimentoImagesController');
     Route::resource('empreendimento-destaques', 'EmpreendimentoDestaquesController');
-
 });

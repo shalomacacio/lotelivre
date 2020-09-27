@@ -20,7 +20,7 @@ class CreateEmpreendimentosTable extends Migration
       $table->string('nome');
       $table->string('cnpj')->nullable();
       $table->string('matricula')->nullable();
-      $table->date('dt_aprovacao');
+      $table->date('dt_lancamento');
 
       $table->integer('estado_id');
       $table->integer('cidade_id');

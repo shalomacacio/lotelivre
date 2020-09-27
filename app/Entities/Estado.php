@@ -3,16 +3,15 @@
 namespace App\Entities;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
 
 /**
- * Class EmpreendimentoImage.
+ * Class Estado.
  *
  * @package namespace App\Entities;
  */
-class EmpreendimentoImage extends Model implements Transformable
+class Estado extends Model implements Transformable
 {
     use TransformableTrait;
 
@@ -21,13 +20,6 @@ class EmpreendimentoImage extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = [
-      'empreendimento_id',
-      'img'
-    ];
-
-    public function empreendimentos(){
-      return $this->belongsTo('App\Entities\Empreendimento');
-    }
+    protected $fillable = [];
 
 }

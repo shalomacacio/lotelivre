@@ -2,40 +2,61 @@
  @section('content')
  <!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
+
+
  @include('admin.empreendimentos.page-header')
  {{-- @include('admin.layouts.admin-partials.alerts') --}}
   <!-- Main content -->
-  <section class="content">
-    <div class="container-fluid">
-      <div class="row">
-        <!-- right column -->
-        <div class="col-md-12">
-          <!-- general form elements disabled -->
-          <div class="card card-primary">
-            <div class="card-header">
-              <h3 class="card-title">Novo Empreendimento</h3>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-              <form role="form" action="{{ route('empreendimentos.store') }}" method="POST"  enctype="multipart/form-data" >
-                @csrf
-                @include('admin.empreendimentos.form')
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-info">Salvar</button>
-                  <button type="submit" class="btn btn-default float-right">Cancelar</button>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+
+              <div class="card-header p-2">
+                <ul class="nav nav-pills">
+                  <li class="nav-item"><a class="nav-link active" href="#cadastro" data-toggle="tab">Cadastro</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#imagens" data-toggle="tab">Imagens</a></li>
+                </ul>
+              </div><!-- /.card-header -->
+
+              <div class="card-body">
+                <div class="tab-content">
+                  <div class="active tab-pane" id="cadastro">
+                    <form role="form" action="{{ route('empreendimentos.store') }}" method="POST"  enctype="multipart/form-data" >
+                      @csrf
+                      @include('admin.empreendimentos.form')
+                      <div class="card-footer">
+                        <button type="submit" class="btn btn-info">Salvar</button>
+                        <button type="submit" class="btn btn-default float-right">Cancelar</button>
+                      </div>
+                    </form>
+                  </div>
+                  <!-- /.tab-pane -->
+                  <div class="tab-pane col-4" id="imagens">
+                    <form role="form" action="{{ route('empreendimento-images.store')}}" method="POST"  enctype="multipart/form-data" >
+                      @csrf
+                      @include('admin.empreendimentos.formImg')
+                      <div class="card-footer">
+                        <button type="submit" class="btn btn-info">Salvar</button>
+                        <button type="submit" class="btn btn-default float-right">Cancelar</button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
-              </form>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
             </div>
-            <!-- /.card-body -->
+            <!-- /.nav-tabs-custom -->
           </div>
-          <!-- /.card -->
+          <!-- /.col -->
         </div>
-        <!--/.col (right) -->
-      </div>
-      <!-- /.row -->
-    </div><!-- /.container-fluid -->
-  </section>
-  <!-- /.content -->
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
 @endsection

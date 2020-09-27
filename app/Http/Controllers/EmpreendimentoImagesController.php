@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\EmpreendimentoImage;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -75,8 +76,32 @@ class EmpreendimentoImagesController extends Controller
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
+            // return dd($request->allFiles());
 
-            $empreendimentoImage = $this->repository->create($request->all());
+            $data = $request->all();
+
+
+            for($i = 0; $i <= count($request->allFiles()); $i++){
+
+              $file = $request->allFiles()['imgs'][$i];
+
+              // return dd($file);
+
+
+              $empreendimentoImage = new EmpreendimentoImage();
+              $empreendimentoImage->empreendimento_id = $data['empreendimento_id'];
+              $empreendimentoImage->img = $file->store('site/img/empreendimentos/'.$data['empreendimento_id']);
+
+
+
+            }
+
+            // if( $request->hasFile('img') && $request->img->isValid()){
+
+            //   $data['img'] = $imagePath;
+            // }
+
+            $empreendimentoImage = $this->repository->create($data);
 
             $response = [
                 'message' => 'EmpreendimentoImage created.',

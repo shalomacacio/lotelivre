@@ -2,41 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use App\Entities\Empreendimento;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
-use App\Http\Requests\EmpreendimentoDestaqueCreateRequest;
-use App\Http\Requests\EmpreendimentoDestaqueUpdateRequest;
-use App\Repositories\EmpreendimentoDestaqueRepository;
-use App\Validators\EmpreendimentoDestaqueValidator;
+use App\Http\Requests\BannerVideoCreateRequest;
+use App\Http\Requests\BannerVideoUpdateRequest;
+use App\Repositories\BannerVideoRepository;
+use App\Validators\BannerVideoValidator;
 
 /**
- * Class EmpreendimentoDestaquesController.
+ * Class BannerVideosController.
  *
  * @package namespace App\Http\Controllers;
  */
-class EmpreendimentoDestaquesController extends Controller
+class BannerVideosController extends Controller
 {
     /**
-     * @var EmpreendimentoDestaqueRepository
+     * @var BannerVideoRepository
      */
     protected $repository;
 
     /**
-     * @var EmpreendimentoDestaqueValidator
+     * @var BannerVideoValidator
      */
     protected $validator;
 
     /**
-     * EmpreendimentoDestaquesController constructor.
+     * BannerVideosController constructor.
      *
-     * @param EmpreendimentoDestaqueRepository $repository
-     * @param EmpreendimentoDestaqueValidator $validator
+     * @param BannerVideoRepository $repository
+     * @param BannerVideoValidator $validator
      */
-    public function __construct(EmpreendimentoDestaqueRepository $repository, EmpreendimentoDestaqueValidator $validator)
+    public function __construct(BannerVideoRepository $repository, BannerVideoValidator $validator)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
@@ -50,47 +49,40 @@ class EmpreendimentoDestaquesController extends Controller
     public function index()
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $empreendimentos = Empreendimento::all();
-        $empreendimentoDestaques = $this->repository->all();
+        $bannerVideos = $this->repository->all();
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $empreendimentoDestaques,
+                'data' => $bannerVideos,
             ]);
         }
 
-        return view('admin.empreendimentoDestaques.index', compact('empreendimentoDestaques', 'empreendimentos'));
+        return view('bannerVideos.index', compact('bannerVideos'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  EmpreendimentoDestaqueCreateRequest $request
+     * @param  BannerVideoCreateRequest $request
      *
      * @return \Illuminate\Http\Response
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function store(EmpreendimentoDestaqueCreateRequest $request)
+    public function store(BannerVideoCreateRequest $request)
     {
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
 
-            $data = $request->all();
-
-            if( $request->hasFile('img') && $request->img->isValid()){
-              $imagePath = $request->img->store('site/img/banners/destaque');
-              $data['img'] = $imagePath;
-            }
-
-            $empreendimentoDestaque = $this->repository->create($data);
+            $bannerVideo = $this->repository->create($request->all());
 
             $response = [
-                'message' => 'EmpreendimentoDestaque created.',
-                'data'    => $empreendimentoDestaque->toArray(),
+                'message' => 'BannerVideo created.',
+                'data'    => $bannerVideo->toArray(),
             ];
+
             if ($request->wantsJson()) {
 
                 return response()->json($response);
@@ -118,16 +110,16 @@ class EmpreendimentoDestaquesController extends Controller
      */
     public function show($id)
     {
-        $empreendimentoDestaque = $this->repository->find($id);
+        $bannerVideo = $this->repository->find($id);
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $empreendimentoDestaque,
+                'data' => $bannerVideo,
             ]);
         }
 
-        return view('admin.empreendimentoDestaques.show', compact('empreendimentoDestaque'));
+        return view('bannerVideos.show', compact('bannerVideo'));
     }
 
     /**
@@ -139,32 +131,32 @@ class EmpreendimentoDestaquesController extends Controller
      */
     public function edit($id)
     {
-        $empreendimentoDestaque = $this->repository->find($id);
+        $bannerVideo = $this->repository->find($id);
 
-        return view('admin.empreendimentoDestaques.edit', compact('empreendimentoDestaque'));
+        return view('bannerVideos.edit', compact('bannerVideo'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  EmpreendimentoDestaqueUpdateRequest $request
+     * @param  BannerVideoUpdateRequest $request
      * @param  string            $id
      *
      * @return Response
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function update(EmpreendimentoDestaqueUpdateRequest $request, $id)
+    public function update(BannerVideoUpdateRequest $request, $id)
     {
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
 
-            $empreendimentoDestaque = $this->repository->update($request->all(), $id);
+            $bannerVideo = $this->repository->update($request->all(), $id);
 
             $response = [
-                'message' => 'EmpreendimentoDestaque updated.',
-                'data'    => $empreendimentoDestaque->toArray(),
+                'message' => 'BannerVideo updated.',
+                'data'    => $bannerVideo->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -202,11 +194,11 @@ class EmpreendimentoDestaquesController extends Controller
         if (request()->wantsJson()) {
 
             return response()->json([
-                'message' => 'EmpreendimentoDestaque deleted.',
+                'message' => 'BannerVideo deleted.',
                 'deleted' => $deleted,
             ]);
         }
 
-        return redirect()->back()->with('message', 'EmpreendimentoDestaque deleted.');
+        return redirect()->back()->with('message', 'BannerVideo deleted.');
     }
 }
