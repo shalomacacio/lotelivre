@@ -18,11 +18,6 @@ Route::get('/contato', 'HomeController@contato')->name('site.contato');
 Route::get('/empreendimentos', 'HomeController@empreendimentos')->name('site.empreendimentos');
 Route::get('/empreendimentos/{id}', 'HomeController@empreendimentoShow')->name('site.empreendimento.show');
 
-
-
-
-
-
 Route::get('/login', 'AuthController@login')->name('login');
 Route::post('/auth', 'AuthController@auth')->name('auth');
 

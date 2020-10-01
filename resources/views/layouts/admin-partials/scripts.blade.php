@@ -10,6 +10,7 @@
 <script src="{{ asset('/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('/vendor/adminlte/dist/js/adminlte.js') }}"></script>
+@yield('javascript')
 
 
 

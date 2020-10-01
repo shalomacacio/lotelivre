@@ -2,12 +2,21 @@
 
 <div class="row">
 
-  <div class="col-sm-4">
-    <!-- text input -->
+  <div class="col-sm-3">
     <div class="form-group">
-      <label>IMAGEM: (1900x700px)</label>
-      <input type="file" name="img" class="form-control" placeholder="199x700px"
-        @isset( $bannerRotativo->img) value="{{ $bannerRotativo->img }}" @endisset>
+      <label for="exampleInputFile">Banner Destaque <span>(1900x700px)</span> </label>
+      <div class="input-group">
+                <div class="input-group-prepend">
+          <span class="input-group-text">
+            <input type="checkbox"  name="ativo" >
+          </span>
+        </div>
+        <div class="custom-file">
+          <input type="file" name="img" class="custom-file-input" placeholder="199x700px"
+          @isset( $bannerRotativo->img) value="{{ $bannerRotativo->img }}" @endisset>
+          <label class="custom-file-label" for="exampleInputFile">Imagem</label>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -29,13 +38,18 @@
     </div>
   </div>
 
-  <div class="col-sm-2">
+  <div class="col-sm-3">
     <div class="form-group">
-      <div class="form-check">
-        <label>ATIVAR / DESATIVAR:</label>
-        <input class="form-check-input" type="checkbox" name="titulo_ativo" value="0">
-        <label class="form-check-label"> </label>
+      <label>Cor do Texto :</label>
+
+      <div class="input-group my-colorpicker2">
+        <input type="text" class="form-control" name="font_collor" @isset( $bannerRotativo->font_collor) value="{{ $bannerRotativo->subtitulo }}" @endisset>
+
+        <div class="input-group-append">
+          <span class="input-group-text"><i class="fas fa-square"></i></span>
+        </div>
       </div>
+      <!-- /.input group -->
     </div>
   </div>
 

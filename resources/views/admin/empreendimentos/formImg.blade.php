@@ -14,7 +14,7 @@
 
   <div class="col-sm-12">
     <div class="form-group">
-      <label for="exampleInputFile">Banner Principal </label>
+      <label for="exampleInputFile">Banner Principal <span>(1900x700px)</span> </label>
       <div class="input-group">
         <div class="custom-file">
           <input type="file" class="custom-file-input"  name="imgs[]">
@@ -26,7 +26,7 @@
 
   <div class="col-sm-12">
     <div class="form-group">
-      <label for="exampleInputFile">Imagem 1 </label>
+      <label for="exampleInputFile">Banner Destaque <span>(550x750px)</span> </label>
       <div class="input-group">
         <div class="custom-file">
           <input type="file" class="custom-file-input"  name="imgs[]">
@@ -38,7 +38,7 @@
 
   <div class="col-sm-12">
     <div class="form-group">
-      <label for="exampleInputFile">Imagem 2 </label>
+      <label for="exampleInputFile">Imagem 1 <span>(370x300px)</span> </label>
       <div class="input-group">
         <div class="custom-file">
           <input type="file" class="custom-file-input"  name="imgs[]">
@@ -50,7 +50,7 @@
 
   <div class="col-sm-12">
     <div class="form-group">
-      <label for="exampleInputFile">Imagem 3 </label>
+      <label for="exampleInputFile">Imagem 2 <span>(370x300px)</span> </label>
       <div class="input-group">
         <div class="custom-file">
           <input type="file" class="custom-file-input"  name="imgs[]">
@@ -62,7 +62,7 @@
 
   <div class="col-sm-12">
     <div class="form-group">
-      <label for="exampleInputFile">Imagem 4 </label>
+      <label for="exampleInputFile">Imagem 3 <span>(370x300px)</span> </label>
       <div class="input-group">
         <div class="custom-file">
           <input type="file" class="custom-file-input"  name="imgs[]">

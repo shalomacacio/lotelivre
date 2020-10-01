@@ -75,7 +75,14 @@ class BannerRotativosController extends Controller
     {
         try {
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
+
             $data = $request->all();
+            if($request->has('ativo')){
+              $data['ativo'] = 1;
+            }else{
+              $data['ativo'] = 0;
+            }
+
 
             if( $request->hasFile('img') && $request->img->isValid()){
               $imagePath = $request->img->store('site/img/banners');
@@ -159,6 +166,12 @@ class BannerRotativosController extends Controller
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
 
             $data = $request->all();
+            if($request->has('ativo')){
+              $data['ativo'] = 1;
+            }else{
+              $data['ativo'] = 0;
+            }
+
             $bannerRotativo = $this->repository->find($id);
 
             if( $request->hasFile('img') && $request->img->isValid()){
@@ -182,7 +195,7 @@ class BannerRotativosController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            return redirect()->route('banner-rotativos.index')->with('message', $response['message']);
         } catch (ValidatorException $e) {
 
             if ($request->wantsJson()) {
@@ -193,7 +206,7 @@ class BannerRotativosController extends Controller
                 ]);
             }
 
-            return redirect()->back()->withErrors($e->getMessageBag())->withInput();
+            return redirect()->route('banner-rotativos.index')->withErrors($e->getMessageBag())->withInput();
         }
     }
 

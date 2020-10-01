@@ -5,9 +5,10 @@
               @foreach($bannerRotativos as $banner)
                 @if($banner->ativo == 1)
                 <div class="carousel-item active">
-                  <img class="d-block w-100" src="{{ url("storage/{$banner->img}") }}" alt="First slide">                 <div class="carousel-caption d-none d-md-block">
-                    @isset($banner->titulo)<h1> {{$banner->titulo}} </h1> @endisset
-                    @isset($banner->subtitulo)<p> {{$banner->subtitulo}} </p> @endisset
+                  <img class="d-block w-100" src="{{ url("storage/{$banner->img}") }}" alt="First slide">
+                  <div class="carousel-caption d-none d-md-block ">
+                    @isset($banner->titulo)<h1 style="color: {{ $banner->font_collor  }}" > {{$banner->titulo}} </h1> @endisset
+                    @isset($banner->subtitulo)<h4 style="color: {{ $banner->font_collor  }}" > {{$banner->subtitulo}} </h4> @endisset
                   </div>
                 </div>
                 @else

@@ -76,32 +76,22 @@ class EmpreendimentoImagesController extends Controller
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
-            // return dd($request->allFiles());
 
             $data = $request->all();
-
-
-            for($i = 0; $i <= count($request->allFiles()); $i++){
+            for($i = 0; $i < count($request->allFiles()['imgs']); $i++){
 
               $file = $request->allFiles()['imgs'][$i];
-
-              // return dd($file);
-
+              $extensao = $file->extension();
+              $nomeArquivo = "emp_".$i.".".$extensao;
 
               $empreendimentoImage = new EmpreendimentoImage();
               $empreendimentoImage->empreendimento_id = $data['empreendimento_id'];
-              $empreendimentoImage->img = $file->store('site/img/empreendimentos/'.$data['empreendimento_id']);
 
-
+              $empreendimentoImage->img = $file->storeAs('site/img/empreendimentos/'.$data['empreendimento_id'], $nomeArquivo);
+              $empreendimentoImage->save();
 
             }
 
-            // if( $request->hasFile('img') && $request->img->isValid()){
-
-            //   $data['img'] = $imagePath;
-            // }
-
-            $empreendimentoImage = $this->repository->create($data);
 
             $response = [
                 'message' => 'EmpreendimentoImage created.',

@@ -1,4 +1,7 @@
  @extends('layouts.admin')
+ @section('css')
+<link rel="stylesheet" href="{{ asset('/vendor/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css') }}">
+@endsection
  @section('content')
  <!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
@@ -39,4 +42,27 @@
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+@endsection
+@section('javascript')
+<!-- File Input -->
+{{-- plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js --}}
+<script src="{{ asset('/site/plugins/bs-custom-file-input/bs-custom-file-input.js') }}"></script>
+<script src="{{ asset('/vendor/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') }}"></script>
+
+<script type="text/javascript">
+
+  $(document).ready(function () {
+    bsCustomFileInput.init();
+
+        //Colorpicker
+    $('.my-colorpicker1').colorpicker()
+    //color picker with addon
+    $('.my-colorpicker2').colorpicker()
+
+    $('.my-colorpicker2').on('colorpickerChange', function(event) {
+      $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+    });
+
+  });
+</script>
 @endsection

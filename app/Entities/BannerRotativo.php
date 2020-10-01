@@ -25,6 +25,11 @@ class BannerRotativo extends Model implements Transformable
       'ativo',
       'titulo',
       'subtitulo',
+      'font_collor',
     ];
+
+    protected $casts = [
+      'ativo' => 'boolean'
+   ];
 
 }
