@@ -11,6 +11,7 @@ use App\Http\Requests\CidadeCreateRequest;
 use App\Http\Requests\CidadeUpdateRequest;
 use App\Repositories\CidadeRepository;
 use App\Validators\CidadeValidator;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class CidadesController.
@@ -59,6 +60,15 @@ class CidadesController extends Controller
         }
 
         return view('cidades.index', compact('cidades'));
+    }
+
+
+    public function create(){
+
+      $estados = DB::table('estados')->select('id','nome')->get();
+      return view('admin.cidades.create', compact('estados'));
+
+
     }
 
     /**

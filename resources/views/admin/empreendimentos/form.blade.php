@@ -16,7 +16,9 @@
       <label>ESTADO:</label>
       <select class="form-control" name="estado_id" style="width: 100%;">
         <option value="" selected >-- SELECIONE -- </option>
-          <option value="1">CEARÁ</option>
+        @foreach ($estados as $estado)
+        <option value="{{ $estado->id }}">{{ $estado->nome  }}</option>
+      @endforeach
       </select>
     </div>
   </div>
@@ -39,32 +41,18 @@
   <div class="col-sm-2">
     <!-- text input -->
     <div class="form-group">
-      <label>DATA APROVAÇÃO:</label>
+      <label>LANÇAMENTO:</label>
       <input type="date" name="dt_lancamento" class="form-control" placeholder="Enter ..."
       @isset( $empreendimento->dt_lancamento ) value="{{ $empreendimento->dt_lancamento }}" @endisset>
     </div>
   </div>
 
-  <div class="col-sm-4">
-    <div class="form-group">
-      <label for="exampleInputFile">IMAGEM </label>
-      <div class="input-group">
-        <div class="custom-file">
-          <input type="file" class="custom-file-input" id="exampleInputFile" name="img">
-          <label class="custom-file-label" for="exampleInputFile">Imagem</label>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-sm-4">
+  <div class="col-sm-6">
     <div class="form-group">
       <label>URL VÍDEO</label>
       <div class="input-group">
         <div class="input-group-prepend">
-          <span class="input-group-text">
-            <input type="checkbox"  name="url_video_destaque" >
-          </span>
+          <span class="input-group-text"><i class="fab fa-youtube"></i></span>
         </div>
         <input type="text" name="url_video" class="form-control" placeholder="Enter ..."
         @isset( $empreendimento->url_video ) value="{{ $empreendimento->url_video }}" @endisset>
@@ -73,7 +61,7 @@
     <!-- /input-group -->
   </div>
 
-  <div class="col-sm-2">
+  <div class="col-sm-3">
     <!-- text input -->
     <div class="form-group">
       <label>CNPJ:</label>
@@ -82,7 +70,7 @@
     </div>
   </div>
 
-  <div class="col-sm-2">
+  <div class="col-sm-3">
     <!-- text input -->
     <div class="form-group">
       <label>MATRÍCULA:</label>
@@ -91,11 +79,55 @@
     </div>
   </div>
 
-  <div class="col-sm-6">
-    <!-- textarea -->
+  <div class="col-sm-3">
     <div class="form-group">
-      <label>Texto Destaque</label>
-      <textarea class="form-control"  name="texto_destaque" rows="3" placeholder="Enter ...">@isset($empreendimento->texto_destaque){{$empreendimento->texto_destaque}}@endisset</textarea>
+      <label>Telefone:</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-phone-alt"></i></span>
+        </div>
+        <input type="text" name="contato_1" class="form-control" data-inputmask='"mask": "(99) 9999-9999"' data-mask>
+      </div>
+      <!-- /.input group -->
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label>Celular :</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-mobile"></i></span>
+        </div>
+        <input type="text" name="contato_2"  class="form-control" data-inputmask='"mask": "(99) 9999-9999"' data-mask>
+      </div>
+      <!-- /.input group -->
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label>WhatsApp :</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fab fa-whatsapp"></i></span>
+        </div>
+        <input type="text" name="zap"  class="form-control" data-inputmask='"mask": "(99) 9999-9999"' data-mask>
+      </div>
+      <!-- /.input group -->
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <label>Email :</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-at"></i></span>
+        </div>
+        <input type="text" name="email"  class="form-control" data-inputmask='"mask": "(99) 9999-9999"' data-mask>
+      </div>
+      <!-- /.input group -->
     </div>
   </div>
 
@@ -104,6 +136,14 @@
     <div class="form-group">
       <label>Descrição</label>
       <textarea class="form-control"  name="texto_descritivo" rows="3" placeholder="Enter ...">@isset($empreendimento->texto_descritivo){{ $empreendimento->texto_descritivo }}@endisset</textarea>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <!-- textarea -->
+    <div class="form-group">
+      <label>Texto Destaque</label>
+      <textarea class="form-control"  name="texto_destaque" rows="3" placeholder="Enter ...">@isset($empreendimento->texto_destaque){{$empreendimento->texto_destaque}}@endisset</textarea>
     </div>
   </div>
 

@@ -7,7 +7,10 @@
       <label>Emprendimento:</label>
       <select class="form-control" name="empreendimento_id" style="width: 100%;">
         <option value="" selected >-- SELECIONE -- </option>
-          <option value="1">Rota do Sol</option>
+          @foreach ($empreendimentos as $empreendimento)
+            <option value="{{ $empreendimento->id}}">{{ $empreendimento->nome}}</option>
+          @endforeach
+
       </select>
     </div>
   </div>

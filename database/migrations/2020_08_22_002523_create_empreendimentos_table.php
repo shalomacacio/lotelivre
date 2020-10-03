@@ -25,15 +25,14 @@ class CreateEmpreendimentosTable extends Migration
       $table->integer('estado_id');
       $table->integer('cidade_id');
 
-      $table->string('img')->nullable();
+      $table->string('contato_1')->nullable();
+      $table->string('contato_2')->nullable();
+      $table->string('zap')->nullable();
+      $table->string('email')->nullable();
+
       $table->string('url_video')->nullable();
-      $table->tinyInteger('url_video_destaque')->defalt(0);
       $table->text('texto_descritivo')->nullable();
       $table->text('texto_destaque')->nullable();
-
-
-
-
 
       $table->timestamps();
 		});

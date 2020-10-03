@@ -20,6 +20,9 @@ class Cidade extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = [
+      'estado_id',
+      'nome'
+    ];
 
 }

@@ -21,15 +21,18 @@ class Empreendimento extends Model implements Transformable
      * @var array
      */
     protected $fillable = [
-      'img',
+
       'nome',
       'cnpj',
       'matricula',
       'dt_lancamento',
       'estado_id',
       'cidade_id',
+      'contato_1',
+      'contato_2',
+      'zap',
+      'email',
       'url_video',
-      'url_video_destaque',
       'texto_destaque',
       'texto_descritivo',
 
@@ -45,6 +48,10 @@ class Empreendimento extends Model implements Transformable
 
     public function destaque(){
       return $this->hasOne('\App\Entities\EmpreendimentoDestaque');
+    }
+
+    public function imagens(){
+      return $this->hasMany('\App\Entities\EmpreendimentoImage');
     }
 
 

@@ -20,9 +20,9 @@ class HomeController extends Controller
         $empreendimentosDestaque = EmpreendimentoDestaque::all();
         $bannerRotativos = BannerRotativo::all();
         $bannerPromocionals = BannerPromocional::all();
-        $videos = Empreendimento::where('url_video_destaque', 1)->get();
-        $destaques = Empreendimento::where('url_video_destaque', 1)->get();
-        return view('site.home.index', compact('bannerRotativos', 'bannerPromocionals', 'empreendimentosDestaque', 'videos'));
+
+
+        return view('site.home.index', compact('bannerRotativos', 'bannerPromocionals', 'empreendimentosDestaque'));
     }
 
     public function empreendimentos()

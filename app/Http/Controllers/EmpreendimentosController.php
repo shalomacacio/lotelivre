@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\DB;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
 use App\Http\Requests\EmpreendimentoCreateRequest;
@@ -66,9 +67,11 @@ class EmpreendimentosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-      return view('admin.empreendimentos.create');
+    public function create(){
+
+      $estados = DB::table('estados')->get();
+      $empreendimentos = $this->repository->all();
+      return view('admin.empreendimentos.create', compact('empreendimentos', 'estados'));
     }
 
     /**
