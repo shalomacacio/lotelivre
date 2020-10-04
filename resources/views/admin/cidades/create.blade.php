@@ -26,9 +26,16 @@
                 </div>
               </form>
             </div>
+
             <!-- /.card-body -->
           </div>
           <!-- /.card -->
+          <div class="card">
+            <!-- /.card-header -->
+            <div class="card-body">
+              @include('admin.cidades.list')
+            </div>
+          </div>
         </div>
         <!--/.col (right) -->
       </div>

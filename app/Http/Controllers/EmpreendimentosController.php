@@ -69,9 +69,9 @@ class EmpreendimentosController extends Controller
      */
     public function create(){
 
-      $estados = DB::table('estados')->get();
+      $cidades = DB::table('cidades')->get();
       $empreendimentos = $this->repository->all();
-      return view('admin.empreendimentos.create', compact('empreendimentos', 'estados'));
+      return view('admin.empreendimentos.create', compact('empreendimentos', 'cidades'));
     }
 
     /**

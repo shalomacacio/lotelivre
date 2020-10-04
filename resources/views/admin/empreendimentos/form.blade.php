@@ -11,7 +11,7 @@
     </div>
   </div>
 
-  <div class="col-sm-2">
+  {{-- <div class="col-sm-2">
     <div class="form-group">
       <label>ESTADO:</label>
       <select class="form-control" name="estado_id" style="width: 100%;">
@@ -21,24 +21,21 @@
       @endforeach
       </select>
     </div>
-  </div>
+  </div> --}}
 
-  <div class="col-sm-2">
+  <div class="col-sm-3">
     <div class="form-group">
       <label>CIDADE:</label>
-
       <select class="form-control" name="cidade_id" style="width: 100%;">
         <option value="" selected >-- SELECIONE -- </option>
-          <option value="1">FORTALEZA</option>
-          <option value="1">CAUCAIA</option>
-          <option value="1">RUSSAS</option>
-          <option value="1">REDENÇÃO</option>
+        @foreach ($cidades as $cidade)
+        <option value="{{ $cidade->id }}">{{ $cidade->nome  }}</option>
+      @endforeach
       </select>
-
     </div>
   </div>
 
-  <div class="col-sm-2">
+  <div class="col-sm-3">
     <!-- text input -->
     <div class="form-group">
       <label>LANÇAMENTO:</label>
@@ -146,5 +143,7 @@
       <textarea class="form-control"  name="texto_destaque" rows="3" placeholder="Enter ...">@isset($empreendimento->texto_destaque){{$empreendimento->texto_destaque}}@endisset</textarea>
     </div>
   </div>
+
+  <input type="hidden" name="estado_id" value="{{ $cidade->estado_id}}" >
 
 </div>

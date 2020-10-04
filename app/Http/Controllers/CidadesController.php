@@ -66,7 +66,8 @@ class CidadesController extends Controller
     public function create(){
 
       $estados = DB::table('estados')->select('id','nome')->get();
-      return view('admin.cidades.create', compact('estados'));
+      $cidades = $this->repository->all();
+      return view('admin.cidades.create', compact('estados', 'cidades'));
 
 
     }

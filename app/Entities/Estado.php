@@ -20,6 +20,12 @@ class Estado extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = [
+      'nome',
+      'sigla',
+      'iso',
+      'slug',
+      'populacao',
+    ];
 
 }

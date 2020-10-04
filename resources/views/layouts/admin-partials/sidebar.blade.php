@@ -113,6 +113,12 @@
               </a>
             </li>
             <li class="nav-item">
+              <a href="{{ route('cidades.create') }}" class="nav-link">
+                <i class="fa fa-circle-o nav-icon"></i>
+                <p>Cidades</p>
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="fa fa-circle-o nav-icon"></i>
                 <p>Usuários</p>

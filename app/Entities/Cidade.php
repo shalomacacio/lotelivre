@@ -25,4 +25,11 @@ class Cidade extends Model implements Transformable
       'nome'
     ];
 
+    //Relationship
+    public function estado()
+    {
+        return $this->belongsTo('App\Entities\Estado');
+    }
+    
+
 }
