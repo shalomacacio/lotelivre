@@ -17,7 +17,7 @@ class CreateEmpreendimentosTable extends Migration
 	{
 		Schema::create('empreendimentos', function(Blueprint $table) {
       $table->increments('id');
-      $table->string('nome');
+      $table->string('nome')->unique();
       $table->string('cnpj')->nullable();
       $table->string('matricula')->nullable();
       $table->date('dt_lancamento');

@@ -4,40 +4,38 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-
 use App\Http\Requests;
-use Illuminate\Support\Facades\DB;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
-use App\Http\Requests\BlogCreateRequest;
-use App\Http\Requests\BlogUpdateRequest;
-use App\Repositories\BlogRepository;
-use App\Validators\BlogValidator;
+use App\Http\Requests\BlogCategoriaCreateRequest;
+use App\Http\Requests\BlogCategoriaUpdateRequest;
+use App\Repositories\BlogCategoriaRepository;
+use App\Validators\BlogCategoriaValidator;
 
 /**
- * Class BlogsController.
+ * Class BlogCategoriasController.
  *
  * @package namespace App\Http\Controllers;
  */
-class BlogsController extends Controller
+class BlogCategoriasController extends Controller
 {
     /**
-     * @var BlogRepository
+     * @var BlogCategoriaRepository
      */
     protected $repository;
 
     /**
-     * @var BlogValidator
+     * @var BlogCategoriaValidator
      */
     protected $validator;
 
     /**
-     * BlogsController constructor.
+     * BlogCategoriasController constructor.
      *
-     * @param BlogRepository $repository
-     * @param BlogValidator $validator
+     * @param BlogCategoriaRepository $repository
+     * @param BlogCategoriaValidator $validator
      */
-    public function __construct(BlogRepository $repository, BlogValidator $validator)
+    public function __construct(BlogCategoriaRepository $repository, BlogCategoriaValidator $validator)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
@@ -51,62 +49,38 @@ class BlogsController extends Controller
     public function index()
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $blogs = $this->repository->all();
+        $blogCategorias = $this->repository->all();
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $blogs,
+                'data' => $blogCategorias,
             ]);
         }
 
-        return view('admin.blogs.index', compact('blogs'));
-    }
-
-
-    public function create()
-    {
-        $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $blogs = $this->repository->all();
-        $categorias = DB::table('blog_categorias')->select('id','descricao')->get();
-        if (request()->wantsJson()) {
-            return response()->json([
-                'data' => $blogs,
-            ]);
-        }
-
-        return view('admin.blogs.create', compact('blogs', 'categorias'));
+        return view('blogCategorias.index', compact('blogCategorias'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  BlogCreateRequest $request
+     * @param  BlogCategoriaCreateRequest $request
      *
      * @return \Illuminate\Http\Response
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function store(BlogCreateRequest $request)
+    public function store(BlogCategoriaCreateRequest $request)
     {
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
 
-
-            $data = $request->all();
-
-            if( $request->hasFile('img') && $request->img->isValid()){
-              $imagePath = $request->img->store('site/img/blog');
-              $data['img'] = $imagePath;
-            }
-
-            // $bannerRotativo = $this->repository->create($request->all());
-            $blog = $this->repository->create($data);
+            $blogCategorium = $this->repository->create($request->all());
 
             $response = [
-                'message' => 'Blog created.',
-                'data'    => $blog->toArray(),
+                'message' => 'BlogCategoria created.',
+                'data'    => $blogCategorium->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -136,16 +110,16 @@ class BlogsController extends Controller
      */
     public function show($id)
     {
-        $blog = $this->repository->find($id);
+        $blogCategorium = $this->repository->find($id);
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $blog,
+                'data' => $blogCategorium,
             ]);
         }
 
-        return view('admin.blogs.show', compact('blog'));
+        return view('blogCategorias.show', compact('blogCategorium'));
     }
 
     /**
@@ -157,32 +131,32 @@ class BlogsController extends Controller
      */
     public function edit($id)
     {
-        $blog = $this->repository->find($id);
+        $blogCategorium = $this->repository->find($id);
 
-        return view('admin.blogs.edit', compact('blog'));
+        return view('blogCategorias.edit', compact('blogCategorium'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  BlogUpdateRequest $request
+     * @param  BlogCategoriaUpdateRequest $request
      * @param  string            $id
      *
      * @return Response
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function update(BlogUpdateRequest $request, $id)
+    public function update(BlogCategoriaUpdateRequest $request, $id)
     {
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
 
-            $blog = $this->repository->update($request->all(), $id);
+            $blogCategorium = $this->repository->update($request->all(), $id);
 
             $response = [
-                'message' => 'Blog updated.',
-                'data'    => $blog->toArray(),
+                'message' => 'BlogCategoria updated.',
+                'data'    => $blogCategorium->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -220,11 +194,11 @@ class BlogsController extends Controller
         if (request()->wantsJson()) {
 
             return response()->json([
-                'message' => 'Blog deleted.',
+                'message' => 'BlogCategoria deleted.',
                 'deleted' => $deleted,
             ]);
         }
 
-        return redirect()->back()->with('message', 'Blog deleted.');
+        return redirect()->back()->with('message', 'BlogCategoria deleted.');
     }
 }

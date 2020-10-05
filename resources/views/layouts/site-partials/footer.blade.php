@@ -11,7 +11,6 @@
 							<div class="logo">
 								<a href="index.html"><img src="{{asset('site/images/logo2.png')}}" alt="#"></a>
 							</div>
-							<p class="text">Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue,  magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
 							<p class="call">Duvidas ? ligue <span><a href="tel:123456789">+0123 456 789</a></span></p>
 						</div>
 						<!-- End Single Widget -->
@@ -22,10 +21,7 @@
 							<h4>Informações</h4>
 							<ul>
 								<li><a href="#">Sobre Nós</a></li>
-								<li><a href="#">Faq</a></li>
-								<li><a href="#">Termos & Condições</a></li>
 								<li><a href="{{route('site.contato')}}">Contato</a></li>
-								<li><a href="#">Ajuda</a></li>
 							</ul>
 						</div>
 						<!-- End Single Widget -->
@@ -35,11 +31,8 @@
 						<div class="single-footer links">
 							<h4>Serviços </h4>
 							<ul>
-								<li><a href="#">Payment Methods</a></li>
-								<li><a href="#">Money-back</a></li>
-								<li><a href="#">Returns</a></li>
-								<li><a href="#">Shipping</a></li>
-								<li><a href="#">Privacy Policy</a></li>
+								<li><a href="#">Modelos de Contrato</a></li>
+								<li><a href="#">Consultar Lotes</a></li>
 							</ul>
 						</div>
 						<!-- End Single Widget -->
@@ -51,10 +44,8 @@
 							<!-- Single Widget -->
 							<!-- End Single Widget -->
 							<ul>
-								<li><a href="#"><i class="ti-facebook"></i></a></li>
-								<li><a href="#"><i class="ti-twitter"></i></a></li>
-								<li><a href="#"><i class="ti-flickr"></i></a></li>
-								<li><a href="#"><i class="ti-instagram"></i></a></li>
+								<li><a href="https://www.facebook.com/lotelivre" target="blank_page"><i class="ti-facebook"></i></a></li>
+								<li><a href="https://www.instagram.com/lotelivre/"><i class="ti-instagram"></i></a></li>
 							</ul>
 						</div>
 						<!-- End Single Widget -->

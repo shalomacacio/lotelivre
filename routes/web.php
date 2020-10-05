@@ -15,6 +15,8 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/', 'HomeController@home')->name('site.home');
 Route::get('/contato', 'HomeController@contato')->name('site.contato');
+Route::get('/blogs', 'HomeController@blogs')->name('site.blogs');
+Route::get('/blogs/{id}', 'HomeController@blogShow')->name('site.blog.show');
 Route::get('/empreendimentos', 'HomeController@empreendimentos')->name('site.empreendimentos');
 Route::get('/empreendimentos/{id}', 'HomeController@empreendimentoShow')->name('site.empreendimento.show');
 
@@ -23,8 +25,9 @@ Route::post('/auth', 'AuthController@auth')->name('auth');
 
 Route::group([ 'prefix' => 'admin' ,'middleware' => ['auth']], function () {
     Route::resource('lotes', 'LotesController');
-    Route::get('/logout', 'AuthController@logout')->name('login');
+    Route::resource('blogs', 'BlogsController');
     Route::resource('cidades', 'CidadesController');
+    Route::get('/logout', 'AuthController@logout')->name('login');
     Route::resource('empreendimentos', 'EmpreendimentosController');
     Route::resource('banner-rotativos', 'BannerRotativosController');
     Route::resource('banner-promocionals', 'BannerPromocionalsController');

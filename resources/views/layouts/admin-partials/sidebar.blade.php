@@ -2,7 +2,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
 
   <!-- Brand Logo -->
-  <a href="#" class="brand-link">
+  <a href="{{ route('site.home') }}" class="brand-link"  target="_blank">
     <img src="{{ asset('vendor/adminlte/dist/img/logo.png') }}" alt="logo" class="brand-image img-circle elevation-3" style="opacity: .8">
     <span class="brand-text font-weight-light">Lote Livre</span>
   </a>
@@ -91,9 +91,22 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="{{ route('blogs.create') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Novo Blog</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link"><i class="nav-icon fas fa-circle"></i>
+                  <p>EMPREENDIMENTO<i class="right fas fa-angle-left"></i></p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{route('empreendimentos.create') }}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Novo Empreendimento</p>
                   </a>
                 </li>
               </ul>
@@ -122,12 +135,6 @@
               <a href="#" class="nav-link">
                 <i class="fa fa-circle-o nav-icon"></i>
                 <p>Usuários</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="{{route('empreendimentos.create') }}" class="nav-link">
-                <i class="fa fa-circle-o nav-icon"></i>
-                <p>Empreendimentos</p>
               </a>
             </li>
           </ul>
