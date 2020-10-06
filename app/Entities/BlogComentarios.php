@@ -7,11 +7,11 @@ use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
 
 /**
- * Class BannerVideo.
+ * Class BlogComentarios.
  *
  * @package namespace App\Entities;
  */
-class BannerVideo extends Model implements Transformable
+class BlogComentarios extends Model implements Transformable
 {
     use TransformableTrait;
 
@@ -20,9 +20,6 @@ class BannerVideo extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = [
-      'empreendimento_id',
-      'url'
-    ];
+    protected $fillable = [];
 
 }

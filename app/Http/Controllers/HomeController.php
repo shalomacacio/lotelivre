@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Entities\Blog;
 use Illuminate\Http\Request;
+use App\Entities\BannerVideo;
 use App\Entities\BannerRotativo;
 use App\Entities\Empreendimento;
 use App\Entities\BannerPromocional;
@@ -18,20 +19,20 @@ class HomeController extends Controller
      */
     public function home()
     {
-
-        $blogs = Blog::all();
-        $empreendimentosDestaque = EmpreendimentoDestaque::all();
-        $bannerRotativos = BannerRotativo::all();
-        $bannerPromocionals = BannerPromocional::all();
-        return view('site.home.index', compact('bannerRotativos', 'bannerPromocionals', 'empreendimentosDestaque', 'blogs'));
+      $blogs = Blog::all();
+      $videos = BannerVideo::all();
+      $empreendimentosDestaque = EmpreendimentoDestaque::all();
+      $bannerRotativos = BannerRotativo::all();
+      $bannerPromocionals = BannerPromocional::all();
+      return view('site.home.index', compact( 'videos','bannerRotativos', 'bannerPromocionals', 'empreendimentosDestaque', 'blogs'));
     }
 
     //EMPREENDIMENTOS
 
     public function empreendimentos()
     {
-        $empreendimentos = Empreendimento::all();
-        return view('site.empreendimentos.index', compact('empreendimentos'));
+      $empreendimentos = Empreendimento::all();
+      return view('site.empreendimentos.index', compact('empreendimentos'));
     }
 
     public function empreendimentoShow($id) {
@@ -50,9 +51,6 @@ class HomeController extends Controller
       $blog = Blog::find($id);
       return view('site.blogs.show', compact('blog'));
     }
-
-
-
 
     //CONTATO
     public function contato() {

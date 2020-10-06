@@ -27,6 +27,7 @@ Route::group([ 'prefix' => 'admin' ,'middleware' => ['auth']], function () {
     Route::resource('lotes', 'LotesController');
     Route::resource('blogs', 'BlogsController');
     Route::resource('cidades', 'CidadesController');
+    Route::resource('banner-videos', 'BannerVideosController');
     Route::get('/logout', 'AuthController@logout')->name('login');
     Route::resource('empreendimentos', 'EmpreendimentosController');
     Route::resource('banner-rotativos', 'BannerRotativosController');

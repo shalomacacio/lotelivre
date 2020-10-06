@@ -4,40 +4,38 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-
 use App\Http\Requests;
-use Illuminate\Support\Facades\DB;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
-use App\Http\Requests\BannerVideoCreateRequest;
-use App\Http\Requests\BannerVideoUpdateRequest;
-use App\Repositories\BannerVideoRepository;
-use App\Validators\BannerVideoValidator;
+use App\Http\Requests\BlogComentariosCreateRequest;
+use App\Http\Requests\BlogComentariosUpdateRequest;
+use App\Repositories\BlogComentariosRepository;
+use App\Validators\BlogComentariosValidator;
 
 /**
- * Class BannerVideosController.
+ * Class BlogComentariosController.
  *
  * @package namespace App\Http\Controllers;
  */
-class BannerVideosController extends Controller
+class BlogComentariosController extends Controller
 {
     /**
-     * @var BannerVideoRepository
+     * @var BlogComentariosRepository
      */
     protected $repository;
 
     /**
-     * @var BannerVideoValidator
+     * @var BlogComentariosValidator
      */
     protected $validator;
 
     /**
-     * BannerVideosController constructor.
+     * BlogComentariosController constructor.
      *
-     * @param BannerVideoRepository $repository
-     * @param BannerVideoValidator $validator
+     * @param BlogComentariosRepository $repository
+     * @param BlogComentariosValidator $validator
      */
-    public function __construct(BannerVideoRepository $repository, BannerVideoValidator $validator)
+    public function __construct(BlogComentariosRepository $repository, BlogComentariosValidator $validator)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
@@ -51,39 +49,38 @@ class BannerVideosController extends Controller
     public function index()
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $bannerVideos = $this->repository->all();
-        $empreendimentos = DB::table('empreendimentos')->get();
+        $blogComentarios = $this->repository->all();
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $bannerVideos,
+                'data' => $blogComentarios,
             ]);
         }
 
-        return view('admin.bannerVideos.index', compact('bannerVideos', 'empreendimentos'));
+        return view('blogComentarios.index', compact('blogComentarios'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  BannerVideoCreateRequest $request
+     * @param  BlogComentariosCreateRequest $request
      *
      * @return \Illuminate\Http\Response
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function store(BannerVideoCreateRequest $request)
+    public function store(BlogComentariosCreateRequest $request)
     {
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
 
-            $bannerVideo = $this->repository->create($request->all());
+            $blogComentario = $this->repository->create($request->all());
 
             $response = [
-                'message' => 'BannerVideo created.',
-                'data'    => $bannerVideo->toArray(),
+                'message' => 'BlogComentarios created.',
+                'data'    => $blogComentario->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -113,16 +110,16 @@ class BannerVideosController extends Controller
      */
     public function show($id)
     {
-        $bannerVideo = $this->repository->find($id);
+        $blogComentario = $this->repository->find($id);
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $bannerVideo,
+                'data' => $blogComentario,
             ]);
         }
 
-        return view('admin.bannerVideos.show', compact('bannerVideo'));
+        return view('blogComentarios.show', compact('blogComentario'));
     }
 
     /**
@@ -134,32 +131,32 @@ class BannerVideosController extends Controller
      */
     public function edit($id)
     {
-        $bannerVideo = $this->repository->find($id);
+        $blogComentario = $this->repository->find($id);
 
-        return view('admin.bannerVideos.edit', compact('bannerVideo'));
+        return view('blogComentarios.edit', compact('blogComentario'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  BannerVideoUpdateRequest $request
+     * @param  BlogComentariosUpdateRequest $request
      * @param  string            $id
      *
      * @return Response
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function update(BannerVideoUpdateRequest $request, $id)
+    public function update(BlogComentariosUpdateRequest $request, $id)
     {
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
 
-            $bannerVideo = $this->repository->update($request->all(), $id);
+            $blogComentario = $this->repository->update($request->all(), $id);
 
             $response = [
-                'message' => 'BannerVideo updated.',
-                'data'    => $bannerVideo->toArray(),
+                'message' => 'BlogComentarios updated.',
+                'data'    => $blogComentario->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -197,11 +194,11 @@ class BannerVideosController extends Controller
         if (request()->wantsJson()) {
 
             return response()->json([
-                'message' => 'BannerVideo deleted.',
+                'message' => 'BlogComentarios deleted.',
                 'deleted' => $deleted,
             ]);
         }
 
-        return redirect()->back()->with('message', 'BannerVideo deleted.');
+        return redirect()->back()->with('message', 'BlogComentarios deleted.');
     }
 }

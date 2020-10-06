@@ -3,11 +3,14 @@
 <div class="row">
 
   <div class="col-sm-4">
-    <!-- text input -->
     <div class="form-group">
-      <label>IMAGEM: (600x370px)</label>
-      <input type="file" name="img" class="form-control" placeholder="199x700px"
-        @isset( $bannerPromocional->img) value="{{ $bannerPromocional->img }}" @endisset>
+      <label>Banner Principal <span>(600x370px)</span> </label>
+      <div class="input-group">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input"  name="img" @isset( $bannerPromocional->img) value="{{ $bannerPromocional->img }}" @endisset >
+          <label class="custom-file-label" for="exampleInputFile">Imagem</label>
+        </div>
+      </div>
     </div>
   </div>
 
