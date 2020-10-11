@@ -13,7 +13,11 @@
 
 use App\Http\Controllers\AuthController;
 
-Route::get('/', 'HomeController@home')->name('site.home');
+// Route::get('/', 'HomeController@home')->name('site.home');
+Route::get('/', function(){
+  return view('welcome');
+})->name('construcao');
+
 Route::get('/contato', 'HomeController@contato')->name('site.contato');
 Route::get('/blogs', 'HomeController@blogs')->name('site.blogs');
 Route::get('/blogs/{id}', 'HomeController@blogShow')->name('site.blog.show');
