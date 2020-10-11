@@ -22,9 +22,6 @@ class CreateCidadesTable extends Migration
             $table->timestamps();
     });
 
-    Schema::table('cidades', function (Blueprint $table) {
-      $table->foreign('estado_id')->references('id')->on('estados');
-    });
 	}
 
 	/**
