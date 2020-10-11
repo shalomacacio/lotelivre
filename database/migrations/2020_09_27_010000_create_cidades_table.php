@@ -20,11 +20,11 @@ class CreateCidadesTable extends Migration
             $table->integer('estado_id')->unsigned();
             $table->string('nome')->unique();
             $table->timestamps();
+    });
 
-            Schema::table('cidades', function (Blueprint $table) {
-              $table->foreign('estado_id')->references('id')->on('estados');
-          });
-		});
+    Schema::table('cidades', function (Blueprint $table) {
+      $table->foreign('estado_id')->references('id')->on('estados');
+    });
 	}
 
 	/**
