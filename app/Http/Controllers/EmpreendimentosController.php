@@ -151,9 +151,10 @@ class EmpreendimentosController extends Controller
      */
     public function edit($id)
     {
+        $cidades = DB::table('cidades')->get();
         $empreendimento = $this->repository->find($id);
 
-        return view('admin.empreendimentos.edit', compact('empreendimento'));
+        return view('admin.empreendimentos.edit', compact('empreendimento', 'cidades'));
     }
 
     /**

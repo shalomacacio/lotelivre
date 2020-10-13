@@ -27,7 +27,8 @@
     <div class="form-group">
       <label>CIDADE:</label>
       <select class="form-control" name="cidade_id" style="width: 100%;">
-        <option value="" selected >-- SELECIONE -- </option>
+        @isset($empreendimento->cidade) <option value="{{ $empreendimento->cidade->id }}">{{ $empreendimento->cidade->nome  }}</option>  @endisset
+        @empty($empreendimento->cidade) <option value=" "> -- SELECIONE --</option>  @endempty
         @foreach ($cidades as $cidade)
         <option value="{{ $cidade->id }}">{{ $cidade->nome  }}</option>
       @endforeach
