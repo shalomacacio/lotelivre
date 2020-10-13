@@ -40,7 +40,7 @@
       <div class="logo float-left">
       {{-- <h1 class="text-light"><a href="{{ route('construcao')}}"><span>Siimple</span></a></h1> --}}
         <!-- Uncomment below if you prefer to use an image logo -->
-        <a href="{{ route('site.home')}}"> <img src="{{ asset('simple/assets/img/logo.png')}}" class="img-fluid"></a>
+        <a href="{{ route('construcao')}}"> <img src="{{ asset('simple/assets/img/logo.png')}}" class="img-fluid"></a>
       </div>
     </div>
   </header><!-- End #header -->
