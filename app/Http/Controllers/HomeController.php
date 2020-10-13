@@ -44,14 +44,14 @@ class HomeController extends Controller
     //EMPREENDIMENTOS
     public function empreendimentos(Request $request)
     {
-      if( $request->cidade_nome){
-        $cidade = Cidade::where('nome', $request->cidade_nome)->get();
-      } else {
-        $cidade = Cidade::all();
-      }
+      // if( $request->cidade_nome){
+      //   $cidade = Cidade::where('nome', $request->cidade_nome)->get();
+      // } else {
+      //   $cidade = Cidade::all();
+      // }
 
       $estados = Estado::all();
-      $empreendimentos = Empreendimento::where('cidade_id', $cidade->id);
+      $empreendimentos = Empreendimento::all();
       return view('site.empreendimentos.index', compact('empreendimentos', 'estados'));
     }
 
