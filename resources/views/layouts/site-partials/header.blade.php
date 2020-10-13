@@ -3,6 +3,7 @@
 		<div class="custom-middle-inner">
 			<div class="container">
 				<div class="row">
+
 					<div class="col-lg-2 col-md-2 col-12">
 						<!-- Logo -->
 						<div class="logo">
@@ -13,30 +14,33 @@
 						<div class="search-top">
 							<div class="top-search"><a href="#0"><i class="ti-search"></i></a></div>
 							<!-- Search Form -->
-							<div class="search-top">
+							{{-- <div class="search-top">
 								<form class="search-form">
 									<input type="text" placeholder="Search here..." name="search">
 									<button value="search" type="submit"><i class="ti-search"></i></button>
 								</form>
-							</div>
+							</div> --}}
 							<!--/ End Search Form -->
 						</div>
 						<!--/ End Search Form -->
 						<div class="mobile-nav"></div>
-					</div>
+          </div>
+
 					<div class="col-lg-8 col-md-7 col-12">
 						<div class="search-bar-top">
 							<div class="search-bar">
-								<select>
-									<option selected="selected">All Category</option>
-									<option>watch</option>
-									<option>mobile</option>
-									<option>kid’s item</option>
+								<select id="estado_id">
+									<option selected="selected">Localização</option>
+                    @foreach ($estados as $estado)
+                    <option value="{{ $estado->id}}">{{ $estado->nome}}</option>
+                    @endforeach
 								</select>
-								<div class="nice-select" tabindex="0"><span class="current">All Category</span><ul class="list"><li data-value="All Category" class="option focus selected">All Category</li><li data-value="watch" class="option">watch</li><li data-value="mobile" class="option">mobile</li><li data-value="kid’s item" class="option">kid’s item</li></ul></div>
-								<form>
-									<input name="search" placeholder="Search Products Here....." type="search">
-									<button class="btnn"><i class="ti-search"></i></button>
+                <form action="{{ route('site.empreendimentos') }}" method="GET">
+                  @csrf
+                  <input  id="inpCidade" list="cidades" name="cidade_nome" />
+                  <datalist id="cidades">
+                  </datalist>
+                  <button class="btnn"><i class="ti-search"></i></button>
 								</form>
 							</div>
 						</div>
@@ -57,3 +61,42 @@
 		@include('layouts.site-partials.menu')
 	</header>
 	<!--/ End Header -->
+
+@section('javascript')
+<script>
+  $( "#estado_id" ).change(function () {
+    atualizaCidades();
+  });
+
+
+
+  function atualizaCidades(){
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url: "{{ route('site.ajaxCidades') }}",
+        data: {'estado_id' : $("#estado_id").val() },
+        type: "GET",
+        dataType: 'json',
+        success: function (data) {
+          console.log( data );
+          $('#cidades').empty();
+          $('#inpCidade').empty();
+          $.each(data.cidades, function(index, value) {
+            $('#cidades').append(
+             "<option value="+value.nome+">"
+            )
+          });
+        },
+        error: function (data) {
+            console.log('Error:', data);
+        }
+    });
+  }
+</script>
+@endsection

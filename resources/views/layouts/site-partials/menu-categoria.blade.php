@@ -9,9 +9,6 @@
 							</div>
             </div>
 
-
-
-
 						<div class="col-lg-9 col-12">
 							<div class="menu-area">
 								<!-- Main Menu -->

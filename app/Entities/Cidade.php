@@ -21,6 +21,7 @@ class Cidade extends Model implements Transformable
      * @var array
      */
     protected $fillable = [
+      'id',
       'estado_id',
       'nome'
     ];
@@ -30,6 +31,11 @@ class Cidade extends Model implements Transformable
     {
         return $this->belongsTo('App\Entities\Estado');
     }
-    
+
+    public function empreendimentos()
+    {
+        return $this->hasMany('App\Entities\Empreendimento');
+    }
+
 
 }

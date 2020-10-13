@@ -10,3 +10,4 @@
   {{-- @include('layouts.site-partials.banner-grande') --}}
   @include('layouts.site-partials.inscrevase')
 @endsection
+

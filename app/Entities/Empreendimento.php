@@ -35,12 +35,19 @@ class Empreendimento extends Model implements Transformable
       'url_video',
       'texto_destaque',
       'texto_descritivo',
-
     ];
 
     protected $casts = [
       'url_video_destaque' => 'boolean',
     ];
+    public function cidade(){
+      return $this->belongsTo('\App\Entities\Cidade');
+    }
+
+    public function estado(){
+      return $this->belongsTo('\App\Entities\Estado');
+    }
+
 
     public function lotes(){
       return $this->hasMany('\App\Entities\Lote');
