@@ -13,10 +13,10 @@
 
 use App\Http\Controllers\AuthController;
 
-Route::get('/', 'HomeController@home')->name('site.home');
-// Route::get('/', function(){
-//   return view('construcao');
-// })->name('construcao');
+// Route::get('/', 'HomeController@home')->name('site.home');
+Route::get('/', function(){
+  return view('construcao');
+})->name('construcao');
 Route::get('/ajaxCidades', 'HomeController@ajaxCidades')->name('site.ajaxCidades');
 Route::get('/contato', 'HomeController@contato')->name('site.contato');
 Route::get('/blogs', 'HomeController@blogs')->name('site.blogs');
