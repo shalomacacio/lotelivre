@@ -21,8 +21,7 @@ class CreateBlogsTable extends Migration
             $table->integer('blog_categoria_id');
             $table->string('img');
             $table->string('titulo');
-            $table->string('texto');
-            $table->string('texto_destaque');
+            $table->longText('texto');
             $table->timestamps();
 		});
 	}

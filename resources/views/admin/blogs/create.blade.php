@@ -1,4 +1,9 @@
  @extends('layouts.admin')
+ @section('css')
+ <link rel="stylesheet" href="{{ asset('/vendor/plugins/summernote/summernote-bs4.css') }}">
+ @endsection
+
+
  @section('content')
  <!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
@@ -53,18 +58,20 @@
 @section('javascript')
 <!-- File Input -->
 <script src="{{ asset('/site/plugins/bs-custom-file-input/bs-custom-file-input.js') }}"></script>
-<script type="text/javascript">
-  $(document).ready(function () {
+<script src="{{ asset('/site/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('/site/plugins/summernote/summernote-bs4.min.js') }}"></script>
+<script>
+  $(function () {
     bsCustomFileInput.init();
-
+    // Summernote
+    $('.textarea').summernote()
     //Datemask dd/mm/yyyy
     $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
     //Datemask2 mm/dd/yyyy
     $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
     //Money Euro
     $('[data-mask]').inputmask()
+  })
 
-  });
 </script>
 @endsection
-

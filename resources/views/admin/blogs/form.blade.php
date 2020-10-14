@@ -35,19 +35,13 @@
     </div>
   </div>
 
-  <div class="col-sm-6">
+  <div class="col-sm-12">
     <!-- textarea -->
     <div class="form-group">
       <label>TEXTO</label>
-      <textarea class="form-control"  name="texto" rows="3" placeholder="Enter ...">@isset($blog->texto){{ $blog->texto }}@endisset</textarea>
-    </div>
-  </div>
-
-  <div class="col-sm-6">
-    <!-- textarea -->
-    <div class="form-group">
-      <label>Texto Destaque</label>
-      <textarea class="form-control"  name="texto_destaque" rows="3" placeholder="Enter ...">@isset($blog->texto_destaque){{$blog->texto_destaque}}@endisset</textarea>
+      <textarea class="textarea" placeholder="Place some text here" name="texto"
+      style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+      @isset($blog->descricao){{ $blog->descricao }}@endisset</textarea>
     </div>
   </div>
 

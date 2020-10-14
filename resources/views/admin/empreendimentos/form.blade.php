@@ -129,19 +129,14 @@
     </div>
   </div>
 
-  <div class="col-sm-6">
+  <div class="col-sm-12">
     <!-- textarea -->
     <div class="form-group">
       <label>Descrição</label>
-      <textarea class="form-control"  name="texto_descritivo" rows="3" placeholder="Enter ...">@isset($empreendimento->texto_descritivo){{ $empreendimento->texto_descritivo }}@endisset</textarea>
-    </div>
-  </div>
-
-  <div class="col-sm-6">
-    <!-- textarea -->
-    <div class="form-group">
-      <label>Texto Destaque</label>
-      <textarea class="form-control"  name="texto_destaque" rows="3" placeholder="Enter ...">@isset($empreendimento->texto_destaque){{$empreendimento->texto_destaque}}@endisset</textarea>
+      <textarea class="textarea" placeholder="Place some text here" name="texto_descritivo"
+      style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+      @isset($empreendimento->texto_descritivo) {{ $empreendimento->texto_descritivo  }}  @endisset
+    </textarea>
     </div>
   </div>
 

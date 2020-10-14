@@ -26,7 +26,6 @@ class Blog extends Model implements Transformable
       'img',
       'titulo',
       'texto',
-      'texto_destaque'
     ];
 
 }

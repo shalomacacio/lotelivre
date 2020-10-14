@@ -20,8 +20,11 @@
                   </div>
 
                   <div class="content">
-                    <p>{{ $empreendimento->texto_descritivo}}.</p>
+
+                    {!! $empreendimento->texto_descritivo !!}
                     @isset($empreendimento->texto_destaque) <blockquote> <i class="fa fa-quote-left"></i> {{ $empreendimento->texto_destaque}}</blockquote>  @endisset
+
+
                   </div>
                 </div>
 
@@ -124,7 +127,7 @@
                 <h5><a href="#">Lot: {{ $lote->lote}} Quad: {{ $lote->quadra}}</a></h5>
                   <ul class="comment">
                     <li><i class="fa fa-dollar" aria-hidden="true"></i>{{ $lote->valor}}</li>
-                    <li><p>{{ $lote->descricao}}</p> </li>
+                    <li><p></p> </li>
                   </ul>
                 </div>
               </div>

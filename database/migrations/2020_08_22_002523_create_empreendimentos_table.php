@@ -31,8 +31,7 @@ class CreateEmpreendimentosTable extends Migration
       $table->string('email')->nullable();
 
       $table->string('url_video')->nullable();
-      $table->text('texto_descritivo')->nullable();
-      $table->text('texto_destaque')->nullable();
+      $table->longText('texto_descritivo')->nullable();
 
       $table->timestamps();
 		});
