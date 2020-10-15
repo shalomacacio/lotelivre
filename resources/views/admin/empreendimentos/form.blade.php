@@ -2,7 +2,7 @@
 
 <div class="row">
 
-  <div class="col-sm-6">
+  <div class="col-sm-4">
     <!-- text input -->
     <div class="form-group">
       <label>NOME:</label>
@@ -11,19 +11,7 @@
     </div>
   </div>
 
-  {{-- <div class="col-sm-2">
-    <div class="form-group">
-      <label>ESTADO:</label>
-      <select class="form-control" name="estado_id" style="width: 100%;">
-        <option value="" selected >-- SELECIONE -- </option>
-        @foreach ($estados as $estado)
-        <option value="{{ $estado->id }}">{{ $estado->nome  }}</option>
-      @endforeach
-      </select>
-    </div>
-  </div> --}}
-
-  <div class="col-sm-3">
+  <div class="col-sm-2">
     <div class="form-group">
       <label>CIDADE:</label>
       <select class="form-control" name="cidade_id" style="width: 100%;">
@@ -36,7 +24,7 @@
     </div>
   </div>
 
-  <div class="col-sm-3">
+  <div class="col-sm-2">
     <!-- text input -->
     <div class="form-group">
       <label>LANÇAMENTO:</label>
@@ -44,22 +32,7 @@
       @isset( $empreendimento->dt_lancamento ) value="{{ $empreendimento->dt_lancamento }}" @endisset>
     </div>
   </div>
-
-  <div class="col-sm-6">
-    <div class="form-group">
-      <label>URL VÍDEO</label>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text"><i class="fab fa-youtube"></i></span>
-        </div>
-        <input type="text" name="url_video" class="form-control" placeholder="Enter ..."
-        @isset( $empreendimento->url_video ) value="{{ $empreendimento->url_video }}" @endisset>
-      </div>
-    </div>
-    <!-- /input-group -->
-  </div>
-
-  <div class="col-sm-3">
+  <div class="col-sm-2">
     <!-- text input -->
     <div class="form-group">
       <label>CNPJ:</label>
@@ -68,7 +41,7 @@
     </div>
   </div>
 
-  <div class="col-sm-3">
+  <div class="col-sm-2">
     <!-- text input -->
     <div class="form-group">
       <label>MATRÍCULA:</label>
@@ -126,6 +99,124 @@
         <input type="text" name="email"  class="form-control" data-inputmask='"mask": "(99) 9999-9999"' data-mask>
       </div>
       <!-- /.input group -->
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="form-group">
+      <label for="exampleInputFile">Banner Principal <span>(1900x700px)</span> </label>
+      <div class="input-group">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input"  name="img_banner">
+          <label class="custom-file-label" for="exampleInputFile">Imagem</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <!-- text input -->
+    <div class="form-group">
+      <label>Texto Banner:</label>
+      <input type="text" name="texto_banner" class="form-control" placeholder="Enter ..."
+        @isset( $empreendimento->texto_banner ) value="{{ $empreendimento->texto_banner }}" @endisset>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <!-- text input -->
+    <div class="form-group">
+      <label>Texto Cor:</label>
+      <input type="text" name="texto_banner" class="form-control" placeholder="Enter ..."
+        @isset( $empreendimento->texto_banner ) value="{{ $empreendimento->texto_banner }}" @endisset>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <!-- text input -->
+    <div class="form-group">
+      <label>Botão Banner:</label>
+      <input type="text" name="btn_banner" class="form-control" placeholder="Enter ..."
+        @isset( $empreendimento->btn_banner ) value="{{ $empreendimento->btn_banner }}" @endisset>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <!-- text input -->
+    <div class="form-group">
+      <label>Botão Link:</label>
+      <input type="text" name="btn_link" class="form-control" placeholder="Enter ..."
+        @isset( $empreendimento->btn_link ) value="{{ $empreendimento->btn_link }}" @endisset>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <!-- text input -->
+    <div class="form-group">
+      <label>Botão Cor:</label>
+      <input type="text" name="btn_cor" class="form-control" placeholder="Enter ..."
+        @isset( $empreendimento->btn_cor ) value="{{ $empreendimento->btn_cor }}" @endisset>
+    </div>
+  </div>
+
+
+  <div class="col-sm-4">
+    <div class="form-group">
+      <label for="exampleInputFile">Img Card 01 <span>(0x0px)</span> </label>
+      <div class="input-group">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input"  name="img_card_1">
+          <label class="custom-file-label" for="exampleInputFile">Imagem</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <!-- text input -->
+    <div class="form-group">
+      <label>Titulo Card 1:</label>
+      <input type="text" name="titulo_card1" class="form-control" placeholder="Enter ..."
+        @isset( $empreendimento->titulo_card_1 ) value="{{ $empreendimento->titulo_card_1 }}" @endisset>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <!-- text input -->
+    <div class="form-group">
+      <label>Texto Card 1:</label>
+      <input type="text" name="texto_card_1" class="form-control" placeholder="Enter ..."
+        @isset( $empreendimento->texto_card_1 ) value="{{ $empreendimento->texto_card_1 }}" @endisset>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="form-group">
+      <label for="exampleInputFile">Img Card 02 <span>(0x0px)</span> </label>
+      <div class="input-group">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input"  name="img_card_2">
+          <label class="custom-file-label" for="exampleInputFile">Imagem</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <!-- text input -->
+    <div class="form-group">
+      <label>Titulo Card 2:</label>
+      <input type="text" name="titulo_card_2" class="form-control" placeholder="Enter ..."
+        @isset( $empreendimento->titulo_card_2 ) value="{{ $empreendimento->titulo_card_2 }}" @endisset>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <!-- text input -->
+    <div class="form-group">
+      <label>Texto Card 2:</label>
+      <input type="text" name="texto_card_2" class="form-control" placeholder="Enter ..."
+        @isset( $empreendimento->texto_card_2 ) value="{{ $empreendimento->texto_card_2 }}" @endisset>
     </div>
   </div>
 

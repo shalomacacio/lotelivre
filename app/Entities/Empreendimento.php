@@ -21,7 +21,7 @@ class Empreendimento extends Model implements Transformable
      * @var array
      */
     protected $fillable = [
-
+      'id',
       'nome',
       'cnpj',
       'matricula',
@@ -32,14 +32,25 @@ class Empreendimento extends Model implements Transformable
       'contato_2',
       'zap',
       'email',
+      'img_banner',
+      'texto_banner',
+      'texto_banner_cor',
+      'btn_banner_txt',
+      'btn_banner_link',
+      'btn_banner_cor',
+      'img_card_1',
+      'titulo_card_1',
+      'texto_card_1',
+      'img_card_2',
+      'titulo_card_2',
+      'texto_card_2',
       'url_video',
       'texto_destaque',
-      'texto_descritivo',
     ];
 
-    protected $casts = [
-      'url_video_destaque' => 'boolean',
-    ];
+    // protected $casts = [
+    //   'url_video_destaque' => 'boolean',
+    // ];
     public function cidade(){
       return $this->belongsTo('\App\Entities\Cidade');
     }

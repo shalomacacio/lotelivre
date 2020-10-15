@@ -1,0 +1,1214 @@
+/*=====================================================
+Building Construction Website Template Stylesheet
+             Body Core Stylesheet
+========================================================*/
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    8 box-sizing: border-box
+}
+
+body {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    color: #000;
+    overflow-x: hidden;
+    background-color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body,
+html {
+    height: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+figure {
+    margin: 0;
+}
+
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show > .nav-link {
+    color: rgb(255, 255, 255);
+}
+
+.navbar {
+    transition: 500ms ease;
+    background: transparent;
+}
+
+.navbar-collapse {
+    margin-top: 8px;
+}
+
+.navbar.scrolled {
+    margin: 0;
+    background: #fed253;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .25);
+    -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .25);
+    -box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .25);
+}
+
+.navbar.scrolled img {
+    width: 80%;
+}
+
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #000000;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+#myBtn:hover {
+    background-color: #fed253;
+}
+
+.nav .open > a,
+.nav .open > a:hover,
+.nav .open > a:focus {
+    background-color: transparent;
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+    color: rgb(253, 186, 18);
+}
+
+.btn:focus,
+.btn:active {
+    outline: none !important;
+    box-shadow: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul {
+    margin: 0px;
+    padding: 0px
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+li {
+    display: inline-block;
+}
+
+a,
+.btn {
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+textarea {
+    resize: none;
+}
+
+::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    font-size: 14px;
+    color: #959595;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    font-size: 14px;
+    color: #959595;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+}
+
+:-ms-input-placeholder {
+    /* IE 10+ */
+    font-size: 14px;
+    color: #959595;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+}
+
+:-moz-placeholder {
+    /* Firefox 18- */
+    font-size: 14px;
+    color: #959595;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+}
+
+/*-- header start --*/
+header.active {
+    background-color: #481639;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.18);
+    margin-top: -100px;
+}
+
+.active .navbar-expand-lg {
+    margin-top: 0;
+    padding: 17px 0;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    transition: 0.7s;
+}
+
+header .navbar-expand-lg {
+    background-color: #481639;
+    padding: 17px 35px;
+    margin-top: -50px;
+    border-radius: 7px;
+}
+
+header .navbar .nav-item .nav-link {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: all 0.7s ease;
+    padding: 0 20px 0 0;
+}
+
+header .navbar .nav-item:last-child .nav-link {
+    padding-right: 0;
+}
+
+header .navbar .nav-item .nav-link:hover {
+    color: #ebb544;
+}
+
+.border-bg {
+    background-color: #185d17;
+    width: 100%;
+}
+
+/*-- header end --*/
+
+/*-- banner start --*/
+.banner {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.banner .gradient {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #ffb400;
+    opacity: 0.36;
+}
+
+.banner .banner-inner {
+    width: 55%;
+    padding-top: 215px;
+    padding-bottom: 200px;
+}
+
+.banner .banner-inner h1 {
+    color: #ffffff;
+    font-size: 46px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    width: 90%;
+}
+
+.banner .banner-inner .btn {
+    font-size: 16px;
+    display: inline-block;
+    text-align: center;
+    background-color: #185d17;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    padding: 17px 42px;
+    border-radius: 5px;
+    transition: 0.7s;
+    border: 1px solid #000;
+}
+
+.banner .banner-inner .btn:hover {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #ffffff;
+    opacity: 0.5;
+}
+
+/*-- banner end --*/
+
+/*-- Project-section --*/
+.about {
+    margin-top: -60px;
+    padding-bottom: 80px;
+}
+
+.about-contant p {
+    font-size: 18px;
+    padding: 90px 0 0;
+    opacity: 0.8;
+    line-height: 34px;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+}
+
+.about .card-header h4 {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.about .card-header {
+    background-color: transparent;
+    border-bottom: none;
+}
+
+.about .card {
+    margin-top: -85px;
+    border-radius: 8px;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+}
+
+.about input {
+    font-size: 14px;
+    height: 55px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.about textarea {
+    margin-bottom: 20px;
+}
+
+.about .btn-secondary {
+    width: 100%;
+    font-size: 16px;
+    padding: 17px 0;
+    font-weight: 600;
+    background-color: #000000;
+    border-color: #000000;
+}
+
+.about .card-body {
+    padding: 20px 45px 50px 45px;
+}
+
+.about figcaption h3 {
+    color: #481639;
+    font-size: 24px;
+    font-weight: 700;
+    padding-bottom: 30px;
+}
+
+.about figcaption {
+    padding: 20px 30px 30px 20px;
+}
+
+.about figure img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.about figcaption a {
+    font-size: 18px;
+    font-style: italic;
+    color: #000;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    border-bottom: 1px solid #000;
+}
+
+.about figcaption p {
+    color: #585858;
+    font-weight: 500;
+}
+
+.about .card-header {
+    padding: 50px 45px 0 45px;
+}
+
+.about .form-control:focus {
+    color: #495057;
+    border-color: #fdb714;
+    box-shadow: 0 0 0 0.2rem #fdb714;
+}
+
+.about .col-carousel {
+    margin: 70px 0;
+}
+
+/* owl nav */
+.testimonials {
+    width: 100%;
+    height: auto;
+    color: #fff;
+    margin: 80px 0 170px;
+}
+
+.testimonials .view {
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+}
+
+.testimonials .view img {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.testimonials .overlay .mask {
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+.testimonials .owl-carousel .owl-nav button.owl-next,
+.testimonials .owl-carousel .owl-nav button.owl-prev {
+    background-color: #fff;
+
+}
+
+.testimonials .owl-carousel .owl-next,
+.testimonials .owl-carousel .owl-prev {
+    width: 60px;
+    height: 60px;
+    line-height: 50px;
+    position: absolute;
+    top: 45%;
+    font-size: 20px;
+    color: #000;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.testimonials .owl-carousel .owl-prev {
+    left: 0;
+}
+
+.testimonials .owl-carousel .owl-next {
+    right: 0;
+}
+
+.testimonials .view .mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding: 100px 90px 0;
+    background-attachment: fixed;
+}
+
+.testimonials .overlay .mask:hover {
+    opacity: 1;
+}
+
+.testimonials .heading h4 {
+    color: #000;
+    font-size: 32px;
+    font-weight: 700;
+    padding-bottom: 30px;
+}
+
+.testimonials .item h3 {
+    font-size: 28px;
+    font-weight: 700;
+    padding-bottom: 30px;
+}
+
+.testimonials .mask p {
+    font-size: 20px;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    text-shadow: 1px 1px #585858;
+}
+
+.testimonials .heading p {
+    color: #585858;
+    width: 50%;
+    font-size: 18px;
+    padding-bottom: 60px;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+}
+
+.testimonials .item a {
+    color: #fff;
+    display: inline-block;
+    font-size: 20px;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+}
+
+.testimonials .view {
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+}
+
+.testimonials .owl-prev span,
+.testimonials .owl-next span {
+    color: #000;
+}
+
+.testimonials .owl-prev span:hover,
+.testimonials .owl-next span:hover {
+    color: #8199A3;
+}
+
+.testimonials .owl-prev,
+.testimonials .owl-next {
+    position: absolute;
+    top: 0;
+    height: 100%;
+}
+
+.testimonials .owl-prev {
+    left: 7px;
+}
+
+.testimonials .owl-next {
+    right: 7px;
+}
+
+/* removing blue outline from buttons */
+button:focus,
+button:active {
+    outline: none;
+}
+
+.testimonials .owl-carousel.owl-drag .owl-item img {
+    border-radius: 6px;
+}
+
+/*-- Service Section --*/
+.services {
+    color: #fff;
+    background-color: #185d17;
+}
+
+.services .col1 {
+    padding: 120px 40px 60px 15px;
+}
+
+.services .services-inner h2 {
+    font-size: 44px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.services .services-inner p {
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 60px;
+    opacity: 0.8;
+    letter-spacing: 0.5px;
+}
+
+.services h4 {
+    font-size: 28px;
+    padding-bottom: 20px;
+}
+
+.services .services-inner .block {
+    margin-bottom: 102px;
+}
+
+.services-content {
+    display: flex;
+    width: 895px;
+}
+
+.services-content figure {
+    margin-bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.services-content img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.right-thumbnail figure {
+    height: 100%;
+}
+
+.thumbnail figure {
+    margin: 0;
+}
+
+.services .services-inner .right-thumbnail img {
+    height: 100%;
+    max-width: 42vw;
+    position: relative;
+    right: -13px;
+    width: 42vw;
+    object-fit: cover;
+}
+
+/*-- Review Section --*/
+/* owl nav */
+.reviews {
+    width: 100%;
+    height: auto;
+    color: #fff;
+    background-image: url(../image/reviews-bg.jpg);
+}
+
+.reviews .owl-carousel .owl-stage {
+    padding: 100px 0 100px 0;
+}
+
+.reviews .view {
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+}
+
+.reviews .overlay .mask {
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+.reviews .owl-carousel .owl-next,
+.reviews .owl-carousel .owl-prev {
+    width: 60px;
+    height: 60px;
+    line-height: 50px;
+    position: absolute;
+    top: 45%;
+    font-size: 20px;
+    color: #000;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.reviews .owl-carousel .owl-prev {
+    left: 0;
+}
+
+.reviews .fa-angle-left,
+.reviews .fa-angle-right {
+    font-size: 80px;
+    font-weight: 700;
+}
+
+.reviews .owl-carousel .owl-next {
+    right: 0;
+}
+
+.reviews .view .mask {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding: 0 132px 0;
+    text-align: center;
+    background-attachment: fixed;
+}
+
+.reviews .overlay .mask:hover {
+    opacity: 1;
+}
+
+.reviews .mask p {
+    font-size: 20px;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    text-shadow: 1px 1px #585858;
+}
+
+.reviews .item h4 {
+    color: #fdb714;
+    display: inline-block;
+    font-size: 28px;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+}
+
+.reviews .item h4 span {
+    color: #fff;
+    display: block;
+    font-size: 20px;
+}
+
+.reviews .owl-prev span:hover,
+.reviews .owl-next span:hover {
+    color: #fdba12;
+}
+
+.reviews .owl-prev,
+.reviews .owl-next {
+    position: absolute;
+    top: 0;
+    height: 100%;
+}
+
+.reviews .owl-prev {
+    left: 7px;
+}
+
+.reviews .owl-next {
+    right: 7px;
+}
+
+/* removing blue outline from buttons */
+button:focus,
+button:active {
+    outline: none;
+}
+
+.reviews .owl-carousel.owl-drag .owl-item img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    border: 3px solid #fdba12;
+}
+
+/*-- Contact Section--*/
+.contact {
+    width: 100%;
+    height: auto;
+    padding: 120px 0;
+    background-color: #fffdf1;
+}
+
+.contact h3 {
+    font-size: 32px;
+    font-weight: 700;
+    padding-bottom: 20px;
+}
+
+.contact p {
+    width: 70%;
+    margin: 0 auto;
+    padding-bottom: 60px;
+}
+
+.form-control:focus {
+    border: 2px solid #fbaf5d !important;
+    box-shadow: none;
+}
+
+.contact .form-control {
+    padding: 17px 10px;
+    font-size: 16px;
+    border: 2px solid #495057;
+}
+
+.contact .btn-primary {
+    width: 100%;
+    padding: 17px 10px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+    border-color: #481639;
+    background-color: #481639;
+}
+
+.contact .btn-primary:not(:disabled):not(.disabled):active,
+.contact .btn-primary:hover {
+    background-color: #fbaf5d;
+    border-color: #fbaf5d;
+    box-shadow: none;
+}
+
+footer {
+    background-color: #481639;
+    color: #fff;
+    padding: 70px 0;
+}
+
+footer p a {
+    font-size: 18px;
+    color: #ffffff;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+}
+
+footer p {
+    color: #9e9e9e;
+}
+
+footer form button {
+    width: 100%;
+}
+
+footer p a:hover {
+    color: #fff;
+    font-weight: 600;
+    border-bottom: 2px solid #fff;
+}
+
+footer img {
+    width: 50%;
+    padding-bottom: 20px;
+}
+
+footer address {
+    width: 65%;
+    margin: 0 auto;
+}
+
+footer .col1,
+footer .col2 {
+    border-right: 2px solid #4b4b4b;
+}
+
+footer .fa {
+    margin-right: 10px;
+    color: #fff;
+}
+
+/*==============================================
+            Media Queries Styles
+===============================================*/
+@media screen and (min-width: 1440px) {
+    .container {
+        max-width: 1440px;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    header .navbar .nav-item .nav-link {
+        font-size: 14px;
+        padding: 0 20px 0 0;
+    }
+
+    .banner .banner-inner h1 {
+        width: 100%;
+        font-size: 42px;
+    }
+
+    .banner .banner-inner {
+        padding-top: 180px;
+    }
+
+    .border-bg {
+        height: 70px;
+    }
+
+    header .navbar-expand-lg {
+        padding: 8px 30px;
+        margin-top: -35px;
+    }
+
+    .navbar-collapse {
+        padding-top: 0;
+    }
+
+    header.active {
+        margin-top: -70px;
+    }
+
+    header .navbar .nav-item .nav-link {
+        font-size: 12px;
+    }
+
+    .navbar-brand img {
+        width: 60%;
+    }
+
+    .banner .banner-inner .btn {
+        font-size: 14px;
+    }
+
+    .about figcaption h3 {
+        font-size: 20px;
+        padding-bottom: 20px;
+    }
+
+    .about .card-header {
+        padding: 40px 45px 0 45px;
+    }
+
+    .about .card-header h4 {
+        font-size: 24px;
+    }
+
+    .about-contant p {
+        font-size: 17px;
+        padding: 50px 0 0;
+        line-height: 28px;
+    }
+
+    .about figcaption p {
+        font-size: 15px;
+    }
+
+    .about .btn-secondary {
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+    }
+
+    .services .services-inner h2 {
+        font-size: 36px;
+    }
+
+    .services h4 {
+        font-size: 22px;
+        padding-bottom: 10px;
+    }
+
+    .services .col1 {
+        padding: 80px 40px 20px 16px;
+    }
+
+    .services .services-inner p {
+        margin-bottom: 40px;
+    }
+
+    .thumbnail figure {
+        width: 100%;
+    }
+
+    .testimonials .heading p {
+        color: #585858;
+        width: 80%;
+        padding-bottom: 40px;
+    }
+
+    .testimonials .view .mask {
+        padding: 50px 80px 0;
+    }
+
+    .testimonials .mask p {
+        font-size: 16px;
+    }
+
+    .testimonials .item h3 {
+        padding-bottom: 10px;
+    }
+
+    .testimonials {
+        margin: 80px 0 110px;
+    }
+
+    .reviews .mask p {
+        font-size: 17px;
+    }
+
+    aaaaaaa .reviews .owl-carousel.owl-drag .owl-item img {
+        margin-bottom: 20px;
+    }
+
+    .reviews .item h4 span {
+        font-size: 16px;
+    }
+
+    .reviews .item h4 {
+        font-size: 20px;
+    }
+
+    .reviews .view .mask {
+        padding: 0 100px 0;
+    }
+
+    .contact p {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .services .services-inner .right-thumbnail img {
+        max-width: 100%;
+        right: 0;
+        width: 100%;
+    }
+
+    .banner .banner-inner {
+        padding-top: 150px;
+        width: 60%;
+    }
+
+    .about figcaption h3 {
+        font-size: 16px;
+        padding-bottom: 10px;
+    }
+
+    .about figcaption a {
+        font-size: 15px;
+    }
+
+    .about .card {
+        margin-top: 0;
+    }
+
+    .banner .banner-inner {
+        width: 70%;
+    }
+
+    .about {
+        margin-top: 50px;
+    }
+
+    .banner .banner-inner h1 {
+        width: 100%;
+        font-size: 36px;
+    }
+
+    .services .services-inner h2 {
+        font-size: 28px;
+    }
+
+    .testimonials .owl-carousel .owl-nav button.owl-next,
+    .testimonials .owl-carousel .owl-nav button.owl-prev {
+        background-color: rgba(255, 255, 255, 0.69);
+    }
+
+    .testimonials .owl-carousel .owl-next,
+    .testimonials .owl-carousel .owl-prev {
+        width: 40px;
+        height: 40px;
+    }
+
+    .testimonials .mask p {
+        font-size: 14px;
+    }
+
+    .testimonials .view .mask {
+        padding: 50px 50px 40px;
+        padding-right: 20px;
+    }
+
+    .reviews .owl-carousel .owl-stage {
+        padding: 50px 0 50px 0;
+    }
+
+    .testimonials .item h3 {
+        font-size: 22px;
+    }
+
+    .about-contant p {
+        font-size: 14px;
+        padding: 40px 0 0;
+        line-height: 24px;
+    }
+
+    .banner .banner-inner {
+        padding-top: 150px;
+        padding-bottom: 80px;
+    }
+
+    .contact {
+        padding: 80px 0;
+    }
+
+    .contact .form-control {
+        padding: 12px 10px;
+    }
+
+    .thumbnail img {
+        max-width: 100%;
+    }
+
+    .testimonials {
+        margin: 80px 0 80px;
+    }
+
+    nav ul li {
+        padding-bottom: 20px;
+    }
+
+    nav ul {
+        padding: 20px 0 0;
+    }
+
+    .about .card-body {
+        padding: 15px 15px 15px 15px;
+    }
+
+    .reviews .view .mask {
+        padding: 0 50px 0;
+    }
+
+    .about .card-header {
+        padding: 20px 15px 0 15px;
+    }
+
+    .reviews .fa-angle-left,
+    .reviews .fa-angle-right {
+        font-size: 40px;
+    }
+
+    .about input {
+        font-size: 12px;
+        height: 40px;
+        margin-bottom: 10px;
+    }
+
+    .services .services-inner p {
+        margin-bottom: 20px;
+        font-size: 13px;
+    }
+
+    .services .col1 {
+        padding: 60px 40px 40px 15px;
+    }
+
+    .contact p {
+        width: 100%;
+    }
+
+    .testimonials .view img {
+        height: 264px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .navbar-light .navbar-toggler {
+        border-color: rgb(255, 255, 255);
+    }
+
+    .navbar-light .navbar-toggler {
+        background-color: #fff;
+    }
+
+    .banner .banner-inner h1 {
+        font-size: 30px;
+    }
+
+    .banner .banner-inner {
+        padding-top: 100px;
+        padding-bottom: 50px;
+    }
+
+    .thumbnail img {
+        object-fit: scale-down;
+    }
+
+    .right-thumbnail {
+        margin-bottom: 50px;
+    }
+
+    footer img {
+        object-fit: scale-down;
+        padding-bottom: 0px;
+    }
+
+    footer .col1,
+    footer .col2 {
+        border-right: none;
+    }
+
+    footer .col1 {
+        text-align: center;
+    }
+
+    footer {
+        padding: 30px 0;
+    }
+
+    footer address {
+        padding-bottom: 50px;
+    }
+
+    .testimonials .heading p {
+        width: 100%;
+    }
+
+    .navbar-light .navbar-brand {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .contact .form-control {
+        padding: 12px 10px;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .banner .banner-inner {
+        width: 90%;
+    }
+
+    .banner .banner-inner h1 {
+        font-size: 22px;
+    }
+
+    .banner .banner-inner .btn {
+        font-size: 12px;
+        letter-spacing: 1px;
+        padding: 12px 20px;
+    }
+
+    .about figcaption {
+        padding: 20px 00px 30px 0px;
+    }
+
+    .testimonials .heading h4 {
+        font-size: 26px;
+        padding-bottom: 20px;
+    }
+
+    .thumbnail img {
+        width: initial;
+        object-fit: scale-down;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .features-about-inner {
+        padding: 20px 15px;
+    }
+
+    .services .services-inner h2 {
+        font-size: 24px;
+    }
+
+    .contact h3 {
+        font-size: 26px;
+    }
+
+    footer address {
+        width: 80%;
+        padding-bottom: 0;
+    }
+
+    footer p {
+        margin-bottom: 5px;
+    }
+}
