@@ -24,6 +24,7 @@
                 <ul class="nav nav-pills">
                   <li class="nav-item"><a class="nav-link active" href="#cadastro" data-toggle="tab">Cadastro</a></li>
                   <li class="nav-item"><a class="nav-link" href="#imagens" data-toggle="tab">Imagens</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#depoimentos" data-toggle="tab">Depoimentos</a></li>
                 </ul>
               </div><!-- /.card-header -->
 
@@ -44,6 +45,17 @@
                     <form role="form" action="{{ route('empreendimento-images.store')}}" method="POST"  enctype="multipart/form-data" >
                       @csrf
                       @include('admin.empreendimentos.formImg')
+                      <div class="card-footer">
+                        <button type="submit" class="btn btn-info">Salvar</button>
+                        <button type="submit" class="btn btn-default float-right">Cancelar</button>
+                      </div>
+                    </form>
+                  </div>
+                  <!-- /.tab-pane -->
+                  <div class="tab-pane col-4" id="depoimentos">
+                    <form role="form" action="{{ route('empreendimento-images.store')}}" method="POST"  enctype="multipart/form-data" >
+                      @csrf
+                      @include('admin.empreendimentos.formDepoimento')
                       <div class="card-footer">
                         <button type="submit" class="btn btn-info">Salvar</button>
                         <button type="submit" class="btn btn-default float-right">Cancelar</button>

@@ -14,9 +14,7 @@
 use App\Http\Controllers\AuthController;
 
 // Route::get('/', 'HomeController@home')->name('site.home');
-Route::get('/landingpage', function(){
-  return view('landingpage');
-} )->name('site.landing');
+Route::get('/landingpage', function(){ return view('landingpage');} )->name('site.landing');
 Route::get('/', function(){ return view('construcao');})->name('construcao');
 Route::get('/ajaxCidades', 'HomeController@ajaxCidades')->name('site.ajaxCidades');
 Route::get('/contato', 'HomeController@contato')->name('site.contato');

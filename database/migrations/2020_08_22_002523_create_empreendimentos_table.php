@@ -30,7 +30,7 @@ class CreateEmpreendimentosTable extends Migration
       $table->string('zap')->nullable();
       $table->string('email')->nullable();
 
-      $table->string('img_banner');
+      // $table->string('img_banner');
       $table->string('texto_banner')->nullable();
       $table->string('texto_banner_cor')->nullable();
 
@@ -38,13 +38,13 @@ class CreateEmpreendimentosTable extends Migration
       $table->string('btn_banner_link')->nullable();
       $table->string('btn_banner_cor')->nullable();
 
-      $table->string('img_card_1');
+      // $table->string('img_card_1');
       $table->string('titulo_card_1');
-      $table->string('texto_card_1');
+      $table->mediumText('texto_card_1');
 
-      $table->string('img_card_2');
+      // $table->string('img_card_2');
       $table->string('titulo_card_2');
-      $table->string('texto_card_2');
+      $table->mediumText('texto_card_2');
 
       $table->string('url_video')->nullable();
       $table->longText('texto_descritivo')->nullable();

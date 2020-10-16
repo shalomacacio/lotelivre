@@ -1,6 +1,6 @@
     <!-- banner start -->
-    <section id="home" class="banner"  style="background-image: url('{{ asset('landing/image/banner-bg3.jpg')}}');">
-      {{-- <img src="{{asset('landing/image/about-1.jpg')}}" alt="Trulli" style="width:100%"> --}}
+    <section id="home" class="banner"
+      style="background-image: url('{{ asset("storage/site/img/empreendimentos/".$empreendimento->id."/emp_0.jpeg") }}');">
         <div class="container">
             <div class="row">
                 <div class="col-12">

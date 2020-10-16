@@ -5,38 +5,37 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use Illuminate\Support\Facades\DB;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
-use App\Http\Requests\EmpreendimentoCreateRequest;
-use App\Http\Requests\EmpreendimentoUpdateRequest;
-use App\Repositories\EmpreendimentoRepository;
-use App\Validators\EmpreendimentoValidator;
+use App\Http\Requests\EmpreendimentoDepoimentoCreateRequest;
+use App\Http\Requests\EmpreendimentoDepoimentoUpdateRequest;
+use App\Repositories\EmpreendimentoDepoimentoRepository;
+use App\Validators\EmpreendimentoDepoimentoValidator;
 
 /**
- * Class EmpreendimentosController.
+ * Class EmpreendimentoDepoimentosController.
  *
  * @package namespace App\Http\Controllers;
  */
-class EmpreendimentosController extends Controller
+class EmpreendimentoDepoimentosController extends Controller
 {
     /**
-     * @var EmpreendimentoRepository
+     * @var EmpreendimentoDepoimentoRepository
      */
     protected $repository;
 
     /**
-     * @var EmpreendimentoValidator
+     * @var EmpreendimentoDepoimentoValidator
      */
     protected $validator;
 
     /**
-     * EmpreendimentosController constructor.
+     * EmpreendimentoDepoimentosController constructor.
      *
-     * @param EmpreendimentoRepository $repository
-     * @param EmpreendimentoValidator $validator
+     * @param EmpreendimentoDepoimentoRepository $repository
+     * @param EmpreendimentoDepoimentoValidator $validator
      */
-    public function __construct(EmpreendimentoRepository $repository, EmpreendimentoValidator $validator)
+    public function __construct(EmpreendimentoDepoimentoRepository $repository, EmpreendimentoDepoimentoValidator $validator)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
@@ -50,60 +49,42 @@ class EmpreendimentosController extends Controller
     public function index()
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $empreendimentos = $this->repository->all();
+        $empreendimentoDepoimentos = $this->repository->all();
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $empreendimentos,
+                'data' => $empreendimentoDepoimentos,
             ]);
         }
 
-        return view('admin.empreendimentos.index', compact('empreendimentos'));
-    }
-
-     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create(){
-
-      $cidades = DB::table('cidades')->get();
-      $empreendimentos = $this->repository->all();
-      return view('admin.empreendimentos.create', compact('empreendimentos', 'cidades', ));
+        return view('empreendimentoDepoimentos.index', compact('empreendimentoDepoimentos'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  EmpreendimentoCreateRequest $request
+     * @param  EmpreendimentoDepoimentoCreateRequest $request
      *
      * @return \Illuminate\Http\Response
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function store(EmpreendimentoCreateRequest $request)
+    public function store(EmpreendimentoDepoimentoCreateRequest $request)
     {
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
 
-            // $data = $request->all();
-            // if( $request->hasFile('img_banner') && $request->img->isValid()){
-            //   $imagePath = $request->img->store('site/img/empreendimentos/');
-            //   $data['img_banner'] = $imagePath;
-            // }
-            // $empreendimento = $this->repository->create($data);
-
-            $empreendimento = $this->repository->create($request->all());
+            $empreendimentoDepoimento = $this->repository->create($request->all());
 
             $response = [
-                'message' => 'Empreendimento created.',
-                'data'    => $empreendimento->toArray(),
+                'message' => 'EmpreendimentoDepoimento created.',
+                'data'    => $empreendimentoDepoimento->toArray(),
             ];
 
             if ($request->wantsJson()) {
+
                 return response()->json($response);
             }
 
@@ -115,6 +96,7 @@ class EmpreendimentosController extends Controller
                     'message' => $e->getMessageBag()
                 ]);
             }
+
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }
@@ -128,16 +110,16 @@ class EmpreendimentosController extends Controller
      */
     public function show($id)
     {
-        $empreendimento = $this->repository->find($id);
+        $empreendimentoDepoimento = $this->repository->find($id);
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $empreendimento,
+                'data' => $empreendimentoDepoimento,
             ]);
         }
 
-        return view('admin.empreendimentos.show', compact('empreendimento'));
+        return view('empreendimentoDepoimentos.show', compact('empreendimentoDepoimento'));
     }
 
     /**
@@ -149,33 +131,32 @@ class EmpreendimentosController extends Controller
      */
     public function edit($id)
     {
-        $cidades = DB::table('cidades')->get();
-        $empreendimento = $this->repository->find($id);
+        $empreendimentoDepoimento = $this->repository->find($id);
 
-        return view('admin.empreendimentos.edit', compact('empreendimento', 'cidades'));
+        return view('empreendimentoDepoimentos.edit', compact('empreendimentoDepoimento'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  EmpreendimentoUpdateRequest $request
+     * @param  EmpreendimentoDepoimentoUpdateRequest $request
      * @param  string            $id
      *
      * @return Response
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function update(EmpreendimentoUpdateRequest $request, $id)
+    public function update(EmpreendimentoDepoimentoUpdateRequest $request, $id)
     {
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
 
-            $empreendimento = $this->repository->update($request->all(), $id);
+            $empreendimentoDepoimento = $this->repository->update($request->all(), $id);
 
             $response = [
-                'message' => 'Empreendimento updated.',
-                'data'    => $empreendimento->toArray(),
+                'message' => 'EmpreendimentoDepoimento updated.',
+                'data'    => $empreendimentoDepoimento->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -213,11 +194,11 @@ class EmpreendimentosController extends Controller
         if (request()->wantsJson()) {
 
             return response()->json([
-                'message' => 'Empreendimento deleted.',
+                'message' => 'EmpreendimentoDepoimento deleted.',
                 'deleted' => $deleted,
             ]);
         }
 
-        return redirect()->back()->with('message', 'Empreendimento deleted.');
+        return redirect()->back()->with('message', 'EmpreendimentoDepoimento deleted.');
     }
 }

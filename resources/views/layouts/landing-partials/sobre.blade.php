@@ -5,22 +5,19 @@
           <div class="row">
               <div class="col-lg-4 col-md-6 col-12">
                   <figure>
-                      <img src="{{asset('landing/image/about-1.jpg')}}" alt="Trulli" style="width:100%">
+                      <img src="{{asset('storage/site/img/empreendimentos/'.$empreendimento->id.'/emp_2.jpeg')}}" alt="Trulli" style="width:100%">
                       <figcaption>
-                          <h3>Ruas e Avenidas Pavimentadas !
-                          </h3>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipi scing elit, sed do eiusmod tempor morbi Lorem ipsum consectetur adipi scing elit,consectetur...</p>
+                          <h3> {{ $empreendimento->titulo_card_1 }} </h3>
+                          <p>  {{ $empreendimento->texto_card_1 }} </p>
                       </figcaption>
                   </figure>
               </div>
               <div class="col-lg-4 col-md-6 col-12">
                   <figure>
-                      <img src="{{asset('landing/image/about-2.jpg')}}" alt="Trulli" style="width:100%">
-                      <figcaption>
-                          <h3>Energia Elétrica e Saneamento Básico
-                          </h3>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipi scing elit, sed do eiusmod tempor morbi Lorem ipsum consectetur adipi scing elit,consectetur...</p>
-                      </figcaption>
+                    <img src="{{asset('storage/site/img/empreendimentos/'.$empreendimento->id.'/emp_3.jpeg')}}" alt="Trulli" style="width:100%">
+                    <figcaption>
+                          <h3> {{ $empreendimento->titulo_card_2 }} </h3>
+                          <p>  {{ $empreendimento->texto_card_2 }} </p>                      </figcaption>
                   </figure>
               </div>
               <!--/col-->
@@ -65,8 +62,8 @@
           </div>
           <div class="row about-contant" id="quem-somos">
             <div class="col-12 heading">
-              <h3>Quem Somos </h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipi scing elit, sed do eiusmod tempor incididunt ut labore et dolore magna morbi Lorem ipsum dolor sit amet, consectetur adipiscing eliturna. Lorem . Pharetra convallis morbi Lorem ipsum dolor sit amet, consectetur adipiscing eliturna. Lorem morbi Lorem dolor sit amet, consectetur adipiscing eliturna. Lorem ipsum dolor sit amet, consectetur adipi scing elit, sed do eiusmorbi Lorem ipsum dolor sit...</p>
+              <h3>{{ $empreendimento->nome }} </h3>
+            <p>{{ $empreendimento->texto_descritivo }}</p>
             </div>
           </div>
       </div>

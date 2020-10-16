@@ -37,6 +37,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(\App\Repositories\BlogCategoriaRepository::class, \App\Repositories\BlogCategoriaRepositoryEloquent::class);
         $this->app->bind(\App\Repositories\EmailMarketingRepository::class, \App\Repositories\EmailMarketingRepositoryEloquent::class);
         $this->app->bind(\App\Repositories\BlogComentariosRepository::class, \App\Repositories\BlogComentariosRepositoryEloquent::class);
+        $this->app->bind(\App\Repositories\EmpreendimentoDepoimentoRepository::class, \App\Repositories\EmpreendimentoDepoimentoRepositoryEloquent::class);
         //:end-bindings:
     }
 }

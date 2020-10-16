@@ -103,18 +103,6 @@
   </div>
 
   <div class="col-sm-4">
-    <div class="form-group">
-      <label for="exampleInputFile">Banner Principal <span>(1900x700px)</span> </label>
-      <div class="input-group">
-        <div class="custom-file">
-          <input type="file" class="custom-file-input"  name="img_banner">
-          <label class="custom-file-label" for="exampleInputFile">Imagem</label>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-sm-4">
     <!-- text input -->
     <div class="form-group">
       <label>Texto Banner:</label>
@@ -123,7 +111,7 @@
     </div>
   </div>
 
-  <div class="col-sm-4">
+  <div class="col-sm-2">
     <!-- text input -->
     <div class="form-group">
       <label>Texto Cor:</label>
@@ -132,7 +120,7 @@
     </div>
   </div>
 
-  <div class="col-sm-4">
+  <div class="col-sm-2">
     <!-- text input -->
     <div class="form-group">
       <label>Botão Banner:</label>
@@ -141,7 +129,7 @@
     </div>
   </div>
 
-  <div class="col-sm-4">
+  <div class="col-sm-2">
     <!-- text input -->
     <div class="form-group">
       <label>Botão Link:</label>
@@ -150,7 +138,7 @@
     </div>
   </div>
 
-  <div class="col-sm-4">
+  <div class="col-sm-2">
     <!-- text input -->
     <div class="form-group">
       <label>Botão Cor:</label>
@@ -159,50 +147,16 @@
     </div>
   </div>
 
-
-  <div class="col-sm-4">
-    <div class="form-group">
-      <label for="exampleInputFile">Img Card 01 <span>(0x0px)</span> </label>
-      <div class="input-group">
-        <div class="custom-file">
-          <input type="file" class="custom-file-input"  name="img_card_1">
-          <label class="custom-file-label" for="exampleInputFile">Imagem</label>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-sm-4">
+  <div class="col-sm-6">
     <!-- text input -->
     <div class="form-group">
       <label>Titulo Card 1:</label>
-      <input type="text" name="titulo_card1" class="form-control" placeholder="Enter ..."
+      <input type="text" name="titulo_card_1" class="form-control" placeholder="Enter ..."
         @isset( $empreendimento->titulo_card_1 ) value="{{ $empreendimento->titulo_card_1 }}" @endisset>
     </div>
   </div>
 
-  <div class="col-sm-4">
-    <!-- text input -->
-    <div class="form-group">
-      <label>Texto Card 1:</label>
-      <input type="text" name="texto_card_1" class="form-control" placeholder="Enter ..."
-        @isset( $empreendimento->texto_card_1 ) value="{{ $empreendimento->texto_card_1 }}" @endisset>
-    </div>
-  </div>
-
-  <div class="col-sm-4">
-    <div class="form-group">
-      <label for="exampleInputFile">Img Card 02 <span>(0x0px)</span> </label>
-      <div class="input-group">
-        <div class="custom-file">
-          <input type="file" class="custom-file-input"  name="img_card_2">
-          <label class="custom-file-label" for="exampleInputFile">Imagem</label>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-sm-4">
+  <div class="col-sm-6">
     <!-- text input -->
     <div class="form-group">
       <label>Titulo Card 2:</label>
@@ -211,12 +165,21 @@
     </div>
   </div>
 
-  <div class="col-sm-4">
+  <div class="col-sm-6">
+    <!-- text input -->
+    <div class="form-group">
+      <label>Texto Card 1:</label>
+      <textarea name="texto_card_1" class="form-control"></textarea>
+    </div>
+  </div>
+
+
+
+  <div class="col-sm-6">
     <!-- text input -->
     <div class="form-group">
       <label>Texto Card 2:</label>
-      <input type="text" name="texto_card_2" class="form-control" placeholder="Enter ..."
-        @isset( $empreendimento->texto_card_2 ) value="{{ $empreendimento->texto_card_2 }}" @endisset>
+      <textarea name="texto_card_2" class="form-control"></textarea>
     </div>
   </div>
 

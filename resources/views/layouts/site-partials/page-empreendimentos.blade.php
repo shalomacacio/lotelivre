@@ -32,25 +32,24 @@
                                     <div class="col-xl-3 col-lg-4 col-md-4 col-12">
                                         <div class="single-product">
                                             <div class="product-img">
-                                            <a href="{{route('site.empreendimento.show', $empreendimento->id)}}">
-                                                    <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
-                                                    <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
-                                                </a>
-                                                <div class="button-head">
-                                                    <div class="product-action">
-                                                        <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-                                                        <a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
-                                                        <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
-                                                    </div>
-                                                    <div class="product-action-2">
-                                                        <a title="Add to cart" href="#">Add to cart</a>
-                                                    </div>
-                                                </div>
+                                              <a href="{{route('site.empreendimento.show', $empreendimento->id)}}">
+                                                <img class="default-img" src="{{ asset('storage/site/img/empreendimentos/'.$empreendimento->id.'/emp_1.jpeg')}}" alt="#">
+                                              </a>
+                                            <div class="button-head">
+                                            <div class="product-action">
+                                              <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-folder"></i><span>Mat: {{ $empreendimento->matricula }}</span></a>
+                                            <a title="Wishlist" href="#"><i class=" ti-calendar "></i><span>Lançamento: {{ $empreendimento->dt_lancamento }}</span></a>
+                                              <a title="Compare" href="#"><i class="ti-files"></i><span>CNPJ: {{ $empreendimento->cnpj }}</span></a>
+                                            </div>
+                                            <div class="product-action-2">
+                                              <a title="Add to cart" href="#"> Saiba mais! </a>
+                                            </div>
+                                            </div>
                                             </div>
                                             <div class="product-content">
                                               <h3><a href="product-details.html">{{ $empreendimento->nome }}</a></h3>
                                                 <div class="product-price">
-                                                    <span>A partir de $29.00 mensais </span>
+                                                    <span>{{ $empreendimento->cidade->nome }} - {{ $empreendimento->estado->sigla }}</span>
                                                 </div>
                                             </div>
                                         </div>
