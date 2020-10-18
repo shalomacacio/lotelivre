@@ -15,7 +15,7 @@ use App\Http\Controllers\AuthController;
 
 // Route::get('/', 'HomeController@home')->name('site.home');
 Route::get('/landingpage', function(){ return view('landingpage');} )->name('site.landing');
-Route::get('/', function(){ return view('construcao');})->name('construcao');
+Route::get('/', function(){ return view('construcao');})->name('site.home');
 Route::get('/ajaxCidades', 'HomeController@ajaxCidades')->name('site.ajaxCidades');
 Route::get('/contato', 'HomeController@contato')->name('site.contato');
 Route::get('/blogs', 'HomeController@blogs')->name('site.blogs');
@@ -27,14 +27,20 @@ Route::get('/login', 'AuthController@login')->name('login');
 Route::post('/auth', 'AuthController@auth')->name('auth');
 
 Route::group([ 'prefix' => 'admin' ,'middleware' => ['auth']], function () {
+  Route::get('/logout', 'AuthController@logout')->name('login');
+
     Route::resource('lotes', 'LotesController');
     Route::resource('blogs', 'BlogsController');
     Route::resource('cidades', 'CidadesController');
     Route::resource('banner-videos', 'BannerVideosController');
-    Route::get('/logout', 'AuthController@logout')->name('login');
-    Route::resource('empreendimentos', 'EmpreendimentosController');
+
     Route::resource('banner-rotativos', 'BannerRotativosController');
     Route::resource('banner-promocionals', 'BannerPromocionalsController');
+
+    Route::resource('empreendimentos', 'EmpreendimentosController');
+    Route::resource('empreendimento-itens', 'EmpreendimentoItensController');
     Route::resource('empreendimento-images', 'EmpreendimentoImagesController');
     Route::resource('empreendimento-destaques', 'EmpreendimentoDestaquesController');
+    Route::resource('empreendimento-depoimentos', 'EmpreendimentoDepoimentosController');
+
 });

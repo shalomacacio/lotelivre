@@ -76,7 +76,13 @@ class EmpreendimentoItensController extends Controller
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
 
-            $empreendimentoIten = $this->repository->create($request->all());
+            $data = $request->all();
+            if( $request->hasFile('img') && $request->img->isValid()){
+              $imagePath = $request->img->store('site/img/empreendimentos/'.$request->empreendimento_id.'/intens/');
+              $data['img'] = $imagePath;
+            }
+
+            $empreendimentoIten = $this->repository->create($data);
 
             $response = [
                 'message' => 'EmpreendimentoItens created.',

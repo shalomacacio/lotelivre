@@ -41,6 +41,9 @@ class Empreendimento extends Model implements Transformable
       'texto_card_1',
       'titulo_card_2',
       'texto_card_2',
+      'titulo_planta',
+      'texto_planta',
+      'bg_planta',
       'url_video',
       'texto_destaque',
     ];
@@ -61,6 +64,10 @@ class Empreendimento extends Model implements Transformable
       return $this->hasMany('\App\Entities\Lote');
     }
 
+    public function depoimentos(){
+      return $this->hasMany('\App\Entities\EmpreendimentoDepoimento');
+    }
+
     public function destaque(){
       return $this->hasOne('\App\Entities\EmpreendimentoDestaque');
     }
@@ -69,6 +76,8 @@ class Empreendimento extends Model implements Transformable
       return $this->hasMany('\App\Entities\EmpreendimentoImage');
     }
 
-
+    public function itens(){
+      return $this->hasMany('\App\Entities\EmpreendimentoItens');
+    }
 
 }

@@ -18,7 +18,9 @@ class CreateEmpreendimentoItensTable extends Migration
 		Schema::create('empreendimento_itens', function(Blueprint $table) {
             $table->increments('id');
             $table->integer('empreendimento_id');
-            $table->string('descricao');
+            $table->string('img');
+            $table->string('titulo');
+            $table->mediumText('descricao');
             $table->timestamps();
 		});
 	}

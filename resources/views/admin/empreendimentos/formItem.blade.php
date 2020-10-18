@@ -16,7 +16,7 @@
 
   <div class="col-sm-12">
     <div class="form-group">
-      <label for="exampleInputFile">Banner Principal <span>(187x184px)</span> </label>
+      <label for="exampleInputFile">Banner Item<span>(65x65px)</span> </label>
       <div class="input-group">
         <div class="custom-file">
           <input type="file" class="custom-file-input"  name="img">
@@ -29,18 +29,18 @@
   <div class="col-sm-12">
     <!-- text input -->
     <div class="form-group">
-      <label>NOME:</label>
-      <input type="text" name="nome" class="form-control" placeholder="Enter ..."
-        @isset( $empreendimentoDepoimento->nome ) value="{{ $empreendimentoDepoimento->nome }}" @endisset>
+      <label>Titulo:</label>
+      <input type="text" name="titulo" class="form-control" placeholder="Enter ..."
+        @isset( $empreendimentoItens->titulo ) value="{{ $empreendimentoItens->titulo  }}" @endisset>
     </div>
   </div>
 
   <div class="col-sm-12">
     <!-- text input -->
     <div class="form-group">
-      <label>Texto:</label>
-      <textarea name="texto" class="form-control">
-        @isset( $empreendimentoDepoimento->texto ) value="{{ $empreendimentoDepoimento->texto }}" @endisset
+      <label>Descrição:</label>
+      <textarea name="descricao" class="form-control">
+        @isset( $empreendimentoItens->descricao) value="{{ $empreendimentoItens->descricao}}" @endisset
       </textarea>
     </div>
   </div>

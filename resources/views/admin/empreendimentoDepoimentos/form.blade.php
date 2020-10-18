@@ -105,7 +105,7 @@
   <div class="col-sm-4">
     <!-- text input -->
     <div class="form-group">
-      <label>Titulo Banner:</label>
+      <label>Texto Banner:</label>
       <input type="text" name="texto_banner" class="form-control" placeholder="Enter ..."
         @isset( $empreendimento->texto_banner ) value="{{ $empreendimento->texto_banner }}" @endisset>
     </div>
@@ -147,7 +147,7 @@
     </div>
   </div>
 
-  <div class="col-sm-4">
+  <div class="col-sm-6">
     <!-- text input -->
     <div class="form-group">
       <label>Titulo Card 1:</label>
@@ -156,7 +156,7 @@
     </div>
   </div>
 
-  <div class="col-sm-4">
+  <div class="col-sm-6">
     <!-- text input -->
     <div class="form-group">
       <label>Titulo Card 2:</label>
@@ -165,17 +165,7 @@
     </div>
   </div>
 
-  <div class="col-sm-4">
-    <!-- text input -->
-    <div class="form-group">
-      <label>Titulo Planta:</label>
-      <input type="text" name="titulo_planta" class="form-control" placeholder="Enter ..."
-        @isset( $empreendimento->titulo_planta ) value="{{ $empreendimento->titulo_planta }}" @endisset>
-    </div>
-  </div>
-
-
-  <div class="col-sm-4">
+  <div class="col-sm-6">
     <!-- text input -->
     <div class="form-group">
       <label>Texto Card 1:</label>
@@ -185,22 +175,13 @@
 
 
 
-  <div class="col-sm-4">
+  <div class="col-sm-6">
     <!-- text input -->
     <div class="form-group">
       <label>Texto Card 2:</label>
       <textarea name="texto_card_2" class="form-control"></textarea>
     </div>
   </div>
-
-  <div class="col-sm-4">
-    <!-- text input -->
-    <div class="form-group">
-      <label>Texto Planta:</label>
-      <textarea name="texto_planta" class="form-control"></textarea>
-    </div>
-  </div>
-
 
   <div class="col-sm-12">
     <!-- textarea -->
@@ -212,10 +193,6 @@
     </textarea>
     </div>
   </div>
-
-
-
-
 
   <input type="hidden" name="estado_id" value="{{ $cidade->estado_id}}" >
 

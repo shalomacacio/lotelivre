@@ -20,6 +20,11 @@ class EmpreendimentoDepoimento extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = [
+      'img',
+      'nome',
+      'texto',
+      'empreendimento_id'
+    ];
 
 }
