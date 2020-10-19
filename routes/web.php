@@ -13,8 +13,8 @@
 
 use App\Http\Controllers\AuthController;
 
-// Route::get('/', 'HomeController@home')->name('site.home');
-Route::get('/', function(){ return view('construcao');})->name('site.home');
+Route::get('/', 'HomeController@home')->name('site.home');
+// Route::get('/', function(){ return view('construcao');})->name('site.home');
 Route::get('/landingpage', function(){ return view('landingpage');} )->name('site.landing');
 Route::get('/ajaxCidades', 'HomeController@ajaxCidades')->name('site.ajaxCidades');
 Route::get('/contato', 'HomeController@contato')->name('site.contato');

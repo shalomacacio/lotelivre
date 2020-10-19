@@ -20,6 +20,8 @@ class BlogCategoria extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = [
+      'descricao'
+    ];
 
 }

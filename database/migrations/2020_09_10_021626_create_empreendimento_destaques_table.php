@@ -19,9 +19,9 @@ class CreateEmpreendimentoDestaquesTable extends Migration
             $table->increments('id');
             $table->integer('empreendimento_id');
             $table->string('img');
-            $table->string('span');
-            $table->string('span_color');
-            $table->string('preco_antigo');
+            $table->string('span')->nullable();
+            $table->string('span_color')->nullable();
+            $table->string('preco_antigo')->nullable();
             $table->timestamps();
 		});
 	}

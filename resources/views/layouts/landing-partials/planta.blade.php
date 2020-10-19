@@ -1,6 +1,6 @@
 
     <!-- Services Section -->
-    <section class="services" id="planta">
+    <section class="services" id="planta" style=" background-color: {!! $empreendimento->bg_planta !!};">
       <div class="container">
           <div class="services-inner">
               <div class="row">

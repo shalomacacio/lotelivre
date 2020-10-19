@@ -2,6 +2,7 @@
 
 namespace App\Entities;
 
+use App\Entities\BlogCategoria;
 use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
@@ -27,5 +28,12 @@ class Blog extends Model implements Transformable
       'titulo',
       'texto',
     ];
+
+
+    //Relationship
+    public function categoria()
+    {
+        return $this->belongsTo('App\Entities\BlogCategoria', 'blog_categoria_id', 'id');
+    }
 
 }

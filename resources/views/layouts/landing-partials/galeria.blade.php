@@ -13,7 +13,7 @@
                     @foreach ($empreendimento->galerias as $galeria)
                       <div class="item">
                         <div class="view overlay">
-                          <img src="{{ url("storage/{$galeria->img}") }}"  class="img-fluid  alt="smaple image">
+                          <img src="{{ url("storage/{$galeria->img}") }}"  class="img-fluid  alt="smaple image"  width="370px" height="300px">
                             <div class="mask flex-center rgba-red-strong">
                                 <h3> @isset($galeria->titulo) {{ $galeria->titulo }}  @endisset  </h3>
                                 <p class="white-text"> @isset($galeria->texto) {{ $galeria->texto }}  @endisset  </p>

@@ -17,7 +17,7 @@ class CreateBannerVideosTable extends Migration
 	{
 		Schema::create('banner_videos', function(Blueprint $table) {
             $table->increments('id');
-            $table->integer('empreendimento_id');
+            $table->integer('empreendimento_id')->nullable();
             $table->string('url');
             $table->timestamps();
 		});

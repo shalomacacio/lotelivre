@@ -4066,7 +4066,8 @@ Version:1.0
 }
 .shop-blog .shop-single-blog img{
 	height:300px;
-	width:370px;
+  width:370px;
+  border-radius: 10px;
 }
 .shop-blog .shop-single-blog .content {
 	padding: 40px;

@@ -18,7 +18,7 @@
 											<ul class="nav main-menu menu navbar-nav">
 													<li class="active"><a href="{{route('site.home')}}">Home</a></li>
                           <li><a href="{{route('site.empreendimentos')}}">Empreendimentos</a></li>
-                          <li><a href="{{route('site.contato')}}">Blog</a></li>
+                          <li><a href="{{route('site.blogs')}}">Blog</a></li>
                           <li><a href="{{route('site.contato')}}">Quem Somos</a></li>
 													<li><a href="{{route('site.contato')}}">Contato</a></li>
 												</ul>
