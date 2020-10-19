@@ -5,7 +5,7 @@
           <div class="row">
               <div class="col-lg-4 col-md-6 col-12">
                   <figure>
-                      <img src="{{asset('storage/site/img/empreendimentos/'.$empreendimento->id.'/emp_2.jpeg')}}" alt="Trulli" style="width:100%">
+                      <img src="{{asset('storage/site/img/empreendimentos/'.$empreendimento->id.'/images/emp_4.jpeg')}}" alt="Trulli" style="width:100%">
                       <figcaption>
                           <h3> {{ $empreendimento->titulo_card_1 }} </h3>
                           <p>  {{ $empreendimento->texto_card_1 }} </p>
@@ -14,7 +14,7 @@
               </div>
               <div class="col-lg-4 col-md-6 col-12">
                   <figure>
-                    <img src="{{asset('storage/site/img/empreendimentos/'.$empreendimento->id.'/emp_3.jpeg')}}" alt="Trulli" style="width:100%">
+                    <img src="{{asset('storage/site/img/empreendimentos/'.$empreendimento->id.'/images/emp_5.jpeg')}}" alt="Trulli" style="width:100%">
                     <figcaption>
                           <h3> {{ $empreendimento->titulo_card_2 }} </h3>
                           <p>  {{ $empreendimento->texto_card_2 }} </p>                      </figcaption>

@@ -44,8 +44,11 @@ class CreateEmpreendimentosTable extends Migration
       $table->mediumText('texto_card_2');
 
       $table->string('titulo_planta');
-      $table->string('texto_planta');
+      $table->mediumText('texto_planta');
       $table->string('bg_planta')->default('#ffffff');
+
+      $table->string('titulo_galeria');
+      $table->mediumText('texto_galeria');
 
       $table->string('url_video')->nullable();
       $table->longText('texto_descritivo')->nullable();

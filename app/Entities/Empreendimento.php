@@ -43,6 +43,8 @@ class Empreendimento extends Model implements Transformable
       'texto_card_2',
       'titulo_planta',
       'texto_planta',
+      'titulo_galeria',
+      'texto_galeria',
       'bg_planta',
       'url_video',
       'texto_destaque',
@@ -78,6 +80,10 @@ class Empreendimento extends Model implements Transformable
 
     public function itens(){
       return $this->hasMany('\App\Entities\EmpreendimentoItens');
+    }
+
+    public function galerias(){
+      return $this->hasMany('\App\Entities\EmpreendimentoGaleria');
     }
 
 }

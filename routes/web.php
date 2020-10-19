@@ -13,9 +13,9 @@
 
 use App\Http\Controllers\AuthController;
 
-// Route::get('/', 'HomeController@home')->name('site.home');
+Route::get('/', 'HomeController@home')->name('site.home');
+// Route::get('/', function(){ return view('construcao');})->name('site.home');
 Route::get('/landingpage', function(){ return view('landingpage');} )->name('site.landing');
-Route::get('/', function(){ return view('construcao');})->name('site.home');
 Route::get('/ajaxCidades', 'HomeController@ajaxCidades')->name('site.ajaxCidades');
 Route::get('/contato', 'HomeController@contato')->name('site.contato');
 Route::get('/blogs', 'HomeController@blogs')->name('site.blogs');
@@ -40,6 +40,7 @@ Route::group([ 'prefix' => 'admin' ,'middleware' => ['auth']], function () {
     Route::resource('empreendimentos', 'EmpreendimentosController');
     Route::resource('empreendimento-itens', 'EmpreendimentoItensController');
     Route::resource('empreendimento-images', 'EmpreendimentoImagesController');
+    Route::resource('empreendimento-galeria', 'EmpreendimentoGaleriasController');
     Route::resource('empreendimento-destaques', 'EmpreendimentoDestaquesController');
     Route::resource('empreendimento-depoimentos', 'EmpreendimentoDepoimentosController');
 

@@ -30,7 +30,7 @@
                   </div>
                   <div class="col-lg-5 right-thumbnail">
                       <figure>
-                          <img src="{{asset('landing/image/service-bg.jpg')}}" alt="testimonial">
+                          <img src="{{asset('storage/site/img/empreendimentos/'.$empreendimento->id.'/images/emp_3.jpeg')}}"  alt="testimonial">
                       </figure>
                   </div>
               </div>

@@ -2,41 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use App\Entities\EmpreendimentoImage;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
-use App\Http\Requests\EmpreendimentoImageCreateRequest;
-use App\Http\Requests\EmpreendimentoImageUpdateRequest;
-use App\Repositories\EmpreendimentoImageRepository;
-use App\Validators\EmpreendimentoImageValidator;
+use App\Http\Requests\EmpreendimentoGaleriaCreateRequest;
+use App\Http\Requests\EmpreendimentoGaleriaUpdateRequest;
+use App\Repositories\EmpreendimentoGaleriaRepository;
+use App\Validators\EmpreendimentoGaleriaValidator;
 
 /**
- * Class EmpreendimentoImagesController.
+ * Class EmpreendimentoGaleriasController.
  *
  * @package namespace App\Http\Controllers;
  */
-class EmpreendimentoImagesController extends Controller
+class EmpreendimentoGaleriasController extends Controller
 {
     /**
-     * @var EmpreendimentoImageRepository
+     * @var EmpreendimentoGaleriaRepository
      */
     protected $repository;
 
     /**
-     * @var EmpreendimentoImageValidator
+     * @var EmpreendimentoGaleriaValidator
      */
     protected $validator;
 
     /**
-     * EmpreendimentoImagesController constructor.
+     * EmpreendimentoGaleriasController constructor.
      *
-     * @param EmpreendimentoImageRepository $repository
-     * @param EmpreendimentoImageValidator $validator
+     * @param EmpreendimentoGaleriaRepository $repository
+     * @param EmpreendimentoGaleriaValidator $validator
      */
-    public function __construct(EmpreendimentoImageRepository $repository, EmpreendimentoImageValidator $validator)
+    public function __construct(EmpreendimentoGaleriaRepository $repository, EmpreendimentoGaleriaValidator $validator)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
@@ -50,52 +49,43 @@ class EmpreendimentoImagesController extends Controller
     public function index()
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $empreendimentoImages = $this->repository->all();
+        $empreendimentoGalerias = $this->repository->all();
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $empreendimentoImages,
+                'data' => $empreendimentoGalerias,
             ]);
         }
 
-        return view('empreendimentoImages.index', compact('empreendimentoImages'));
+        return view('empreendimentoGalerias.index', compact('empreendimentoGalerias'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  EmpreendimentoImageCreateRequest $request
+     * @param  EmpreendimentoGaleriaCreateRequest $request
      *
      * @return \Illuminate\Http\Response
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function store(EmpreendimentoImageCreateRequest $request)
+    public function store(EmpreendimentoGaleriaCreateRequest $request)
     {
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
 
             $data = $request->all();
-            for($i = 0; $i < count($request->allFiles()['imgs']); $i++){
-
-              $file = $request->allFiles()['imgs'][$i];
-              $extensao = $file->extension();
-              $nomeArquivo = "emp_".$i.".".$extensao;
-
-              $empreendimentoImage = new EmpreendimentoImage();
-              $empreendimentoImage->empreendimento_id = $data['empreendimento_id'];
-
-              $empreendimentoImage->img = $file->storeAs('site/img/empreendimentos/'.$data['empreendimento_id'].'/images', $nomeArquivo);
-              $empreendimentoImage->save();
-
+            if( $request->hasFile('img') && $request->img->isValid()){
+              $imagePath = $request->img->store('site/img/empreendimentos/'.$request->empreendimento_id.'/galeria/');
+              $data['img'] = $imagePath;
             }
-
+            $empreendimentoGalerium = $this->repository->create($data);
 
             $response = [
-                'message' => 'EmpreendimentoImage created.',
-                'data'    => $empreendimentoImage->toArray(),
+                'message' => 'EmpreendimentoGaleria created.',
+                'data'    => $empreendimentoGalerium->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -125,16 +115,16 @@ class EmpreendimentoImagesController extends Controller
      */
     public function show($id)
     {
-        $empreendimentoImage = $this->repository->find($id);
+        $empreendimentoGalerium = $this->repository->find($id);
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $empreendimentoImage,
+                'data' => $empreendimentoGalerium,
             ]);
         }
 
-        return view('empreendimentoImages.show', compact('empreendimentoImage'));
+        return view('empreendimentoGalerias.show', compact('empreendimentoGalerium'));
     }
 
     /**
@@ -146,32 +136,32 @@ class EmpreendimentoImagesController extends Controller
      */
     public function edit($id)
     {
-        $empreendimentoImage = $this->repository->find($id);
+        $empreendimentoGalerium = $this->repository->find($id);
 
-        return view('empreendimentoImages.edit', compact('empreendimentoImage'));
+        return view('empreendimentoGalerias.edit', compact('empreendimentoGalerium'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  EmpreendimentoImageUpdateRequest $request
+     * @param  EmpreendimentoGaleriaUpdateRequest $request
      * @param  string            $id
      *
      * @return Response
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function update(EmpreendimentoImageUpdateRequest $request, $id)
+    public function update(EmpreendimentoGaleriaUpdateRequest $request, $id)
     {
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
 
-            $empreendimentoImage = $this->repository->update($request->all(), $id);
+            $empreendimentoGalerium = $this->repository->update($request->all(), $id);
 
             $response = [
-                'message' => 'EmpreendimentoImage updated.',
-                'data'    => $empreendimentoImage->toArray(),
+                'message' => 'EmpreendimentoGaleria updated.',
+                'data'    => $empreendimentoGalerium->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -209,11 +199,11 @@ class EmpreendimentoImagesController extends Controller
         if (request()->wantsJson()) {
 
             return response()->json([
-                'message' => 'EmpreendimentoImage deleted.',
+                'message' => 'EmpreendimentoGaleria deleted.',
                 'deleted' => $deleted,
             ]);
         }
 
-        return redirect()->back()->with('message', 'EmpreendimentoImage deleted.');
+        return redirect()->back()->with('message', 'EmpreendimentoGaleria deleted.');
     }
 }

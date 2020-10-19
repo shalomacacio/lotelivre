@@ -33,16 +33,16 @@
                                         <div class="single-product">
                                             <div class="product-img">
                                               <a href="{{route('site.empreendimento.show', $empreendimento->id)}}">
-                                                <img class="default-img" src="{{ asset('storage/site/img/empreendimentos/'.$empreendimento->id.'/emp_1.jpeg')}}" alt="#">
+                                                <img class="default-img" src="{{ asset('storage/site/img/empreendimentos/'.$empreendimento->id.'/images/emp_1.jpeg')}}" alt="#">
                                               </a>
                                             <div class="button-head">
                                             <div class="product-action">
-                                              <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-folder"></i><span>Mat: {{ $empreendimento->matricula }}</span></a>
-                                            <a title="Wishlist" href="#"><i class=" ti-calendar "></i><span>Lançamento: {{ $empreendimento->dt_lancamento }}</span></a>
-                                              <a title="Compare" href="#"><i class="ti-files"></i><span>CNPJ: {{ $empreendimento->cnpj }}</span></a>
+                                              <a data-toggle="modal" data-target="#exampleModal" title="matricula" href="#"><i class=" ti-folder"></i><span>Mat: {{ $empreendimento->matricula }}</span></a>
+                                            <a title="lancamento" href="#"><i class=" ti-calendar "></i><span>Lançamento: {{ $empreendimento->dt_lancamento }}</span></a>
+                                              <a title="cnpj" href="#"><i class="ti-files"></i><span>CNPJ: {{ $empreendimento->cnpj }}</span></a>
                                             </div>
                                             <div class="product-action-2">
-                                              <a title="Add to cart" href="#"> Saiba mais! </a>
+                                              <a title="Saimba mais" href="#"> Saiba mais! </a>
                                             </div>
                                             </div>
                                             </div>

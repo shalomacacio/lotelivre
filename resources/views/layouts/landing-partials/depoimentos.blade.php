@@ -1,7 +1,8 @@
 
 
     <!-- Reviews Section Starts -->
-    <section class="reviews" id="testemunhos">
+    <section class="reviews" id="testemunhos"
+    style="background-image: url('{{ asset("storage/site/img/empreendimentos/".$empreendimento->id."/images/emp_2.jpeg") }}');" >
       <div class="container">
           <div class="row align-items-center">
               <div class="col-12 col-carousel">

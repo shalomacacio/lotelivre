@@ -26,6 +26,7 @@
                   <li class="nav-item"><a class="nav-link" href="#imagens" data-toggle="tab">Imagens</a></li>
                   <li class="nav-item"><a class="nav-link" href="#depoimentos" data-toggle="tab">Depoimentos</a></li>
                   <li class="nav-item"><a class="nav-link" href="#itens" data-toggle="tab">Itens</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#galeria" data-toggle="tab">Galeria</a></li>
                 </ul>
               </div><!-- /.card-header -->
 
@@ -68,6 +69,17 @@
                     <form role="form" action="{{ route('empreendimento-itens.store')}}" method="POST"  enctype="multipart/form-data" >
                       @csrf
                       @include('admin.empreendimentos.formItem')
+                      <div class="card-footer">
+                        <button type="submit" class="btn btn-info">Salvar</button>
+                        <button type="submit" class="btn btn-default float-right">Cancelar</button>
+                      </div>
+                    </form>
+                  </div>
+                  <!-- /.tab-pane -->
+                  <div class="tab-pane col-4" id="galeria">
+                    <form role="form" action="{{ route('empreendimento-galeria.store')}}" method="POST"  enctype="multipart/form-data" >
+                      @csrf
+                      @include('admin.empreendimentos.formGaleria')
                       <div class="card-footer">
                         <button type="submit" class="btn btn-info">Salvar</button>
                         <button type="submit" class="btn btn-default float-right">Cancelar</button>

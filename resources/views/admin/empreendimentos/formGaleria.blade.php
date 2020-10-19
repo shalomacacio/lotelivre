@@ -29,8 +29,8 @@
   <div class="col-sm-12">
     <!-- text input -->
     <div class="form-group">
-      <label>NOME:</label>
-      <input type="text" name="nome" class="form-control" placeholder="Enter ..."
+      <label>Titulo:</label>
+      <input type="text" name="titulo" class="form-control" placeholder="Enter ..."
         @isset( $empreendimentoDepoimento->nome ) value="{{ $empreendimentoDepoimento->nome }}" @endisset>
     </div>
   </div>

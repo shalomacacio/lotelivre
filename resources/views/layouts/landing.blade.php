@@ -11,7 +11,7 @@
       @include('layouts.landing-partials.banner')
       @include('layouts.landing-partials.sobre')
       @include('layouts.landing-partials.planta')
-      @include('layouts.landing-partials.carrousel-images')
+      @include('layouts.landing-partials.galeria')
       @include('layouts.landing-partials.depoimentos')
       @include('layouts.landing-partials.contato')
       @include('layouts.landing-partials.footer')

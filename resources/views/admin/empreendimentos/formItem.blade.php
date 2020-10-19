@@ -16,7 +16,7 @@
 
   <div class="col-sm-12">
     <div class="form-group">
-      <label for="exampleInputFile">Banner Item<span>(65x65px)</span> </label>
+      <label for="exampleInputFile">Icone<span>(65x65px)</span> </label>
       <div class="input-group">
         <div class="custom-file">
           <input type="file" class="custom-file-input"  name="img">
