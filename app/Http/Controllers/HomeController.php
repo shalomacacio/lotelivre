@@ -76,6 +76,12 @@ class HomeController extends Controller
     }
 
     //CONTATO
+    public function quemsomos() {
+      $estados = Estado::all();
+      return view('site.quemsomos.index', compact('estados'));
+    }
+
+    //CONTATO
     public function contato() {
       $estados = Estado::all();
       return view('site.contato.index', compact('estados'));
