@@ -738,7 +738,7 @@ Version:1.0
 }
 
 .header.shop .custom-middle-inner {
-    padding: 20px 0;
+    padding: 5px 0;
     background: #481639;
     border-top: 1px solid #eee;
 }
@@ -1601,7 +1601,7 @@ Version:1.0
 .midium-banner .single-banner img{
 	height:100%;
   width:100%;
-  border-radius: 5px;
+  border-radius: 10px;
 	-webkit-transition:all 0.4s ease;
 	-moz-transition:all 0.4s ease;
   transition:all 0.4s ease;
@@ -4970,5 +4970,13 @@ Version:1.0
   font-weight: 700;
   margin-bottom: 10px;
   padding-bottom: 15px;
+}
+
+#parallaxBar{
+    height:300px;
+    background-color:#004c82;
+    background: url('../images/banner-bg3.jpg') 10% 0 fixed;
+    position: relative;
+
 }
 

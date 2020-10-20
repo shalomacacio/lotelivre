@@ -11,6 +11,7 @@ use App\Entities\BannerRotativo;
 use App\Entities\Empreendimento;
 use Illuminate\Support\Facades\DB;
 use App\Entities\BannerPromocional;
+use App\Entities\BlogCategoria;
 use App\Entities\EmpreendimentoDestaque;
 
 class HomeController extends Controller
@@ -22,12 +23,12 @@ class HomeController extends Controller
      */
     public function home()
     {
-      $blogs = Blog::all();
-      $videos = BannerVideo::all();
+      $blogs = Blog::orderBy('created_at', 'desc')->take(3)->get();
+      $videos = BannerVideo::orderBy('created_at', 'desc')->take(3)->get();
       $estados = Estado::all();
       $empreendimentosDestaque = EmpreendimentoDestaque::all();
       $bannerRotativos = BannerRotativo::all();
-      $bannerPromocionals = BannerPromocional::all();
+      $bannerPromocionals = BannerPromocional::orderBy('created_at')->take(2)->get();
       return view('site.home.index', compact( 'videos','bannerRotativos', 'bannerPromocionals', 'estados', 'empreendimentosDestaque', 'blogs'));
     }
 
@@ -72,7 +73,9 @@ class HomeController extends Controller
     public function blogShow($id) {
       $estados = Estado::all();
       $blog = Blog::find($id);
-      return view('site.blogs.show', compact('blog', 'estados'));
+      $categorias = BlogCategoria::orderBy('created_at', 'desc')->take(10)->get();
+      $blogs = Blog::orderBy('created_at', 'desc')->take(7)->get();
+      return view('site.blogs.show', compact('blog', 'blogs', 'categorias',  'estados'));
     }
 
     //CONTATO

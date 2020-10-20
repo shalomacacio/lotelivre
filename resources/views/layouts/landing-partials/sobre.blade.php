@@ -63,7 +63,7 @@
           <div class="row about-contant" id="quem-somos">
             <div class="col-12 heading">
               <h3>{{ $empreendimento->nome }} </h3>
-            <p>{{ $empreendimento->texto_descritivo }}</p>
+            <p>{!! $empreendimento->texto_descritivo !!}</p>
             </div>
           </div>
       </div>

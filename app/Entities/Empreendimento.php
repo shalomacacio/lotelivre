@@ -47,7 +47,7 @@ class Empreendimento extends Model implements Transformable
       'texto_galeria',
       'bg_planta',
       'url_video',
-      'texto_destaque',
+      'texto_descritivo',
     ];
 
     // protected $casts = [

@@ -20,7 +20,7 @@
 						<div class="single-footer links">
 							<h4>Informações</h4>
 							<ul>
-								<li><a href="#">Sobre Nós</a></li>
+								<li><a href="{{route('site.quemsomos')}}">Quem Somos </a></li>
 								<li><a href="{{route('site.contato')}}">Contato</a></li>
 							</ul>
 						</div>

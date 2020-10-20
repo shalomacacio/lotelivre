@@ -4,41 +4,38 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-
 use App\Http\Requests;
-use App\Entities\Blog;
-use Illuminate\Support\Facades\DB;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
-use App\Http\Requests\BlogCreateRequest;
-use App\Http\Requests\BlogUpdateRequest;
-use App\Repositories\BlogRepository;
-use App\Validators\BlogValidator;
+use App\Http\Requests\NoticiaCreateRequest;
+use App\Http\Requests\NoticiaUpdateRequest;
+use App\Repositories\NoticiaRepository;
+use App\Validators\NoticiaValidator;
 
 /**
- * Class BlogsController.
+ * Class NoticiasController.
  *
  * @package namespace App\Http\Controllers;
  */
-class BlogsController extends Controller
+class NoticiasController extends Controller
 {
     /**
-     * @var BlogRepository
+     * @var NoticiaRepository
      */
     protected $repository;
 
     /**
-     * @var BlogValidator
+     * @var NoticiaValidator
      */
     protected $validator;
 
     /**
-     * BlogsController constructor.
+     * NoticiasController constructor.
      *
-     * @param BlogRepository $repository
-     * @param BlogValidator $validator
+     * @param NoticiaRepository $repository
+     * @param NoticiaValidator $validator
      */
-    public function __construct(BlogRepository $repository, BlogValidator $validator)
+    public function __construct(NoticiaRepository $repository, NoticiaValidator $validator)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
@@ -52,62 +49,38 @@ class BlogsController extends Controller
     public function index()
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $blogs = $this->repository->all();
+        $noticias = $this->repository->all();
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $blogs,
+                'data' => $noticias,
             ]);
         }
 
-        return view('admin.blogs.index', compact('blogs'));
-    }
-
-
-    public function create()
-    {
-        $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $blogs = $this->repository->all();
-        $categorias = DB::table('blog_categorias')->select('id','descricao')->get();
-        if (request()->wantsJson()) {
-            return response()->json([
-                'data' => $blogs,
-            ]);
-        }
-
-        return view('admin.blogs.create', compact('blogs', 'categorias'));
+        return view('noticias.index', compact('noticias'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  BlogCreateRequest $request
+     * @param  NoticiaCreateRequest $request
      *
      * @return \Illuminate\Http\Response
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function store(BlogCreateRequest $request)
+    public function store(NoticiaCreateRequest $request)
     {
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
 
-
-            $data = $request->all();
-
-            if( $request->hasFile('img') && $request->img->isValid()){
-              $imagePath = $request->img->store('site/img/blog');
-              $data['img'] = $imagePath;
-            }
-
-            // $bannerRotativo = $this->repository->create($request->all());
-            $blog = $this->repository->create($data);
+            $noticium = $this->repository->create($request->all());
 
             $response = [
-                'message' => 'Blog created.',
-                'data'    => $blog->toArray(),
+                'message' => 'Noticia created.',
+                'data'    => $noticium->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -137,16 +110,16 @@ class BlogsController extends Controller
      */
     public function show($id)
     {
-        $blog = $this->repository->find($id);
+        $noticium = $this->repository->find($id);
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $blog,
+                'data' => $noticium,
             ]);
         }
 
-        return view('admin.blogs.show', compact('blog', 'blogs'));
+        return view('noticias.show', compact('noticium'));
     }
 
     /**
@@ -158,32 +131,32 @@ class BlogsController extends Controller
      */
     public function edit($id)
     {
-        $blog = $this->repository->find($id);
+        $noticium = $this->repository->find($id);
 
-        return view('admin.blogs.edit', compact('blog'));
+        return view('noticias.edit', compact('noticium'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  BlogUpdateRequest $request
+     * @param  NoticiaUpdateRequest $request
      * @param  string            $id
      *
      * @return Response
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function update(BlogUpdateRequest $request, $id)
+    public function update(NoticiaUpdateRequest $request, $id)
     {
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
 
-            $blog = $this->repository->update($request->all(), $id);
+            $noticium = $this->repository->update($request->all(), $id);
 
             $response = [
-                'message' => 'Blog updated.',
-                'data'    => $blog->toArray(),
+                'message' => 'Noticia updated.',
+                'data'    => $noticium->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -221,11 +194,11 @@ class BlogsController extends Controller
         if (request()->wantsJson()) {
 
             return response()->json([
-                'message' => 'Blog deleted.',
+                'message' => 'Noticia deleted.',
                 'deleted' => $deleted,
             ]);
         }
 
-        return redirect()->back()->with('message', 'Blog deleted.');
+        return redirect()->back()->with('message', 'Noticia deleted.');
     }
 }

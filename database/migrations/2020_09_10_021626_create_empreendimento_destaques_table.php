@@ -21,6 +21,7 @@ class CreateEmpreendimentoDestaquesTable extends Migration
             $table->string('img');
             $table->string('span')->nullable();
             $table->string('span_color')->nullable();
+            $table->string('preco')->nullable();
             $table->string('preco_antigo')->nullable();
             $table->timestamps();
 		});
