@@ -18,10 +18,11 @@ class CreateNoticiasTable extends Migration
 		Schema::create('noticias', function(Blueprint $table) {
             $table->increments('id');
             $table->string('img');
-            $table->string('tema')->default("Notícias das Semana");
-            $table->string('subtitulo');
-            $table->string('texto');
-
+            $table->string('titulo');
+            $table->string('subtitulo')->nullable();
+            $table->longText('texto')->nullable();
+            $table->string('link')->default("#");
+            $table->date('data_noticia')->nullable();
             $table->timestamps();
 		});
 	}

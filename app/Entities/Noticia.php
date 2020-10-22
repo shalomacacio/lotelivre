@@ -20,6 +20,13 @@ class Noticia extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = [
+      'img',
+      'tema',
+      'subtitulo',
+      'texto',
+      'link'
+
+    ];
 
 }

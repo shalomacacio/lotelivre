@@ -1,13 +1,14 @@
 <!-- Start Most Popular -->
 <div class="product-area most-popular section">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="section-title">
-                    <h2>EMPREENDIMENTOS EM DESTAQUE</h2>
-                </div>
-            </div>
+      <div class="row mb-2">
+        <div class="col-12 text-center pt-3">
+            <h1>Terrenos prontos para construir !</h1>
+            {{-- <p>Investimentos, tendências, inovações, oportunidades. Acompanhe em um único lugar as novidades de um setor em rápida transformação.</p> --}}
+            <h5>Confira nossos Loteamentos em Destaque no Guia de Empreendimentos Destaques deste mês!</h5>
+            {{-- <h4>You like this snippet ? click like button</h4> --}}
         </div>
+    </div>
         <div class="row">
             <div class="col-12">
                 <div class="owl-carousel popular-slider">

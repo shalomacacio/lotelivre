@@ -4067,10 +4067,11 @@ Version:1.0
 .shop-blog .shop-single-blog img{
 	height:300px;
   width:370px;
-  border-radius: 10px;
+  border-radius: 10px 10px 0px 0px;
 }
 .shop-blog .shop-single-blog .content {
-	padding: 40px;
+  padding: 40px;
+  background-color: white;
 }
 .shop-blog .shop-single-blog .content .title {
 	font-size: 17px;
