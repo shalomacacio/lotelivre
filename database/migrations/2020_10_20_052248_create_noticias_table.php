@@ -21,7 +21,7 @@ class CreateNoticiasTable extends Migration
             $table->string('titulo');
             $table->string('subtitulo')->nullable();
             $table->longText('texto')->nullable();
-            $table->string('link')->default("#");
+            $table->string('link')->default("#")->nullable();
             $table->date('data_noticia')->nullable();
             $table->timestamps();
 		});

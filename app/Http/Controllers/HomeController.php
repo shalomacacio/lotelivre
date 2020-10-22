@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Entities\Blog;
 use App\Entities\Estado;
 use App\Entities\Cidade;
+use App\Entities\Noticia;
 use Illuminate\Http\Request;
 use App\Entities\BannerVideo;
 use App\Entities\BannerRotativo;
@@ -26,10 +28,11 @@ class HomeController extends Controller
       $blogs = Blog::orderBy('created_at', 'desc')->take(3)->get();
       $videos = BannerVideo::orderBy('created_at', 'desc')->take(3)->get();
       $estados = Estado::all();
+      $noticias = Noticia::all();
       $empreendimentosDestaque = EmpreendimentoDestaque::all();
       $bannerRotativos = BannerRotativo::all();
       $bannerPromocionals = BannerPromocional::orderBy('created_at')->take(2)->get();
-      return view('site.home.index', compact( 'videos','bannerRotativos', 'bannerPromocionals', 'estados', 'empreendimentosDestaque', 'blogs'));
+      return view('site.home.index', compact( 'videos','bannerRotativos', 'bannerPromocionals', 'estados', 'empreendimentosDestaque', 'blogs', 'noticias'));
     }
 
     public function ajaxCidades(Request $request ){

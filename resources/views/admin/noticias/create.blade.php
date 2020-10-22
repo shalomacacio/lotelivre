@@ -9,7 +9,7 @@
  <div class="content-wrapper">
 
 
- @include('admin.blogs.page-header')
+ @include('admin.noticias.page-header')
  {{-- @include('admin.layouts.admin-partials.alerts') --}}
   <!-- Main content -->
 
@@ -29,9 +29,9 @@
               <div class="card-body">
                 <div class="tab-content">
                   <div class="active tab-pane" id="cadastro">
-                    <form role="form" action="{{ route('blogs.store') }}" method="POST"  enctype="multipart/form-data" >
+                    <form role="form" action="{{ route('noticias.store') }}" method="POST"  enctype="multipart/form-data" >
                       @csrf
-                      @include('admin.blogs.form')
+                      @include('admin.noticias.form')
                       <div class="card-footer">
                         <button type="submit" class="btn btn-info">Salvar</button>
                         <button type="submit" class="btn btn-default float-right">Cancelar</button>
@@ -42,6 +42,7 @@
                 </div>
                 <!-- /.tab-content -->
               </div><!-- /.card-body -->
+              
             </div>
             <!-- /.nav-tabs-custom -->
           </div>

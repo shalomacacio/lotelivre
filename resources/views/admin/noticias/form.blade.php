@@ -3,6 +3,27 @@
 <div class="row">
 
   <div class="col-sm-6">
+    <div class="form-group">
+      <label for="exampleInputFile">IMAGEM<span>(540x460px)</span> </label>
+      <div class="input-group">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input"  name="img">
+          <label class="custom-file-label" for="exampleInputFile">Imagem</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <!-- text input -->
+    <div class="form-group">
+      <label>LINK:</label>
+      <input type="text" name="link" class="form-control" placeholder="Enter ..."
+      @isset( $blog->link ) value="{{ $blog->link}}" @endisset>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
     <!-- text input -->
     <div class="form-group">
       <label>TITULO:</label>
@@ -11,27 +32,21 @@
     </div>
   </div>
 
-  <div class="col-sm-3">
+  <div class="col-sm-4">
+    <!-- text input -->
     <div class="form-group">
-      <label>CATEGORIA:</label>
-      <select class="form-control" name="blog_categoria_id" style="width: 100%;">
-        <option value="" selected >-- SELECIONE -- </option>
-        @foreach ($categorias as $categoria)
-        <option value="{{ $categoria->id }}">{{ $categoria->descricao  }}</option>
-      @endforeach
-      </select>
+      <label>SUBTITULO:</label>
+      <input type="text" name="subtitulo" class="form-control" placeholder="Enter ..."
+      @isset( $blog->subtitulo ) value="{{ $blog->subtitulo}}" @endisset>
     </div>
   </div>
 
-  <div class="col-sm-3">
+  <div class="col-sm-4">
+    <!-- text input -->
     <div class="form-group">
-      <label for="exampleInputFile">IMAGEM<span>(950X460)</span> </label>
-      <div class="input-group">
-        <div class="custom-file">
-          <input type="file" class="custom-file-input"  name="img">
-          <label class="custom-file-label" for="exampleInputFile">Imagem</label>
-        </div>
-      </div>
+      <label>LINK:</label>
+      <input type="date" name="data_noticia" class="form-control" placeholder="Enter ..."
+      @isset( $blog->link ) value="{{ $blog->link}}" @endisset>
     </div>
   </div>
 

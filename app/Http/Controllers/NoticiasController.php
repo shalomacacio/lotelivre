@@ -58,7 +58,7 @@ class NoticiasController extends Controller
             ]);
         }
 
-        return view('noticias.index', compact('noticias'));
+        return view('admin.noticias.index', compact('noticias'));
     }
 
     /**
@@ -75,16 +75,20 @@ class NoticiasController extends Controller
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
+            $data = $request->all();
 
-            $noticium = $this->repository->create($request->all());
+            if( $request->hasFile('img') && $request->img->isValid()){
+              $imagePath = $request->img->store('site/img/noticias');
+              $data['img'] = $imagePath;
+            }
+
+            $noticia = $this->repository->create($data);
 
             $response = [
                 'message' => 'Noticia created.',
-                'data'    => $noticium->toArray(),
+                'data'    => $noticia->toArray(),
             ];
-
             if ($request->wantsJson()) {
-
                 return response()->json($response);
             }
 
@@ -96,7 +100,6 @@ class NoticiasController extends Controller
                     'message' => $e->getMessageBag()
                 ]);
             }
-
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }

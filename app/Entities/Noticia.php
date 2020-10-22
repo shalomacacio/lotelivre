@@ -22,7 +22,7 @@ class Noticia extends Model implements Transformable
      */
     protected $fillable = [
       'img',
-      'tema',
+      'titulo',
       'subtitulo',
       'texto',
       'link'

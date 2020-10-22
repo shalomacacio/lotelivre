@@ -53,12 +53,6 @@
               <!--Start slider news-->
               <div class="col-12 col-md-6 pb-0 pb-md-3 pt-2 pr-md-1">
                   <div id="featured" class="carousel slide carousel" data-ride="carousel">
-                      <!--dots navigate-->
-                      <ol class="carousel-indicators top-indicator">
-                          <li data-target="#featured" data-slide-to="0" class="active"></li>
-                          <li data-target="#featured" data-slide-to="1"></li>
-                      </ol>
-
                       <!--carousel inner-->
                       <div class="carousel-inner">
                           <!--Item slider-->
@@ -87,6 +81,8 @@
                                   </div>
                               </div>
                           </div>
+                          @foreach ($noticias as $noticia)
+
 
                           <!--Item slider-->
                           <div class="carousel-item">
@@ -96,14 +92,14 @@
                                       <div class="ratio_left-cover-1 image-wrapper">
                                           <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
                                               <img class="img-fluid w-100"
-                                                   src="https://bootstrap.news/source/img2.jpg"
+                                                   src="{{ url("storage/{$noticia->img}") }}"
                                                    alt="Bootstrap news theme" width="342px" height="292px">
                                           </a>
                                       </div>
                                       <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
                                           <!--title-->
                                           <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
-                                              <h2 class="h3 post-title text-white my-1">Walmart shares up 10% on online sales lift</h2>
+                                          <h2 class="h3 post-title text-white my-1"> {{ $noticia->titulo }}</h2>
                                           </a>
                                           <!-- meta title -->
                                           <div class="news-meta">
@@ -114,6 +110,7 @@
                                   </div>
                               </div>
                           </div>
+                          @endforeach
                       </div>
                       <!--end carousel inner-->
                   </div>
