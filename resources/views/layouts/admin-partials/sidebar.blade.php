@@ -64,19 +64,6 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
-                  <a href="{{route('empreendimento-destaques.index') }}" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p> Empreendimento Destaque   </p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                  <a href="" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p> Rodapé   </p>
-                    </a>
-                </li>
               </ul>
             </li>
             <li class="nav-item has-treeview">

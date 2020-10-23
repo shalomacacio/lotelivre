@@ -34,6 +34,7 @@ Route::group([ 'prefix' => 'admin' ,'middleware' => ['auth']], function () {
     Route::resource('blogs', 'BlogsController');
     Route::resource('cidades', 'CidadesController');
     Route::resource('noticias', 'NoticiasController');
+    Route::resource('thumbnails', 'ThumbnailsController');
     Route::resource('banner-videos', 'BannerVideosController');
 
     Route::resource('banner-rotativos', 'BannerRotativosController');

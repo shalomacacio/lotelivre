@@ -4,10 +4,16 @@
 
   <div class="col-sm-6">
     <div class="form-group">
-      <label for="exampleInputFile">IMAGEM<span>(540x460px)</span> </label>
+      <label for="exampleInputFile">IMAGEM <span>(540x460px)</span> </label>
       <div class="input-group">
+                <div class="input-group-prepend">
+          <span class="input-group-text">
+            <input type="checkbox"  name="active" >
+          </span>
+        </div>
         <div class="custom-file">
-          <input type="file" class="custom-file-input"  name="img">
+          <input type="file" name="img" class="custom-file-input" placeholder="540x460px"
+          @isset( $noticia->img) value="{{ $noticia->img }}" @endisset>
           <label class="custom-file-label" for="exampleInputFile">Imagem</label>
         </div>
       </div>

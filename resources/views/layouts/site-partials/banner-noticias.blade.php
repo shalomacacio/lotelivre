@@ -56,55 +56,28 @@
                       <!--carousel inner-->
                       <div class="carousel-inner">
                           <!--Item slider-->
-                          <div class="carousel-item active">
-                              <div class="card border-0 rounded-0 text-light overflow zoom">
-                                  <div class="position-relative">
-                                      <!--thumbnail img-->
-                                      <div class="ratio_left-cover-1 image-wrapper">
-                                          <a href="https://exame.com/geral/bairros-mais-caros-para-comprar-imovel-em-fortaleza/" target="_blank">
-                                              <img class="img-fluid w-100"
-                                                   src="https://i0.wp.com/juliescrystalrainbow.co.uk/wp-content/uploads/2018/05/rose-quartz-facial-540x460px.jpg?fit=540%2C460"
-                                                   alt="noticias">
-                                          </a>
-                                      </div>
-                                      <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
-                                          <!--title-->
-                                          <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
-                                              <h2 class="h3 post-title text-white my-1">Veja os bairros mais caros para comprar imóvel em Fortaleza</h2>
-                                          </a>
-                                          <!-- meta title -->
-                                          <div class="news-meta">
-                                              <span class="news-author">by <a class="text-white font-weight-bold" href="../category/author.html">Jennifer</a></span>
-                                              <span class="news-date">Oct 22, 2019</span>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          @foreach ($noticias as $noticia)
-
-
+                        @foreach ($noticias as $noticia)
                           <!--Item slider-->
-                          <div class="carousel-item">
+                          <div class="carousel-item @isset($noticia->active) active @endisset  ">
                               <div class="card border-0 rounded-0 text-light overflow zoom">
                                   <div class="position-relative">
                                       <!--thumbnail img-->
                                       <div class="ratio_left-cover-1 image-wrapper">
-                                          <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                                        <a href="{{ $noticia->link}}">
                                               <img class="img-fluid w-100"
                                                    src="{{ url("storage/{$noticia->img}") }}"
-                                                   alt="Bootstrap news theme" width="342px" height="292px">
+                                                   alt="img" width="342px" height="292px">
                                           </a>
                                       </div>
                                       <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
                                           <!--title-->
-                                          <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                                          <a href="{{ $noticia->link}}">
                                           <h2 class="h3 post-title text-white my-1"> {{ $noticia->titulo }}</h2>
                                           </a>
                                           <!-- meta title -->
                                           <div class="news-meta">
                                               <span class="news-author">by <a class="text-white font-weight-bold" href="../category/author.html">Jennifer</a></span>
-                                              <span class="news-date">Oct 22, 2019</span>
+                                              <span class="news-date"> @isset($noticia->data_noticia ) {{$noticia->data_noticia  }} @endisset</span>
                                           </div>
                                       </div>
                                   </div>
@@ -130,103 +103,35 @@
               <!--Start box news-->
               <div class="col-12 col-md-6 pt-2 pl-md-1 mb-3 mb-lg-4">
                   <div class="row">
+                      @foreach ($thumbnails as $thumbnail)
+
                       <!--news box-->
-                      <div class="col-6 pb-1 pt-0 pr-1">
+                      <div class="col-6 pb-1 {{ $thumbnail->posicao }} ">
                           <div class="card border-0 rounded-0 text-white overflow zoom">
                               <div class="position-relative">
                                   <!--thumbnail img-->
                                   <div class="ratio_right-cover-2 image-wrapper">
-                                      <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                                      <a href="@isset($thumbnail->link) {{ $thumbnail->link }} @endisset  ">
                                           <img class="img-fluid"
-                                               src="https://bootstrap.news/source/img5.jpg"
-                                               alt="simple blog template bootstrap">
+                                              src="{{ url("storage/{$thumbnail->img}") }}"
+                                               alt="img">
                                       </a>
                                   </div>
                                   <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
                                       <!-- category -->
-                                      <a class="p-1 badge badge-primary rounded-0" href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">Lifestyle</a>
-
+                                     @isset($thumbnail->span)
+                                      <a class="p-1 badge {{ $thumbnail->span_cor }} rounded-0" >{{ $thumbnail->span}}</a>
+                                     @endisset
                                       <!--title-->
-                                      <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
-                                          <h2 class="h5 text-white my-1">Should you see the Fantastic Beasts sequel?</h2>
+                                      <a href="{{ $thumbnail->link}}">
+                                        <h2 class="h5 text-white my-1">{{ $thumbnail->titulo}}</h2>
                                       </a>
                                   </div>
                               </div>
                           </div>
                       </div>
+                      @endforeach
 
-                      <!--news box-->
-                      <div class="col-6 pb-1 pl-1 pt-0">
-                          <div class="card border-0 rounded-0 text-white overflow zoom">
-                              <div class="position-relative">
-                                  <!--thumbnail img-->
-                                  <div class="ratio_right-cover-2 image-wrapper">
-                                      <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
-                                          <img class="img-fluid"
-                                               src="https://bootstrap.news/source/img6.jpg"
-                                               alt="bootstrap templates for blog">
-                                      </a>
-                                  </div>
-                                  <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
-                                      <!-- category -->
-                                      <a class="p-1 badge badge-primary rounded-0" href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">Motocross</a>
-                                      <!--title-->
-                                      <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
-                                          <h2 class="h5 text-white my-1">Three myths about Florida elections recount</h2>
-                                      </a>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-
-                      <!--news box-->
-                      <div class="col-6 pb-1 pr-1 pt-1">
-                          <div class="card border-0 rounded-0 text-white overflow zoom">
-                              <div class="position-relative">
-                                  <!--thumbnail img-->
-                                  <div class="ratio_right-cover-2 image-wrapper">
-                                      <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
-                                          <img class="img-fluid"
-                                               src="https://bootstrap.news/source/img7.jpg"
-                                               alt="bootstrap blog wordpress theme">
-                                      </a>
-                                  </div>
-                                  <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
-                                      <!-- category -->
-                                      <a class="p-1 badge badge-primary rounded-0" href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">Fitness</a>
-                                      <!--title-->
-                                      <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
-                                          <h2 class="h5 text-white my-1">Finding Empowerment in Two Wheels and a Helmet</h2>
-                                      </a>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-
-                      <!--news box-->
-                      <div class="col-6 pb-1 pl-1 pt-1">
-                          <div class="card border-0 rounded-0 text-white overflow zoom">
-                              <div class="position-relative">
-                                  <!--thumbnail img-->
-                                  <div class="ratio_right-cover-2 image-wrapper">
-                                      <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
-                                          <img class="img-fluid"
-                                               src="https://bootstrap.news/source/img8.jpg"
-                                               alt="blog website templates bootstrap">
-                                      </a>
-                                  </div>
-                                  <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
-                                      <!-- category -->
-                                      <a class="p-1 badge badge-primary rounded-0" href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">Adventure</a>
-                                      <!--title-->
-                                      <a href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
-                                          <h2 class="h5 text-white my-1">Ditch receipts and four other tips to be a shopper</h2>
-                                      </a>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <!--end news box-->
                   </div>
               </div>
               <!--End box news-->

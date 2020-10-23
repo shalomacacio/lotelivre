@@ -1,8 +1,8 @@
-@include('admin.empreendimentoDestaques.alerts')
+
 
 <div class="row">
 
-  <div class="col-sm-2">
+  <div class="col-sm-12">
     <div class="form-group">
       <label>EMPREENDIMENTO:</label>
 
@@ -16,7 +16,7 @@
     </div>
   </div>
 
-  <div class="col-sm-4">
+  <div class="col-sm-12">
     <div class="form-group">
       <label for="exampleInputFile">IMAGEM </label>
       <div class="input-group">
@@ -28,7 +28,7 @@
     </div>
   </div>
 
-  <div class="col-sm-2">
+  <div class="col-sm-12">
     <!-- text input -->
     <div class="form-group">
       <label>SPAN:</label>
@@ -37,7 +37,7 @@
     </div>
   </div>
 
-  <div class="col-sm-2">
+  <div class="col-sm-12">
     <!-- text input -->
     <div class="form-group">
       <label>PREÇO ANTIGO:</label>
@@ -47,7 +47,7 @@
   </div>
 
 
-  <div class="col-sm-2">
+  <div class="col-sm-12">
     <div class="form-group">
       <label>SPAN COLOR:</label>
 

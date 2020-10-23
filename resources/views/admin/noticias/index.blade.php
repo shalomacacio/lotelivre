@@ -20,15 +20,19 @@
          <div class="col-md-12">
            <div class="card">
 
-             <div class="card-header p-2">
-               <ul class="nav nav-pills">
-                 <li class="nav-item"><a class="nav-link active" href="#cadastro" data-toggle="tab">Cadastro</a></li>
-               </ul>
-             </div><!-- /.card-header -->
+
+            <div class="card-header p-2">
+              <ul class="nav nav-pills">
+                <li class="nav-item"><a class="nav-link active" href="#noticias" data-toggle="tab">Notícias</a></li>
+                <li class="nav-item"><a class="nav-link" href="#thumbnails" data-toggle="tab">Thumbnails</a></li>
+              </ul>
+            </div><!-- /.card-header -->
+
 
              <div class="card-body">
                <div class="tab-content">
-                 <div class="active tab-pane" id="cadastro">
+
+                 <div class="active tab-pane" id="noticias">
                    <form role="form" action="{{ route('noticias.store') }}" method="POST"  enctype="multipart/form-data" >
                      @csrf
                      @include('admin.noticias.form')
@@ -39,9 +43,25 @@
                    </form>
                  </div>
                  <!-- /.tab-pane -->
+                 <div class="active tab-pane" id="thumbnails">
+                  <form role="form" action="{{ route('thumbnails.store') }}" method="POST"  enctype="multipart/form-data" >
+                    @csrf
+                    @include('admin.noticias.formThumb')
+                    <div class="card-footer">
+                      <button type="submit" class="btn btn-info">Salvar</button>
+                      <button type="submit" class="btn btn-default float-right">Cancelar</button>
+                    </div>
+                  </form>
+                </div>
+                <!-- /.tab-pane -->
+
+
+
                </div>
                <!-- /.tab-content -->
-             </div><!-- /.card-body -->
+             </div>
+
+             <!-- /.card-body -->
            </div>
            <!-- /.nav-tabs-custom -->
          </div>

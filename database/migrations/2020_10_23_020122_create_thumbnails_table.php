@@ -4,9 +4,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 /**
- * Class CreateNoticiasTable.
+ * Class CreateThumbnailsTable.
  */
-class CreateNoticiasTable extends Migration
+class CreateThumbnailsTable extends Migration
 {
 	/**
 	 * Run the migrations.
@@ -15,16 +15,16 @@ class CreateNoticiasTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('noticias', function(Blueprint $table) {
+		Schema::create('thumbnails', function(Blueprint $table) {
             $table->increments('id');
             $table->string('img');
             $table->string('titulo');
-            $table->string('subtitulo')->nullable();
-            $table->longText('texto')->nullable();
+            $table->string('posicao');
+            $table->string('span')->nullable();
+            $table->string('span_cor')->nullable();
             $table->string('link')->default("#")->nullable();
-            $table->string('autor')->nullable();
-            $table->date('data_noticia')->nullable();
             $table->tinyInteger('active')->nullable();
+
             $table->timestamps();
 		});
 	}
@@ -36,6 +36,6 @@ class CreateNoticiasTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::drop('noticias');
+		Schema::drop('thumbnails');
 	}
 }
