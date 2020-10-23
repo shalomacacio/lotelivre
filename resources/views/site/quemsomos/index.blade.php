@@ -13,9 +13,9 @@
 									<h3>Quem Somos:</h3>
 								</div>
 								<p>
-                  A Imobiliária Futura atua no mercado imobiliário de Curitiba e região metropolitana, trabalhando com compra, venda, locação e administração de imóveis.
+                  O Lote Livre atua no mercado imobiliário de todas as capitais  e regiões metropolitanas, trabalhando com compra, venda, locação e administração de imóveis.
                   A empresa conta com profissionais altamente qualificados e com ampla experiência no mercado imobiliário, prontos para localizar as melhores oportunidades de negócio para seus clientes/parceiros.
-                  Fazemos parte da Bee Rede Imobiliária, onde trabalhamos em parceria com várias imobiliárias, integradas por sistemas informatizados que permitem a troca de informações e de negócios, com isso, conseguimos negociar nossos imóveis com maior rapidez e agilidade.
+                  Fazemos parte da Rede Imobiliária, onde trabalhamos em parceria com várias imobiliárias, integradas por sistemas informatizados que permitem a troca de informações e de negócios, com isso, conseguimos negociar nossos imóveis com maior rapidez e agilidade.
 								</p>
 							</div>
 						</div>
