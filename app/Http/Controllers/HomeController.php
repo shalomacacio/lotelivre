@@ -14,6 +14,7 @@ use App\Entities\Empreendimento;
 use Illuminate\Support\Facades\DB;
 use App\Entities\BannerPromocional;
 use App\Entities\BlogCategoria;
+use App\Entities\Card;
 use App\Entities\EmpreendimentoDestaque;
 use App\Entities\Thumbnail;
 
@@ -26,6 +27,7 @@ class HomeController extends Controller
      */
     public function home()
     {
+      $cards = Card::orderBy('created_at')->take(2)->get();
       $blogs = Blog::orderBy('created_at', 'desc')->take(3)->get();
       $videos = BannerVideo::orderBy('created_at', 'desc')->take(3)->get();
       $estados = Estado::all();
@@ -33,8 +35,8 @@ class HomeController extends Controller
       $thumbnails = Thumbnail::orderBy('created_at', 'desc')->take(4)->get();
       $empreendimentosDestaque = EmpreendimentoDestaque::all();
       $bannerRotativos = BannerRotativo::all();
-      $bannerPromocionals = BannerPromocional::orderBy('created_at')->take(2)->get();
-      return view('site.home.index', compact( 'videos','bannerRotativos', 'bannerPromocionals', 'estados', 'empreendimentosDestaque', 'blogs', 'noticias','thumbnails'));
+      $bannerPromocional = BannerPromocional::first();
+      return view('site.home.index', compact( 'videos','bannerRotativos', 'bannerPromocional', 'estados', 'empreendimentosDestaque', 'blogs', 'cards', 'noticias','thumbnails'));
     }
 
     public function ajaxCidades(Request $request ){

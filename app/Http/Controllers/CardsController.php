@@ -7,35 +7,35 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
-use App\Http\Requests\BannerPromocionalCreateRequest;
-use App\Http\Requests\BannerPromocionalUpdateRequest;
-use App\Repositories\BannerPromocionalRepository;
-use App\Validators\BannerPromocionalValidator;
+use App\Http\Requests\CardCreateRequest;
+use App\Http\Requests\CardUpdateRequest;
+use App\Repositories\CardRepository;
+use App\Validators\CardValidator;
 
 /**
- * Class BannerPromocionalsController.
+ * Class CardsController.
  *
  * @package namespace App\Http\Controllers;
  */
-class BannerPromocionalsController extends Controller
+class CardsController extends Controller
 {
     /**
-     * @var BannerPromocionalRepository
+     * @var CardRepository
      */
     protected $repository;
 
     /**
-     * @var BannerPromocionalValidator
+     * @var CardValidator
      */
     protected $validator;
 
     /**
-     * BannerPromocionalsController constructor.
+     * CardsController constructor.
      *
-     * @param BannerPromocionalRepository $repository
-     * @param BannerPromocionalValidator $validator
+     * @param CardRepository $repository
+     * @param CardValidator $validator
      */
-    public function __construct(BannerPromocionalRepository $repository, BannerPromocionalValidator $validator)
+    public function __construct(CardRepository $repository, CardValidator $validator)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
@@ -49,28 +49,28 @@ class BannerPromocionalsController extends Controller
     public function index()
     {
         $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $bannerPromocionals = $this->repository->all();
+        $cards = $this->repository->all();
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $bannerPromocionals,
+                'data' => $cards,
             ]);
         }
 
-        return view('admin.bannerPromocionals.index', compact('bannerPromocionals'));
+        return view('admin.cards.index', compact('cards'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  BannerPromocionalCreateRequest $request
+     * @param  CardCreateRequest $request
      *
      * @return \Illuminate\Http\Response
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function store(BannerPromocionalCreateRequest $request)
+    public function store(CardCreateRequest $request)
     {
         try {
 
@@ -79,15 +79,15 @@ class BannerPromocionalsController extends Controller
             $data = $request->all();
 
             if( $request->hasFile('img') && $request->img->isValid()){
-              $imagePath = $request->img->store('site/img/banners/promocional');
+              $imagePath = $request->img->store('site/img/cards');
               $data['img'] = $imagePath;
             }
 
-            $bannerPromocional = $this->repository->create($data);
+            $card = $this->repository->create($data);
 
             $response = [
-                'message' => 'BannerPromocional created.',
-                'data'    => $bannerPromocional->toArray(),
+                'message' => 'Card created.',
+                'data'    => $card->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -103,6 +103,7 @@ class BannerPromocionalsController extends Controller
                     'message' => $e->getMessageBag()
                 ]);
             }
+
             return redirect()->back()->withErrors($e->getMessageBag())->withInput();
         }
     }
@@ -116,16 +117,16 @@ class BannerPromocionalsController extends Controller
      */
     public function show($id)
     {
-        $bannerPromocional = $this->repository->find($id);
+        $card = $this->repository->find($id);
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $bannerPromocional,
+                'data' => $card,
             ]);
         }
 
-        return view('bannerPromocionals.show', compact('bannerPromocional'));
+        return view('admin.cards.show', compact('card'));
     }
 
     /**
@@ -137,32 +138,32 @@ class BannerPromocionalsController extends Controller
      */
     public function edit($id)
     {
-        $bannerPromocional = $this->repository->find($id);
+        $card = $this->repository->find($id);
 
-        return view('admin.bannerPromocionals.edit', compact('bannerPromocional'));
+        return view('admin.cards.edit', compact('card'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  BannerPromocionalUpdateRequest $request
+     * @param  CardUpdateRequest $request
      * @param  string            $id
      *
      * @return Response
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function update(BannerPromocionalUpdateRequest $request, $id)
+    public function update(CardUpdateRequest $request, $id)
     {
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
 
-            $bannerPromocional = $this->repository->update($request->all(), $id);
+            $card = $this->repository->update($request->all(), $id);
 
             $response = [
-                'message' => 'BannerPromocional updated.',
-                'data'    => $bannerPromocional->toArray(),
+                'message' => 'Card updated.',
+                'data'    => $card->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -200,11 +201,11 @@ class BannerPromocionalsController extends Controller
         if (request()->wantsJson()) {
 
             return response()->json([
-                'message' => 'BannerPromocional deleted.',
+                'message' => 'Card deleted.',
                 'deleted' => $deleted,
             ]);
         }
 
-        return redirect()->back()->with('message', 'BannerPromocional deleted.');
+        return redirect()->back()->with('message', 'Card deleted.');
     }
 }

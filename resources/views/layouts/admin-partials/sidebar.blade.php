@@ -58,9 +58,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                  <a href="{{route('banner-promocionals.index') }}" class="nav-link">
+                  <a href="{{route('cards.index') }}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p> Banner Promicional   </p>
+                      <p> Cards  </p>
                     </a>
                 </li>
 

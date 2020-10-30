@@ -32,6 +32,7 @@ Route::group([ 'prefix' => 'admin' ,'middleware' => ['auth']], function () {
 
     Route::resource('lotes', 'LotesController');
     Route::resource('blogs', 'BlogsController');
+    Route::resource('cards', 'CardsController');
     Route::resource('cidades', 'CidadesController');
     Route::resource('noticias', 'NoticiasController');
     Route::resource('thumbnails', 'ThumbnailsController');

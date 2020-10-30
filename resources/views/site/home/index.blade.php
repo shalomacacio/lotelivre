@@ -8,7 +8,7 @@
   @include('layouts.site-partials.banner-noticias')
   {{-- @include('layouts.site-partials.parallax') --}}
   {{-- @include('layouts.site-partials.conteudo') --}}
-  @include('layouts.site-partials.banner-promocional')
+  @include('layouts.site-partials.banner-cards')
   @include('layouts.site-partials.banner-blog')
   @include('layouts.site-partials.banner-relampago')
   @include('layouts.site-partials.inscrevase')

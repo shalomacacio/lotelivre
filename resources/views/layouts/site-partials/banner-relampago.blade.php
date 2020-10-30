@@ -16,7 +16,7 @@
 
                 <div class="col-lg-6 col-12 padding-right">
                     <div class="image">
-                        <img src="{{ asset('/landing/image/relampago2.jpg')}}"  alt="#">
+                        <img src="{{ url("storage/{$bannerPromocional->img}") }}"  alt="#">
                     </div>
                 </div>
 
