@@ -298,6 +298,8 @@ header .navbar .nav-item .nav-link:hover {
     margin-top: -85px;
     border-radius: 8px;
     font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    background-color: #ffffffa8;
+
 }
 
 .about input {

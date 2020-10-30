@@ -2,7 +2,7 @@
 <div class="product-area most-popular section">
     <div class="container">
       <div class="row mb-2">
-        <div class="col-12 text-center pt-3">
+        <div class="col-12 text-center pt-4">
             <h1>Terrenos prontos para construir !</h1>
             {{-- <p>Investimentos, tendências, inovações, oportunidades. Acompanhe em um único lugar as novidades de um setor em rápida transformação.</p> --}}
             <h5>Confira nossos Loteamentos em Destaque no Guia de Empreendimentos Destaques deste mês!</h5>
