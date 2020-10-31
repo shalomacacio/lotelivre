@@ -15,26 +15,7 @@
 
               <!-- Grid column -->
 
-              <hr class="w-100 clearfix d-md-none">
 
-              <!-- Grid column -->
-              <div class="col-md-6 col-lg-3 col-xl-3 mx-auto col2">
-                  <p>
-                      <a href="#home">Home</a>
-                  </p>
-                  <p>
-                      <a href="#about-us">About us</a>
-                  </p>
-                  <p>
-                      <a href="#projects">Completed Projects</a>
-                  </p>
-                  <p>
-                      <a href="#blog">Read Testimonials</a>
-                  </p>
-                  <p>
-                      <a href="#contact">Contact Us</a>
-                  </p>
-              </div>
 
               <!-- Grid column -->
               <hr class="w-100 clearfix d-md-none">
